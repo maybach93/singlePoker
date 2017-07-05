@@ -22,6 +22,12 @@ extension GameController {
         }
     }
     
+    var allOpponentsAllIn: Bool {
+        get {
+            return self.activePlayers[self.nextActivePlayer(from: self.currentPlayer)].balance == 0
+        }
+    }
+    
     var isCheckAvaliable: Bool {
         get {
             return self.currentPlayer.bet == self.currentMaxBet
@@ -40,9 +46,15 @@ extension GameController {
         }
     }
     
+    var isRaiseAvaliable: Bool {
+        get {
+            return (self.currentPlayer.balance > self.currentMaxBet && self.currentPlayer.balance > 0 && !self.allOpponentsAllIn)
+        }
+    }
+    
     var minimalBet: Float {
         get {
-            return self.currentMaxBet + self.bigBlind
+            return min(self.currentMaxBet + self.bigBlind, self.currentPlayer.balance)
         }
     }
     
@@ -72,7 +84,7 @@ extension GameController {
         guard size >= self.minimalBet && size <= self.maximumBet else { return }
         self.currentPlayer.isPlayed = true
         let currentBet = self.currentPlayer.bet
-        self.bet(size: size - currentBet, playerIndex: self.currentPlayerIndex)
+        self.bet(size: size, playerIndex: self.currentPlayerIndex)
         self.nextPlayerAction()
     }
     

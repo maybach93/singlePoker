@@ -73,6 +73,19 @@ extension GameController {
     
     //MARK: - Work
     
+    func setNeedsUpdateBlindsAfterDelay() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + self.blindsUpdateTime, execute: {
+            self.needsUpdateBigBlind = true
+        })
+    }
+    
+    func updateBigBlindIfNeeded() {
+        if self.needsUpdateBigBlind {
+            self.needsUpdateBigBlind = false
+            self.bigBlind *= 2
+        }
+    }
+    
     func startNewGameAfterDelay() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
             

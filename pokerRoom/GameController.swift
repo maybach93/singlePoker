@@ -69,7 +69,19 @@ class GameController {
         }
     }
     
-    var bigBlind: Float = 20
+    var blindsUpdateTime: TimeInterval = 60
+    var needsUpdateBigBlind: Bool = false {
+        didSet {
+            if !self.needsUpdateBigBlind {
+                self.setNeedsUpdateBlindsAfterDelay()
+            }
+        }
+    }
+    var bigBlind: Float = 20 {
+        didSet {
+            self.delegate?.blindsUpdated()
+        }
+    }
     
     var currentBank: Float = 0 {
         didSet {
@@ -101,7 +113,9 @@ class GameController {
         self.commonCards = []
         self.currentBank = 0
         self.street = .none
-    
+        
+        guard self.checkBankrotPlayers() else { return }
+        self.updateBigBlindIfNeeded()
         self.moveDealer()
         self.resetPlayers()
         self.nextStreetIfPossible()
@@ -143,7 +157,9 @@ class GameController {
         if self.checkIfPlayerShouldPlay(player: nextPlayer) {
             self.currentPlayerIndex = self.index(of: nextPlayer)
             self.delegate?.currentPlayerChanged()
-        } else if !self.nextStreetIfPossible() {
+        } else if self.nextStreetIfPossible() {
+            self.delegate?.currentPlayerChanged()
+        } else {
             self.finishWithShowdown()
         }
     }
@@ -172,6 +188,20 @@ class GameController {
             return !player.isPlayed
         }
         return true
+    }
+    
+    internal func checkBankrotPlayers() -> Bool {
+        for player in self.players {
+            if player.balance == 0 {
+                let index = self.index(of: player)
+                self.players.remove(at: index)
+            }
+        }
+        
+        if self.players.count == 1 {
+            self.delegate?.gameEnded(winner: self.players.first!)
+        }
+        return self.players.count != 1
     }
     
     //MARK: - Indexes
@@ -206,5 +236,7 @@ protocol GameControllerDelegate: class {
     func streetChanged()
     func currentPlayerChanged()
     func commonCardsUpdated()
+    func gameEnded(winner: Player)
+    func blindsUpdated()
     func gameFinished(winner: Player, amount: Float, showOpponentCards: Bool)
 }

@@ -28,6 +28,9 @@ extension GameViewController {
         self.betLabel.text = "Ваша ставка: " + "\(player.bet)"
         self.cardsLabel.text =  "🎴🎴"
         
+        self.betSizeLabel.isHidden = !self.gameController.isRaiseAvaliable
+        self.betSlider.isHidden = !self.gameController.isRaiseAvaliable
+        self.betRaiseButton.isHidden = !self.gameController.isRaiseAvaliable
         self.betSizeLabel.text = "\(self.gameController.minimalBet)"
         self.betSlider.minimumValue = self.gameController.minimalBet
         self.betSlider.maximumValue = self.gameController.maximumBet
