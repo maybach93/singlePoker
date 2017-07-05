@@ -26,6 +26,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iLo-XS-gZb">
                                 <rect key="frame" x="290" y="172.5" width="87" height="30"/>
                                 <state key="normal" title="Начать игру"/>
+                                <connections>
+                                    <segue destination="uQe-Pv-JMr" kind="show" id="bid-1S-Wd9"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -266,17 +269,26 @@
                                     <constraint firstAttribute="height" constant="130" id="QbE-Jn-X9a"/>
                                 </constraints>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Информация" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xFc-TW-RnU">
+                                <rect key="frame" x="20" y="90" width="627" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="R3z-vd-1KM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.00073369615710000005" green="0.67797017100000001" blue="0.93599194289999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vJa-0Q-Ple">
-                                <rect key="frame" x="20" y="110" width="627" height="115"/>
+                                <rect key="frame" x="20" y="120" width="627" height="105"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="банк: 2000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d0q-SO-twh">
-                                        <rect key="frame" x="0.0" y="0.0" width="125.5" height="115"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="125.5" height="105"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="♠4 ♦A ♠4 ♦A" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yO8-yu-MOS">
-                                        <rect key="frame" x="125.5" y="0.0" width="501.5" height="115"/>
+                                        <rect key="frame" x="125.5" y="0.0" width="501.5" height="105"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -294,10 +306,13 @@
                             <constraint firstItem="E7t-4C-y4i" firstAttribute="top" secondItem="vJa-0Q-Ple" secondAttribute="bottom" constant="20" id="4YV-Tb-fHA"/>
                             <constraint firstAttribute="trailingMargin" secondItem="VLR-yF-zFg" secondAttribute="trailing" id="7vd-Ht-VIh"/>
                             <constraint firstItem="NG5-jk-vNC" firstAttribute="top" secondItem="E7t-4C-y4i" secondAttribute="bottom" id="8Sx-zt-kCF"/>
+                            <constraint firstItem="vJa-0Q-Ple" firstAttribute="top" secondItem="xFc-TW-RnU" secondAttribute="bottom" id="NBB-sz-y5c"/>
                             <constraint firstItem="VLR-yF-zFg" firstAttribute="leading" secondItem="Q5q-op-Yig" secondAttribute="leadingMargin" id="Pgu-kN-6qA"/>
-                            <constraint firstItem="vJa-0Q-Ple" firstAttribute="top" secondItem="VLR-yF-zFg" secondAttribute="bottom" constant="20" id="QmQ-91-nkT"/>
+                            <constraint firstItem="xFc-TW-RnU" firstAttribute="leading" secondItem="Q5q-op-Yig" secondAttribute="leadingMargin" id="UIK-AN-qoX"/>
                             <constraint firstItem="vJa-0Q-Ple" firstAttribute="leading" secondItem="Q5q-op-Yig" secondAttribute="leadingMargin" id="Xzk-GD-YFp"/>
+                            <constraint firstItem="xFc-TW-RnU" firstAttribute="top" secondItem="VLR-yF-zFg" secondAttribute="bottom" id="bHh-41-BeV"/>
                             <constraint firstItem="E7t-4C-y4i" firstAttribute="leading" secondItem="Q5q-op-Yig" secondAttribute="leadingMargin" id="d1c-2i-hc4"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xFc-TW-RnU" secondAttribute="trailing" id="emd-Nv-vaz"/>
                             <constraint firstAttribute="trailingMargin" secondItem="vJa-0Q-Ple" secondAttribute="trailing" id="fh8-5K-Yhs"/>
                             <constraint firstItem="VLR-yF-zFg" firstAttribute="top" secondItem="ghP-9D-HTl" secondAttribute="bottom" id="lUW-3i-odM"/>
                         </constraints>
@@ -314,6 +329,7 @@
                         <outlet property="cardsLabel" destination="4Tq-vh-wMV" id="9QB-45-uN5"/>
                         <outlet property="checkFoldButton" destination="gU5-cd-gfN" id="WM5-56-Zae"/>
                         <outlet property="commonCardsLabel" destination="yO8-yu-MOS" id="3Sa-W3-DIC"/>
+                        <outlet property="infoLabel" destination="xFc-TW-RnU" id="llr-tQ-Gmr"/>
                         <outlet property="nameLabel" destination="os0-9A-eRJ" id="gRC-gq-WA6"/>
                         <outlet property="opponentBalanceLabel" destination="Fng-OU-n41" id="nOW-sL-ceH"/>
                         <outlet property="opponentBetLabel" destination="hxl-0U-qX5" id="RRu-KL-cTP"/>

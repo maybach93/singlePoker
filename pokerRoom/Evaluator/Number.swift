@@ -41,7 +41,7 @@ public extension Number {
 
 extension Number: Emojiable {
     var emojiValue: String {
-        let map = "2⃣️3⃣️4⃣️5⃣️6⃣️7⃣️8⃣️9⃣️🔟🎃👸👑1⃣️"
+        let map = "2⃣️3⃣️4⃣️5⃣️6⃣️7⃣️8⃣️9⃣️🔟JQKA"
         return map[self.rawValue-1]
     }
 }

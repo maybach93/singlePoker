@@ -47,8 +47,17 @@ class GameController {
     
     var bigBlind: Float = 20
     
-    var currentBank: Float = 0
-    var commonCards: [PokerCard] = []
+    var currentBank: Float = 0 {
+        didSet {
+            self.delegate?.bankAmountChanged()
+        }
+    }
+    
+    var commonCards: [Card] = [] {
+        didSet {
+            self.delegate?.commonCardsUpdated()
+        }
+    }
     var street: Streets = .none
     
     let pokerMachine = RandomPokerMachine()
@@ -63,9 +72,12 @@ class GameController {
         self.pokerMachine.reset()
         self.commonCards = []
         self.currentBank = 0
+    
         self.moveDealer()
         self.resetPlayers()
         self.placeBlinds()
+        self.nextStreetIfPossible()
+        self.nextPlayerAction()
     }
     
     private func moveDealer() {
@@ -82,9 +94,8 @@ class GameController {
     }
     
     private func placeBlinds() {
-        let smallBlindIndex = self.nextPlayer(from: self.dealerIndex)
-        self.bet(size: self.bigBlind / 2, playerIndex: smallBlindIndex)
-        let bigBlindIndex = self.nextPlayer(from: smallBlindIndex)
+        self.bet(size: self.bigBlind / 2, playerIndex: self.dealerIndex)
+        let bigBlindIndex = self.nextPlayer(from: self.dealerIndex)
         self.bet(size: self.bigBlind, playerIndex: bigBlindIndex)
     }
     
@@ -97,6 +108,7 @@ class GameController {
         } else if !self.nextStreetIfPossible() {
             self.finishWithShowdown()
         }
+        self.delegate?.currentPlayerChanged()
     }
     
     internal func bet(size: Float, playerIndex: Int) {
@@ -109,7 +121,7 @@ class GameController {
     
     //MARK : - check
     
-    func checkIfAllFold() -> Bool {
+    internal func checkIfAllFold() -> Bool {
         if self.activePlayers.count == 1 {
             self.finishWihoutShowdown(player: self.activePlayers.first!)
             return true
@@ -117,7 +129,7 @@ class GameController {
         return false
     }
     
-    func checkIfPlayerShouldPlay(player: Player) -> Bool {
+    internal func checkIfPlayerShouldPlay(player: Player) -> Bool {
         guard !player.isFold else { return false }
         if self.currentMaxBet == player.bet {
             return !player.isPlayed
@@ -152,5 +164,9 @@ class GameController {
 }
 
 protocol GameControllerDelegate: class {
-    
+    func bankAmountChanged()
+    func newGameStarted()
+    func currentPlayerChanged()
+    func commonCardsUpdated()
+    func gameFinished(winner: Player, amount: Float)
 }

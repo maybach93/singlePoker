@@ -71,6 +71,8 @@ extension GameController {
         self.nextPlayerAction()
     }
     
+    //func
+    
     func bet(size: Float) {
         guard size >= self.minimalBet && size <= self.maximumBet else { return }
         self.currentPlayer.isPlayed = true

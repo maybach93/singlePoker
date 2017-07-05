@@ -11,10 +11,6 @@ public struct Card: CardProtocol {
     public let number: Number
     public let suit: Suit
     
-    static func sortedCards(cards: [Card]) -> [Card] {
-        return cards.sorted{ $0.suit.rawValue == $1.suit.rawValue ? $0.number.orderValue < $1.number.orderValue : $0.suit.rawValue < $1.suit.rawValue }
-    }
-    
     init(number: Number, suit: Suit) {
         self.number = number
         self.suit = suit
@@ -62,7 +58,18 @@ public struct Card: CardProtocol {
         default:
             self.number = .ace
         }
-
+    }
+    
+    static func sortedCards(cards: [Card]) -> [Card] {
+        return cards.sorted{ $0.suit.rawValue == $1.suit.rawValue ? $0.number.orderValue < $1.number.orderValue : $0.suit.rawValue < $1.suit.rawValue }
+    }
+    
+    static func textRepresentation(cards: [Card]) -> String {
+        var string = ""
+        for card in cards {
+            string += " \(card.emojiValue)"
+        }
+        return string
     }
 }
 

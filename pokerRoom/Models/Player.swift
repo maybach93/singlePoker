@@ -12,7 +12,7 @@ import Foundation
 class Player {
     var balance: Float = 0
     var name: String = ""
-    var cards: [PokerCard] = []
+    var cards: [Card] = []
     
     var bet: Float = 0
     var isFold: Bool = false

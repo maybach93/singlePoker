@@ -9,27 +9,27 @@
 import Foundation
 
 class RandomPokerMachine {
-    var outCards: [UInt] = []
+    var outCards: [Int] = []
  
     
     func reset() {
         self.outCards = []
     }
 
-    func getCards(count: Int) -> [PokerCard] {
-        var cards: [PokerCard] = []
-        for _ in 0...count {
-            cards.append(PokerCard.init(with: self.getCardNumber()))
+    func getCards(count: Int) -> [Card] {
+        var cards: [Card] = []
+        for _ in 1...count {
+            cards.append(Card.init(with: self.getCardNumber()))
         }
         return cards
     }
     
     //MARK: - Private
 
-    private func getCardNumber() -> UInt {
-        var random: UInt = 0
+    private func getCardNumber() -> Int {
+        var random: Int = 0
         repeat {
-            random = UInt(arc4random_uniform(52))
+            random = Int(arc4random_uniform(52))
         }while( self.outCards.contains(random) )
         self.outCards.append(random)
         return random
