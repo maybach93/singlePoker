@@ -1,0 +1,392 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		193959851F0AAED3005E2148 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193959841F0AAED3005E2148 /* AppDelegate.swift */; };
+		193959871F0AAED3005E2148 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193959861F0AAED3005E2148 /* ViewController.swift */; };
+		1939598A1F0AAED3005E2148 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 193959881F0AAED3005E2148 /* Main.storyboard */; };
+		1939598C1F0AAED3005E2148 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1939598B1F0AAED3005E2148 /* Assets.xcassets */; };
+		1939598F1F0AAED3005E2148 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1939598D1F0AAED3005E2148 /* LaunchScreen.storyboard */; };
+		193959971F0ABD53005E2148 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193959961F0ABD53005E2148 /* GameViewController.swift */; };
+		193959991F0AC037005E2148 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193959981F0AC037005E2148 /* GameController.swift */; };
+		193959A11F0AC05A005E2148 /* RandomPokerMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1939599C1F0AC05A005E2148 /* RandomPokerMachine.swift */; };
+		193959A21F0AC05A005E2148 /* PokerCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1939599D1F0AC05A005E2148 /* PokerCard.swift */; };
+		193959A61F0AC127005E2148 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193959A51F0AC127005E2148 /* Player.swift */; };
+		193959AC1F0AD44F005E2148 /* GameController+CurrentPlayerActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193959AB1F0AD44F005E2148 /* GameController+CurrentPlayerActions.swift */; };
+		193959AF1F0BA87F005E2148 /* GameController+Stages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193959AE1F0BA87F005E2148 /* GameController+Stages.swift */; };
+		19C9688F1F0D0BED007AAC99 /* Number.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C9688E1F0D0BED007AAC99 /* Number.swift */; };
+		19C968911F0D0C52007AAC99 /* Emojiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C968901F0D0C52007AAC99 /* Emojiable.swift */; };
+		19C968931F0D0C95007AAC99 /* stlibext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C968921F0D0C95007AAC99 /* stlibext.swift */; };
+		19C968951F0D0CA5007AAC99 /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C968941F0D0CA5007AAC99 /* Table.swift */; };
+		19C968991F0D0CDA007AAC99 /* Hand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C968981F0D0CDA007AAC99 /* Hand.swift */; };
+		19C9689B1F0D0CF9007AAC99 /* Suit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C9689A1F0D0CF9007AAC99 /* Suit.swift */; };
+		19C9689D1F0D0D02007AAC99 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C9689C1F0D0D02007AAC99 /* Deck.swift */; };
+		19C9689F1F0D0D0C007AAC99 /* Poker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C9689E1F0D0D0C007AAC99 /* Poker.swift */; };
+		19C968A11F0D0D20007AAC99 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C968A01F0D0D20007AAC99 /* Card.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		193959811F0AAED3005E2148 /* pokerRoom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pokerRoom.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		193959841F0AAED3005E2148 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		193959861F0AAED3005E2148 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		193959891F0AAED3005E2148 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1939598B1F0AAED3005E2148 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1939598E1F0AAED3005E2148 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		193959901F0AAED3005E2148 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		193959961F0ABD53005E2148 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		193959981F0AC037005E2148 /* GameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
+		1939599C1F0AC05A005E2148 /* RandomPokerMachine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomPokerMachine.swift; sourceTree = "<group>"; };
+		1939599D1F0AC05A005E2148 /* PokerCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokerCard.swift; sourceTree = "<group>"; };
+		193959A51F0AC127005E2148 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		193959AB1F0AD44F005E2148 /* GameController+CurrentPlayerActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GameController+CurrentPlayerActions.swift"; sourceTree = "<group>"; };
+		193959AE1F0BA87F005E2148 /* GameController+Stages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "GameController+Stages.swift"; path = "../GameController+Stages.swift"; sourceTree = "<group>"; };
+		19C9688E1F0D0BED007AAC99 /* Number.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Number.swift; sourceTree = "<group>"; };
+		19C968901F0D0C52007AAC99 /* Emojiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emojiable.swift; sourceTree = "<group>"; };
+		19C968921F0D0C95007AAC99 /* stlibext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = stlibext.swift; sourceTree = "<group>"; };
+		19C968941F0D0CA5007AAC99 /* Table.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Table.swift; sourceTree = "<group>"; };
+		19C968981F0D0CDA007AAC99 /* Hand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hand.swift; sourceTree = "<group>"; };
+		19C9689A1F0D0CF9007AAC99 /* Suit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Suit.swift; sourceTree = "<group>"; };
+		19C9689C1F0D0D02007AAC99 /* Deck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
+		19C9689E1F0D0D0C007AAC99 /* Poker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Poker.swift; sourceTree = "<group>"; };
+		19C968A01F0D0D20007AAC99 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1939597E1F0AAED3005E2148 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		193959781F0AAED3005E2148 = {
+			isa = PBXGroup;
+			children = (
+				193959831F0AAED3005E2148 /* pokerRoom */,
+				193959821F0AAED3005E2148 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		193959821F0AAED3005E2148 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				193959811F0AAED3005E2148 /* pokerRoom.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		193959831F0AAED3005E2148 /* pokerRoom */ = {
+			isa = PBXGroup;
+			children = (
+				193959841F0AAED3005E2148 /* AppDelegate.swift */,
+				193959861F0AAED3005E2148 /* ViewController.swift */,
+				193959881F0AAED3005E2148 /* Main.storyboard */,
+				193959961F0ABD53005E2148 /* GameViewController.swift */,
+				193959981F0AC037005E2148 /* GameController.swift */,
+				193959B41F0D0147005E2148 /* Evaluator */,
+				193959AE1F0BA87F005E2148 /* GameController+Stages.swift */,
+				193959AB1F0AD44F005E2148 /* GameController+CurrentPlayerActions.swift */,
+				193959A41F0AC11F005E2148 /* Models */,
+				1939599C1F0AC05A005E2148 /* RandomPokerMachine.swift */,
+				1939599D1F0AC05A005E2148 /* PokerCard.swift */,
+				1939598B1F0AAED3005E2148 /* Assets.xcassets */,
+				1939598D1F0AAED3005E2148 /* LaunchScreen.storyboard */,
+				193959901F0AAED3005E2148 /* Info.plist */,
+			);
+			path = pokerRoom;
+			sourceTree = "<group>";
+		};
+		193959A41F0AC11F005E2148 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				193959A51F0AC127005E2148 /* Player.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		193959B41F0D0147005E2148 /* Evaluator */ = {
+			isa = PBXGroup;
+			children = (
+				19C968A01F0D0D20007AAC99 /* Card.swift */,
+				19C9689E1F0D0D0C007AAC99 /* Poker.swift */,
+				19C9689C1F0D0D02007AAC99 /* Deck.swift */,
+				19C9689A1F0D0CF9007AAC99 /* Suit.swift */,
+				19C968981F0D0CDA007AAC99 /* Hand.swift */,
+				19C968941F0D0CA5007AAC99 /* Table.swift */,
+				19C968921F0D0C95007AAC99 /* stlibext.swift */,
+				19C968901F0D0C52007AAC99 /* Emojiable.swift */,
+				19C9688E1F0D0BED007AAC99 /* Number.swift */,
+			);
+			path = Evaluator;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		193959801F0AAED3005E2148 /* pokerRoom */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 193959931F0AAED3005E2148 /* Build configuration list for PBXNativeTarget "pokerRoom" */;
+			buildPhases = (
+				1939597D1F0AAED3005E2148 /* Sources */,
+				1939597E1F0AAED3005E2148 /* Frameworks */,
+				1939597F1F0AAED3005E2148 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = pokerRoom;
+			productName = pokerRoom;
+			productReference = 193959811F0AAED3005E2148 /* pokerRoom.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		193959791F0AAED3005E2148 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Vitalii Poponov";
+				TargetAttributes = {
+					193959801F0AAED3005E2148 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = YFADDH8BLW;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 1939597C1F0AAED3005E2148 /* Build configuration list for PBXProject "pokerRoom" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 193959781F0AAED3005E2148;
+			productRefGroup = 193959821F0AAED3005E2148 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				193959801F0AAED3005E2148 /* pokerRoom */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1939597F1F0AAED3005E2148 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1939598F1F0AAED3005E2148 /* LaunchScreen.storyboard in Resources */,
+				1939598C1F0AAED3005E2148 /* Assets.xcassets in Resources */,
+				1939598A1F0AAED3005E2148 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1939597D1F0AAED3005E2148 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				19C9688F1F0D0BED007AAC99 /* Number.swift in Sources */,
+				19C968A11F0D0D20007AAC99 /* Card.swift in Sources */,
+				19C9689B1F0D0CF9007AAC99 /* Suit.swift in Sources */,
+				193959A11F0AC05A005E2148 /* RandomPokerMachine.swift in Sources */,
+				193959871F0AAED3005E2148 /* ViewController.swift in Sources */,
+				19C9689F1F0D0D0C007AAC99 /* Poker.swift in Sources */,
+				193959991F0AC037005E2148 /* GameController.swift in Sources */,
+				19C968991F0D0CDA007AAC99 /* Hand.swift in Sources */,
+				193959AF1F0BA87F005E2148 /* GameController+Stages.swift in Sources */,
+				193959971F0ABD53005E2148 /* GameViewController.swift in Sources */,
+				193959851F0AAED3005E2148 /* AppDelegate.swift in Sources */,
+				19C968911F0D0C52007AAC99 /* Emojiable.swift in Sources */,
+				19C968931F0D0C95007AAC99 /* stlibext.swift in Sources */,
+				19C968951F0D0CA5007AAC99 /* Table.swift in Sources */,
+				19C9689D1F0D0D02007AAC99 /* Deck.swift in Sources */,
+				193959AC1F0AD44F005E2148 /* GameController+CurrentPlayerActions.swift in Sources */,
+				193959A21F0AC05A005E2148 /* PokerCard.swift in Sources */,
+				193959A61F0AC127005E2148 /* Player.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		193959881F0AAED3005E2148 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				193959891F0AAED3005E2148 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		1939598D1F0AAED3005E2148 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1939598E1F0AAED3005E2148 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		193959911F0AAED3005E2148 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		193959921F0AAED3005E2148 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		193959941F0AAED3005E2148 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = YFADDH8BLW;
+				INFOPLIST_FILE = pokerRoom/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.globus.AppStore.OpenLife;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		193959951F0AAED3005E2148 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = YFADDH8BLW;
+				INFOPLIST_FILE = pokerRoom/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.globus.AppStore.OpenLife;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1939597C1F0AAED3005E2148 /* Build configuration list for PBXProject "pokerRoom" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				193959911F0AAED3005E2148 /* Debug */,
+				193959921F0AAED3005E2148 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		193959931F0AAED3005E2148 /* Build configuration list for PBXNativeTarget "pokerRoom" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				193959941F0AAED3005E2148 /* Debug */,
+				193959951F0AAED3005E2148 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 193959791F0AAED3005E2148 /* Project object */;
+}
