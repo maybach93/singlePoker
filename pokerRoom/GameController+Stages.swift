@@ -63,6 +63,7 @@ extension GameController {
                 secondPlayer.balance += self.currentBank
                 self.delegate?.gameFinished(winner: secondPlayer, amount: self.currentBank, showOpponentCards: true)
             }
+            self.delegate?.winnerHand(hand: bestHand)
         } else {
             firstPlayer.balance += self.currentBank / 2
             secondPlayer.balance += self.currentBank / 2

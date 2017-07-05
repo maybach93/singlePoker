@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "pokerRoom/ViewController.swift"
-            timestampString = "520949755.67776"
+            timestampString = "520982564.864004"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28">
+            startingLineNumber = "46"
+            endingLineNumber = "46">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -40,18 +40,13 @@ class GameViewController: UIViewController {
     //MARK: - Variables
     
     let gameController = GameController()
+    let taskQueue = SerialTaskQueue.init()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let playerOne = Player()
-        playerOne.balance = 1000
-        playerOne.name = "Оля"
-        let playerTwo = Player()
-        playerTwo.balance = 1000
-        playerTwo.name = "Виталий"
+        self.taskQueue.start()
         
         self.gameController.delegate = self
-        self.gameController.players = [playerOne, playerTwo]
         self.gameController.start()
     }
     
@@ -83,5 +78,16 @@ class GameViewController: UIViewController {
     
     func currentOpponent() -> Player {
         return self.gameController.players[self.gameController.currentPlayerIndex == 0 ? 1 : 0]
+    }
+    
+    func addInfoLabel(text: String) {
+        self.taskQueue.addTask { (completion) in
+            DispatchQueue.main.async {
+                self.infoLabel.text = text
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: { 
+                completion()
+            })
+        }
     }
 }

@@ -14,7 +14,31 @@ public struct Hand {
         self.cards = cards
     }
     
-    public enum Value: Int {
+    public enum Value: Int, TextRepresentable {
+        internal var textRepresentation: String {
+            get {
+                switch self {
+                case .HighCard:
+                    return "Старшая карта"
+                case .Pair:
+                    return "Пара"
+                case .DoublePair:
+                    return "Две пары"
+                case .ThreeOfAKind:
+                    return "Сэт"
+                case .Straight:
+                    return "Стрит"
+                case .Flush:
+                    return "Флэш"
+                case .FullHouse:
+                    return "Фул хауз"
+                case .FourOfAKind:
+                    return "Карэ"
+                case .StraightFlush:
+                    return "Стрит флэш"
+                }
+            }
+        }
 
         case HighCard = 0
         case Pair
@@ -25,6 +49,7 @@ public struct Hand {
         case FullHouse
         case FourOfAKind
         case StraightFlush
+        
     }
     
     public struct RealValue: CustomStringConvertible {

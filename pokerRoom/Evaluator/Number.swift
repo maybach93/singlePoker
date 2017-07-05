@@ -22,6 +22,13 @@ public enum Number: Int {
     case king
     case ace
     
+    static func textRepresentation(numbers: [Number]) -> String {
+        var string = ""
+        for number in numbers {
+            string += number.emojiValue
+        }
+        return string
+    }
     static func allNumbers() -> [Number] {
         return (1...13).flatMap { Number(rawValue: $0) }
     }

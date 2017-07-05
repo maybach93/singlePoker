@@ -58,11 +58,7 @@ class GameController {
     
     var dealerIndex: Int = 0
     
-    var currentPlayerIndex: Int = 0 {
-        didSet {
-            //notificate new active player
-        }
-    }
+    var currentPlayerIndex: Int = 0 
     var currentPlayer: Player {
         get {
             return self.players[self.currentPlayerIndex]
@@ -102,6 +98,7 @@ class GameController {
     
     let pokerMachine = RandomPokerMachine()
     func start() {
+        self.setNeedsUpdateBlindsAfterDelay()
         self.prepareNewGame()
     }
     
@@ -239,4 +236,5 @@ protocol GameControllerDelegate: class {
     func gameEnded(winner: Player)
     func blindsUpdated()
     func gameFinished(winner: Player, amount: Float, showOpponentCards: Bool)
+    func winnerHand(hand: Hand)
 }

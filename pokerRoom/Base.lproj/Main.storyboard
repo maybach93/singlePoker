@@ -23,8 +23,58 @@
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="aU4-1y-EwY">
+                                <rect key="frame" x="258.5" y="40" width="150" height="110"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Виталий" borderStyle="line" placeholder="Игрок 1" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QVT-ca-ZeF">
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="d0Y-5N-7WG"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Ольга" borderStyle="line" placeholder="Игрок 2" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ywA-dB-Xub">
+                                        <rect key="frame" x="0.0" y="22" width="150" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="ilz-cn-Faj"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1000" borderStyle="line" placeholder="Стартовый стек" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k6i-Dh-AMw">
+                                        <rect key="frame" x="0.0" y="44" width="150" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="WIi-Ky-zf1"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="20" borderStyle="line" placeholder="Стартовые блаинды" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UFK-gA-LFF">
+                                        <rect key="frame" x="0.0" y="66" width="150" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="eCz-SV-cqK"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="5" borderStyle="line" placeholder="Обновление (мин)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aln-xL-x2v">
+                                        <rect key="frame" x="0.0" y="88" width="150" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="S4N-dR-jiH"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iLo-XS-gZb">
-                                <rect key="frame" x="290" y="172.5" width="87" height="30"/>
+                                <rect key="frame" x="290" y="170" width="87" height="30"/>
                                 <state key="normal" title="Начать игру"/>
                                 <connections>
                                     <segue destination="uQe-Pv-JMr" kind="show" id="bid-1S-Wd9"/>
@@ -33,14 +83,23 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="iLo-XS-gZb" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="7xd-eZ-GvH"/>
+                            <constraint firstItem="aU4-1y-EwY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="G4Q-Jk-SEx"/>
                             <constraint firstItem="iLo-XS-gZb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="XJu-jf-KPq"/>
+                            <constraint firstItem="iLo-XS-gZb" firstAttribute="top" secondItem="aU4-1y-EwY" secondAttribute="bottom" constant="20" id="dhB-5P-quc"/>
+                            <constraint firstItem="aU4-1y-EwY" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="40" id="sGX-Kp-Ga2"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="playerOneNameLabel" destination="QVT-ca-ZeF" id="Me1-5Q-KHt"/>
+                        <outlet property="playerTwoNameLabel" destination="ywA-dB-Xub" id="bJ4-Mq-XVd"/>
+                        <outlet property="refreshBlindsLabel" destination="aln-xL-x2v" id="eXT-bs-nJX"/>
+                        <outlet property="startBlindsLabel" destination="UFK-gA-LFF" id="Ej0-pm-MrO"/>
+                        <outlet property="startStackLabel" destination="k6i-Dh-AMw" id="ZKk-xU-HE0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="190" y="134"/>
+            <point key="canvasLocation" x="189.3553223388306" y="133.59999999999999"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="qDj-gA-3Mh">

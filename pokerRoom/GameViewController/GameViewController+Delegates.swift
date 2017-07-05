@@ -13,7 +13,7 @@ extension GameViewController: GameControllerDelegate {
         self.bankInfoLabel.text = "Банк: " + "\(self.gameController.currentBank)"
     }
     func newGameStarted() {
-        self.infoLabel.text = "Приятной игры"
+        self.addInfoLabel(text: "Приятной игры")
         self.updateUI()
         self.view.isUserInteractionEnabled = true
     }
@@ -33,17 +33,21 @@ extension GameViewController: GameControllerDelegate {
         if showOpponentCards {
             self.opponentCardsLabel.text = Card.textRepresentation(cards: self.currentOpponent().cards)
         }
-        self.infoLabel.text = "Выиграл " + winner.name + " Выигрыш: " + "\(amount)"
+        self.addInfoLabel(text: "Выиграл " + winner.name + " Выигрыш: " + "\(amount)")
         self.view.isUserInteractionEnabled = false
     }
     func gameEnded(winner: Player) {
-        self.infoLabel.text = "Победитель: " + "\(winner.name)" + ", Поздравляем!"
+        self.addInfoLabel(text: "Победитель: " + "\(winner.name)" + ", Поздравляем!")
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) { 
             self.dismiss(animated: true, completion: nil)
         }
     }
     func blindsUpdated() {
-        self.infoLabel.text = "Лимиты увеличены, блаинды: \(self.gameController.bigBlind)/\(self.gameController.bigBlind/2)"
+        self.addInfoLabel(text: "Лимиты увеличены, блаинды: \(self.gameController.bigBlind)/\(self.gameController.bigBlind/2)")
+    }
+    
+    func winnerHand(hand: Hand) {
+        self.addInfoLabel(text: hand.valueHand().value.textRepresentation + " " + Number.textRepresentation(numbers: hand.valueHand().order))
     }
 }
