@@ -26,7 +26,7 @@ extension GameViewController {
         self.balanceLabel.text = "Ваш баланс: " + "\(player.balance)"
         self.nameLabel.text = player.name
         self.betLabel.text = "Ваша ставка: " + "\(player.bet)"
-        self.cardsLabel.text = Card.textRepresentation(cards: player.cards)
+        self.cardsLabel.text =  "🎴🎴"
         
         self.betSizeLabel.text = "\(self.gameController.minimalBet)"
         self.betSlider.minimumValue = self.gameController.minimalBet
@@ -39,5 +39,9 @@ extension GameViewController {
     
     func updateBetsValue() {
         self.betSizeLabel.text = "\(self.betSlider.value)"
+    }
+    
+    func showCurrentCards() {
+        self.cardsLabel.text = Card.textRepresentation(cards: self.gameController.currentPlayer.cards)
     }
 }
