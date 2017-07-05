@@ -7,18 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		191BCE5F1F0D613500A035B8 /* GameViewController+Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191BCE5B1F0D613500A035B8 /* GameViewController+Delegates.swift */; };
+		191BCE601F0D613500A035B8 /* GameViewController+UpdateUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191BCE5C1F0D613500A035B8 /* GameViewController+UpdateUI.swift */; };
+		191BCE611F0D613500A035B8 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191BCE5D1F0D613500A035B8 /* GameViewController.swift */; };
+		191BCE621F0D613500A035B8 /* GameController+Stages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191BCE5E1F0D613500A035B8 /* GameController+Stages.swift */; };
 		193959851F0AAED3005E2148 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193959841F0AAED3005E2148 /* AppDelegate.swift */; };
 		193959871F0AAED3005E2148 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193959861F0AAED3005E2148 /* ViewController.swift */; };
 		1939598A1F0AAED3005E2148 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 193959881F0AAED3005E2148 /* Main.storyboard */; };
 		1939598C1F0AAED3005E2148 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1939598B1F0AAED3005E2148 /* Assets.xcassets */; };
 		1939598F1F0AAED3005E2148 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1939598D1F0AAED3005E2148 /* LaunchScreen.storyboard */; };
-		193959971F0ABD53005E2148 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193959961F0ABD53005E2148 /* GameViewController.swift */; };
 		193959991F0AC037005E2148 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193959981F0AC037005E2148 /* GameController.swift */; };
 		193959A11F0AC05A005E2148 /* RandomPokerMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1939599C1F0AC05A005E2148 /* RandomPokerMachine.swift */; };
 		193959A21F0AC05A005E2148 /* PokerCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1939599D1F0AC05A005E2148 /* PokerCard.swift */; };
 		193959A61F0AC127005E2148 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193959A51F0AC127005E2148 /* Player.swift */; };
 		193959AC1F0AD44F005E2148 /* GameController+CurrentPlayerActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193959AB1F0AD44F005E2148 /* GameController+CurrentPlayerActions.swift */; };
-		193959AF1F0BA87F005E2148 /* GameController+Stages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193959AE1F0BA87F005E2148 /* GameController+Stages.swift */; };
 		19C9688F1F0D0BED007AAC99 /* Number.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C9688E1F0D0BED007AAC99 /* Number.swift */; };
 		19C968911F0D0C52007AAC99 /* Emojiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C968901F0D0C52007AAC99 /* Emojiable.swift */; };
 		19C968931F0D0C95007AAC99 /* stlibext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C968921F0D0C95007AAC99 /* stlibext.swift */; };
@@ -31,6 +33,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		191BCE5B1F0D613500A035B8 /* GameViewController+Delegates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GameViewController+Delegates.swift"; sourceTree = "<group>"; };
+		191BCE5C1F0D613500A035B8 /* GameViewController+UpdateUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GameViewController+UpdateUI.swift"; sourceTree = "<group>"; };
+		191BCE5D1F0D613500A035B8 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		191BCE5E1F0D613500A035B8 /* GameController+Stages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "GameController+Stages.swift"; path = "pokerRoom/GameController+Stages.swift"; sourceTree = SOURCE_ROOT; };
 		193959811F0AAED3005E2148 /* pokerRoom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pokerRoom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		193959841F0AAED3005E2148 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		193959861F0AAED3005E2148 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -38,13 +44,11 @@
 		1939598B1F0AAED3005E2148 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1939598E1F0AAED3005E2148 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		193959901F0AAED3005E2148 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		193959961F0ABD53005E2148 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		193959981F0AC037005E2148 /* GameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
 		1939599C1F0AC05A005E2148 /* RandomPokerMachine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomPokerMachine.swift; sourceTree = "<group>"; };
 		1939599D1F0AC05A005E2148 /* PokerCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokerCard.swift; sourceTree = "<group>"; };
 		193959A51F0AC127005E2148 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		193959AB1F0AD44F005E2148 /* GameController+CurrentPlayerActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GameController+CurrentPlayerActions.swift"; sourceTree = "<group>"; };
-		193959AE1F0BA87F005E2148 /* GameController+Stages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "GameController+Stages.swift"; path = "../GameController+Stages.swift"; sourceTree = "<group>"; };
 		19C9688E1F0D0BED007AAC99 /* Number.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Number.swift; sourceTree = "<group>"; };
 		19C968901F0D0C52007AAC99 /* Emojiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emojiable.swift; sourceTree = "<group>"; };
 		19C968921F0D0C95007AAC99 /* stlibext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = stlibext.swift; sourceTree = "<group>"; };
@@ -67,6 +71,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		191BCE5A1F0D613500A035B8 /* GameViewController */ = {
+			isa = PBXGroup;
+			children = (
+				191BCE5B1F0D613500A035B8 /* GameViewController+Delegates.swift */,
+				191BCE5C1F0D613500A035B8 /* GameViewController+UpdateUI.swift */,
+				191BCE5D1F0D613500A035B8 /* GameViewController.swift */,
+			);
+			name = GameViewController;
+			path = pokerRoom/GameViewController;
+			sourceTree = SOURCE_ROOT;
+		};
 		193959781F0AAED3005E2148 = {
 			isa = PBXGroup;
 			children = (
@@ -89,11 +104,11 @@
 				193959841F0AAED3005E2148 /* AppDelegate.swift */,
 				193959861F0AAED3005E2148 /* ViewController.swift */,
 				193959881F0AAED3005E2148 /* Main.storyboard */,
-				193959961F0ABD53005E2148 /* GameViewController.swift */,
 				193959981F0AC037005E2148 /* GameController.swift */,
-				193959B41F0D0147005E2148 /* Evaluator */,
-				193959AE1F0BA87F005E2148 /* GameController+Stages.swift */,
+				191BCE5E1F0D613500A035B8 /* GameController+Stages.swift */,
 				193959AB1F0AD44F005E2148 /* GameController+CurrentPlayerActions.swift */,
+				191BCE5A1F0D613500A035B8 /* GameViewController */,
+				193959B41F0D0147005E2148 /* Evaluator */,
 				193959A41F0AC11F005E2148 /* Models */,
 				1939599C1F0AC05A005E2148 /* RandomPokerMachine.swift */,
 				1939599D1F0AC05A005E2148 /* PokerCard.swift */,
@@ -204,16 +219,18 @@
 				19C9688F1F0D0BED007AAC99 /* Number.swift in Sources */,
 				19C968A11F0D0D20007AAC99 /* Card.swift in Sources */,
 				19C9689B1F0D0CF9007AAC99 /* Suit.swift in Sources */,
+				191BCE601F0D613500A035B8 /* GameViewController+UpdateUI.swift in Sources */,
+				191BCE621F0D613500A035B8 /* GameController+Stages.swift in Sources */,
 				193959A11F0AC05A005E2148 /* RandomPokerMachine.swift in Sources */,
 				193959871F0AAED3005E2148 /* ViewController.swift in Sources */,
 				19C9689F1F0D0D0C007AAC99 /* Poker.swift in Sources */,
+				191BCE611F0D613500A035B8 /* GameViewController.swift in Sources */,
 				193959991F0AC037005E2148 /* GameController.swift in Sources */,
 				19C968991F0D0CDA007AAC99 /* Hand.swift in Sources */,
-				193959AF1F0BA87F005E2148 /* GameController+Stages.swift in Sources */,
-				193959971F0ABD53005E2148 /* GameViewController.swift in Sources */,
 				193959851F0AAED3005E2148 /* AppDelegate.swift in Sources */,
 				19C968911F0D0C52007AAC99 /* Emojiable.swift in Sources */,
 				19C968931F0D0C95007AAC99 /* stlibext.swift in Sources */,
+				191BCE5F1F0D613500A035B8 /* GameViewController+Delegates.swift in Sources */,
 				19C968951F0D0CA5007AAC99 /* Table.swift in Sources */,
 				19C9689D1F0D0D02007AAC99 /* Deck.swift in Sources */,
 				193959AC1F0AD44F005E2148 /* GameController+CurrentPlayerActions.swift in Sources */,

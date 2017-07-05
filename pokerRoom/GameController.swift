@@ -8,12 +8,36 @@
 
 import Foundation
 
-enum Streets: Int {
+enum Streets: Int, TextRepresentable {
+    
+    internal var textRepresentation: String {
+        get {
+            switch self {
+            case .preflop:
+                return "Префлоп"
+            case .flop:
+                return "Флоп"
+            case .turn:
+                return "Терн"
+            case .river:
+                return "Ривер"
+            default:
+                return ""
+            }
+        }
+    }
+
     case none = -1
     case preflop = 0
     case flop = 1
     case turn = 2
     case river = 3
+    
+    
+}
+
+protocol TextRepresentable {
+    var textRepresentation: String { get }
 }
 class GameController {
     
@@ -58,7 +82,11 @@ class GameController {
             self.delegate?.commonCardsUpdated()
         }
     }
-    var street: Streets = .none
+    var street: Streets = .none {
+        didSet {
+            self.delegate?.streetChanged()
+        }
+    }
     
     let pokerMachine = RandomPokerMachine()
     func start() {
@@ -68,16 +96,18 @@ class GameController {
     
     //MARK: - Private
     
-    private func prepareNewGame() {
+    internal func prepareNewGame() {
         self.pokerMachine.reset()
         self.commonCards = []
         self.currentBank = 0
+        self.street = .none
     
         self.moveDealer()
         self.resetPlayers()
-        self.placeBlinds()
         self.nextStreetIfPossible()
+        self.placeBlinds()
         self.nextPlayerAction()
+        self.delegate?.newGameStarted()
     }
     
     private func moveDealer() {
@@ -89,6 +119,13 @@ class GameController {
             player.bet = 0
             player.cards = []
             player.isFold = false
+            player.isPlayed = false
+        }
+    }
+    
+    internal func resetPlayersNextStreet() {
+        for player in self.activePlayers {
+            player.bet = 0
             player.isPlayed = false
         }
     }
@@ -105,17 +142,17 @@ class GameController {
         let nextPlayer = self.activePlayers[nextIndex]
         if self.checkIfPlayerShouldPlay(player: nextPlayer) {
             self.currentPlayerIndex = self.index(of: nextPlayer)
+            self.delegate?.currentPlayerChanged()
         } else if !self.nextStreetIfPossible() {
             self.finishWithShowdown()
         }
-        self.delegate?.currentPlayerChanged()
     }
     
     internal func bet(size: Float, playerIndex: Int) {
         let player = self.players[playerIndex]
         guard player.balance >= size else { return }
         player.balance -= size
-        player.bet = size
+        player.bet += size
         self.currentBank += size
     }
     
@@ -166,7 +203,8 @@ class GameController {
 protocol GameControllerDelegate: class {
     func bankAmountChanged()
     func newGameStarted()
+    func streetChanged()
     func currentPlayerChanged()
     func commonCardsUpdated()
-    func gameFinished(winner: Player, amount: Float)
+    func gameFinished(winner: Player, amount: Float, showOpponentCards: Bool)
 }

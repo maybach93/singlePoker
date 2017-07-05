@@ -24,12 +24,7 @@ extension GameController {
     
     var isCheckAvaliable: Bool {
         get {
-            for player in self.players {
-                if player.bet != 0 {
-                    return false
-                }
-            }
-            return true
+            return self.currentPlayer.bet == self.currentMaxBet
         }
     }
     

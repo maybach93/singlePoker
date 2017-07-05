@@ -34,13 +34,15 @@ extension GameController {
         default:
             break
         }
+        self.resetPlayersNextStreet()
         self.setFirstActivePlayer()
     }
     func finishWihoutShowdown(player: Player) {
         //уведомить о победителе
         player.balance += self.currentBank
         
-        //после задержки новая игра
+        self.delegate?.gameFinished(winner: player, amount: self.currentBank, showOpponentCards: false)
+        self.startNewGameAfterDelay()
     }
     
     func finishWithShowdown() {
@@ -55,18 +57,28 @@ extension GameController {
             if bestHand == b1 {
                 //first won
                 firstPlayer.balance += self.currentBank
+                self.delegate?.gameFinished(winner: firstPlayer, amount: self.currentBank, showOpponentCards: true)
             } else {
                 //second won
                 secondPlayer.balance += self.currentBank
+                self.delegate?.gameFinished(winner: secondPlayer, amount: self.currentBank, showOpponentCards: true)
             }
         } else {
             firstPlayer.balance += self.currentBank / 2
             secondPlayer.balance += self.currentBank / 2
             //tie
         }
+        self.startNewGameAfterDelay()
     }
     
     //MARK: - Work
+    
+    func startNewGameAfterDelay() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            
+            self.prepareNewGame()
+        }
+    }
     
     func giveGards() {
         for player in self.players {
