@@ -46,7 +46,7 @@ extension GameController {
     }
     
     func finishWithShowdown() {
-        
+        guard self.currentBank > 0 else { return }
         let t = Table(cards: self.commonCards)
         let firstPlayer = self.activePlayers[0]
         let secondPlayer = self.activePlayers[1]
@@ -55,11 +55,9 @@ extension GameController {
         
         if let bestHand = bestHand(hand1: b1, b2) {
             if bestHand == b1 {
-                //first won
                 firstPlayer.balance += self.currentBank
                 self.delegate?.gameFinished(winner: firstPlayer, amount: self.currentBank, showOpponentCards: true)
             } else {
-                //second won
                 secondPlayer.balance += self.currentBank
                 self.delegate?.gameFinished(winner: secondPlayer, amount: self.currentBank, showOpponentCards: true)
             }
@@ -67,8 +65,9 @@ extension GameController {
         } else {
             firstPlayer.balance += self.currentBank / 2
             secondPlayer.balance += self.currentBank / 2
-            //tie
+            self.delegate?.gameFinished(split: self.activePlayers, amount: self.currentBank)
         }
+        self.currentBank = 0
         self.startNewGameAfterDelay()
     }
     
@@ -89,7 +88,6 @@ extension GameController {
     
     func startNewGameAfterDelay() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-            
             self.prepareNewGame()
         }
     }

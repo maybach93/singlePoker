@@ -108,7 +108,6 @@ class GameController {
     internal func prepareNewGame() {
         self.pokerMachine.reset()
         self.commonCards = []
-        self.currentBank = 0
         self.street = .none
         
         guard self.checkBankrotPlayers() else { return }
@@ -236,5 +235,10 @@ protocol GameControllerDelegate: class {
     func gameEnded(winner: Player)
     func blindsUpdated()
     func gameFinished(winner: Player, amount: Float, showOpponentCards: Bool)
+    func gameFinished(split: [Player], amount: Float)
     func winnerHand(hand: Hand)
+    func playerDidBet(player: Player, bet: Float)
+    func playerDidRaise(player: Player, raise: Float)
+    func playerDidCall(player: Player, call: Float)
+    func playerDidFold(player: Player)
 }

@@ -22,6 +22,18 @@ extension GameController {
         }
     }
     
+    var maxBetAvaliable: Float {
+        get {
+            var maxOpponentBalance:Float = 0
+            for player in self.activePlayers {
+                if player.name != self.currentPlayer.name {
+                    maxOpponentBalance = max(maxOpponentBalance, player.balance)
+                }
+            }
+            return maxOpponentBalance
+        }
+    }
+    
     var allOpponentsAllIn: Bool {
         get {
             return self.activePlayers[self.nextActivePlayer(from: self.currentPlayer)].balance == 0
@@ -54,13 +66,13 @@ extension GameController {
     
     var minimalBet: Float {
         get {
-            return min(self.currentMaxBet + self.bigBlind, self.currentPlayer.balance)
+            return min(self.currentMaxBet + self.bigBlind - self.currentPlayer.bet, self.currentPlayer.balance)
         }
     }
     
     var maximumBet: Float {
         get {
-            return self.currentPlayer.balance
+            return min(self.currentPlayer.balance, self.maxBetAvaliable)
         }
     }
     
@@ -75,6 +87,7 @@ extension GameController {
     func fold() {
         self.currentPlayer.isPlayed = true
         self.currentPlayer.isFold = true
+        self.delegate?.playerDidFold(player: self.currentPlayer)
         self.nextPlayerAction()
     }
     
@@ -82,6 +95,11 @@ extension GameController {
     
     func bet(size: Float) {
         guard size >= self.minimalBet && size <= self.maximumBet else { return }
+        if self.isBetAvaliable {
+            self.delegate?.playerDidBet(player: self.currentPlayer, bet: size)
+        } else {
+            self.delegate?.playerDidRaise(player: self.currentPlayer, raise: size)
+        }
         self.currentPlayer.isPlayed = true
         let currentBet = self.currentPlayer.bet
         self.bet(size: size, playerIndex: self.currentPlayerIndex)
@@ -91,6 +109,8 @@ extension GameController {
     func call() {
         self.currentPlayer.isPlayed = true
         let currentBet = self.currentPlayer.bet
+        let callSize = self.currentMaxBet - currentBet
+        self.delegate?.playerDidCall(player: self.currentPlayer, call: callSize)
         self.bet(size: self.currentMaxBet - currentBet, playerIndex: self.currentPlayerIndex)
         self.nextPlayerAction()
     }

@@ -9,6 +9,27 @@
 import UIKit
 
 extension GameViewController: GameControllerDelegate {
+    
+    func gameFinished(split: [Player], amount: Float) {
+        self.opponentCardsLabel.text = Card.textRepresentation(cards: self.currentOpponent().cards)
+        self.showCurrentCards()
+        
+        self.addInfoLabel(text: "Ничья, банк разделен между " + split[0].name + " и " + split[1].name + " Выигрыш: " + "\(amount)")
+        self.view.isUserInteractionEnabled = false
+    }
+    
+    func playerDidBet(player: Player, bet: Float) {
+        self.addInfoLabel(text: player.name + " сделал бэт: " + "\(bet)")
+    }
+    func playerDidRaise(player: Player, raise: Float) {
+        self.addInfoLabel(text: player.name + " сделал рэйз: " + "\(raise)")
+    }
+    func playerDidCall(player: Player, call: Float) {
+        self.addInfoLabel(text: player.name + " сделал колл: " + "\(call)")
+    }
+    func playerDidFold(player: Player) {
+        self.addInfoLabel(text: player.name + " сделал фолд")
+    }
     func bankAmountChanged() {
         self.bankInfoLabel.text = "Банк: " + "\(self.gameController.currentBank)"
     }
@@ -22,16 +43,22 @@ extension GameViewController: GameControllerDelegate {
     }
     
     func streetChanged() {
-        self.infoLabel.text = self.gameController.street.textRepresentation
+        self.taskQueue.flushQueue()
+        self.addInfoLabel(text: self.gameController.street.textRepresentation)
     }
     
     func currentPlayerChanged() {
         self.updateUI()
+        self.view.isUserInteractionEnabled = false
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.view.isUserInteractionEnabled = true
+        }
     }
 
     func gameFinished(winner: Player, amount: Float, showOpponentCards: Bool) {
         if showOpponentCards {
             self.opponentCardsLabel.text = Card.textRepresentation(cards: self.currentOpponent().cards)
+            self.showCurrentCards()
         }
         self.addInfoLabel(text: "Выиграл " + winner.name + " Выигрыш: " + "\(amount)")
         self.view.isUserInteractionEnabled = false

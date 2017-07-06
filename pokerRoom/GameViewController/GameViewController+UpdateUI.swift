@@ -27,7 +27,7 @@ extension GameViewController {
         self.nameLabel.text = player.name
         self.betLabel.text = "Ваша ставка: " + "\(player.bet)"
         self.cardsLabel.text =  "🎴🎴"
-        
+        self.hideCurrentCards()
         self.betSizeLabel.isHidden = !self.gameController.isRaiseAvaliable
         self.betSlider.isHidden = !self.gameController.isRaiseAvaliable
         self.betRaiseButton.isHidden = !self.gameController.isRaiseAvaliable
@@ -46,5 +46,8 @@ extension GameViewController {
     
     func showCurrentCards() {
         self.cardsLabel.text = Card.textRepresentation(cards: self.gameController.currentPlayer.cards)
+    }
+    func hideCurrentCards() {
+        self.cardsLabel.text =  "🎴🎴"
     }
 }

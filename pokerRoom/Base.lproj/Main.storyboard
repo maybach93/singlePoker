@@ -204,16 +204,17 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aYK-Re-1wD">
-                                                        <rect key="frame" x="78.5" y="65" width="52" height="45"/>
+                                                        <rect key="frame" x="60.5" y="65" width="88" height="45"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="45" id="3SU-vI-iNt"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                        <state key="normal" title="Готов">
+                                                        <state key="normal" title="Показать">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="readyButtonPressed:" destination="uQe-Pv-JMr" eventType="touchUpInside" id="WDZ-jF-tc3"/>
+                                                            <action selector="showButtonPressed:" destination="uQe-Pv-JMr" eventType="touchUpInside" id="rWN-re-mHv"/>
+                                                            <action selector="showButtonTouchDown:" destination="uQe-Pv-JMr" eventType="touchDown" id="cp9-Tg-1xj"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>

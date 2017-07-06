@@ -52,7 +52,10 @@ class GameViewController: UIViewController {
     
     //MARK: - Actions
     
-    @IBAction func readyButtonPressed(_ sender: Any) {
+    @IBAction func showButtonPressed(_ sender: Any) {
+        self.hideCurrentCards()
+    }
+    @IBAction func showButtonTouchDown(_ sender: Any) {
         self.showCurrentCards()
     }
     @IBAction func checkFoldButtonPressed(_ sender: Any) {
