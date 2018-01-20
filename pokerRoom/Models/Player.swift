@@ -10,6 +10,7 @@
 import Foundation
 
 class Player {
+    var isGameHost: Bool = false
     var balance: Float = 0
     var name: String = ""
     var cards: [Card] = []

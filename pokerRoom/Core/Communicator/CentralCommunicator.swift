@@ -77,8 +77,6 @@ class CentralCommunicator: GeneralCommunicator {
         super.send(data: data)
         guard let sRemotePeripheral = self.remotePeripheral else { return }
         
-        let numberOfBytesToSend: Int = Int(arc4random_uniform(950) + 50)
-        let data = Data.dataWithNumberOfBytes(numberOfBytesToSend)
         central.sendData(data, toRemotePeer: sRemotePeripheral) { _, remotePeripheral, error in
             guard error == nil else {
                 //Logger.log("Failed sending to \(remotePeripheral)")
@@ -113,7 +111,7 @@ extension CentralCommunicator: BKCentralDelegate {
     }
     
     internal func remotePeer(_ remotePeer: BKRemotePeer, didSendArbitraryData data: Data) {
-        
+        self.delegate?.didReceiveData(data: data)
     }
     
     internal func remotePeripheralIsReady(_ remotePeripheral: BKRemotePeripheral) {

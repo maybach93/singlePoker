@@ -44,10 +44,7 @@ class PeripheralCommunicator: GeneralCommunicator {
     
     override func send(data: Data) {
         super.send(data: data)
-        
-        let numberOfBytesToSend: Int = Int(arc4random_uniform(950) + 50)
-        let data = Data.dataWithNumberOfBytes(numberOfBytesToSend)
-        //Logger.log("Prepared \(numberOfBytesToSend) bytes with MD5 hash: \(data.md5().toHexString())")
+
         for remoteCentral in peripheral.connectedRemoteCentrals {
             //Logger.log("Sending to \(remoteCentral)")
             peripheral.sendData(data, toRemotePeer: remoteCentral) { _, remoteCentral, error in
@@ -74,7 +71,7 @@ extension PeripheralCommunicator: BKAvailabilityObserver {
 
 extension PeripheralCommunicator: BKRemotePeerDelegate {
     func remotePeer(_ remotePeer: BKRemotePeer, didSendArbitraryData data: Data) {
-
+        self.delegate?.didReceiveData(data: data)
     }
 }
 

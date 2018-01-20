@@ -25,17 +25,15 @@ class FindGameViewController: UIViewController {
     }
     public var gameConfiguration: GameConfiguration?
     public var player: Player?
-    public var communicator: GeneralCommunicator?
+    public var coordinator: GameCoordinator?
     
     //MARK - Lifecylce
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if isGameHost {
-            communicator = CentralCommunicator()
-        } else {
-            communicator = PeripheralCommunicator()
+        if let sPlayer = self.player {
+            self.coordinator = GameCoordinator(player: sPlayer)
         }
     }
     

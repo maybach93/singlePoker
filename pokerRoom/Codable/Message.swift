@@ -9,8 +9,7 @@
 import Foundation
 
 enum MessageTypes: String {
-    case playerUpdate = "playerUpdate"
-    case gameConfiguration = "gameConfiguration"
+    case gameConfiguration = "gameConfiguration" //Отправляется от хоста оппоненту, в ответ на это сообщение он возвращает свой ник
     case unknown = "unknown"
 }
 

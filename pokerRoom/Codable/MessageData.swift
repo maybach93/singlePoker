@@ -8,11 +8,15 @@
 
 import Foundation
 
-struct MessageData: Codable {
+class MessageData: Codable {
     
 }
 
-struct PlayerUpdateData {
-    
+class GameConfigurationMessageData: MessageData {
+    var bigBlind: Float?
+    var blindsUpdateTime: TimeInterval?
+    var startStack: Float?
+    var hostPlayer: PlayerInfo?
 }
+
 

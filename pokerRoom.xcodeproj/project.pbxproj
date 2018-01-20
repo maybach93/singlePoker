@@ -33,6 +33,7 @@
 		19C1F7342013C5B700D2AC9F /* MessageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C1F7332013C5B700D2AC9F /* MessageData.swift */; };
 		19C1F7382013C94500D2AC9F /* GameCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C1F7372013C94500D2AC9F /* GameCoordinator.swift */; };
 		19C1F73A2013D04E00D2AC9F /* MessagesConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C1F7392013D04E00D2AC9F /* MessagesConverter.swift */; };
+		19C1F73C2013DB4E00D2AC9F /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C1F73B2013DB4E00D2AC9F /* Player.swift */; };
 		19C9688F1F0D0BED007AAC99 /* Number.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C9688E1F0D0BED007AAC99 /* Number.swift */; };
 		19C968911F0D0C52007AAC99 /* Emojiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C968901F0D0C52007AAC99 /* Emojiable.swift */; };
 		19C968931F0D0C95007AAC99 /* stlibext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C968921F0D0C95007AAC99 /* stlibext.swift */; };
@@ -74,6 +75,7 @@
 		19C1F7332013C5B700D2AC9F /* MessageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageData.swift; sourceTree = "<group>"; };
 		19C1F7372013C94500D2AC9F /* GameCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCoordinator.swift; sourceTree = "<group>"; };
 		19C1F7392013D04E00D2AC9F /* MessagesConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesConverter.swift; sourceTree = "<group>"; };
+		19C1F73B2013DB4E00D2AC9F /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		19C9688E1F0D0BED007AAC99 /* Number.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Number.swift; sourceTree = "<group>"; };
 		19C968901F0D0C52007AAC99 /* Emojiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emojiable.swift; sourceTree = "<group>"; };
 		19C968921F0D0C95007AAC99 /* stlibext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = stlibext.swift; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 			children = (
 				19C1F7312013C26C00D2AC9F /* Message.swift */,
 				19C1F7332013C5B700D2AC9F /* MessageData.swift */,
+				19C1F73B2013DB4E00D2AC9F /* Player.swift */,
 			);
 			path = Codable;
 			sourceTree = "<group>";
@@ -444,6 +447,7 @@
 				19C968911F0D0C52007AAC99 /* Emojiable.swift in Sources */,
 				19C968931F0D0C95007AAC99 /* stlibext.swift in Sources */,
 				19C968951F0D0CA5007AAC99 /* Table.swift in Sources */,
+				19C1F73C2013DB4E00D2AC9F /* Player.swift in Sources */,
 				199896432013AB420042FBC6 /* CreateGameViewController.swift in Sources */,
 				19C1F7382013C94500D2AC9F /* GameCoordinator.swift in Sources */,
 				199896472013AB420042FBC6 /* StartViewController.swift in Sources */,

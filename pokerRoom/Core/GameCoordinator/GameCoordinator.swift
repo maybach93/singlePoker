@@ -20,16 +20,31 @@ class GameCoordinator {
         }
     }
     
+    var player: Player
     var isGameHost: Bool {
         get {
-            return self.communicator is CentralCommunicator
+            return player.isGameHost
         }
     }
     
+    //MARK: - Lifecycle
+    
+    init(player: Player) {
+        self.player = player
+        if isGameHost {
+            communicator = CentralCommunicator()
+        } else {
+            communicator = PeripheralCommunicator()
+        }
+    }
+    
+    //MARK: - Messaging
+    
     func sendMessage(message: Message) {
         let jsonEncoder = JSONEncoder()
-        let jsonData = try? jsonEncoder.encode(message)
-        communicator?.sendData()
+        if let jsonData = try? jsonEncoder.encode(message) {
+            communicator?.send(data: jsonData)
+        }
     }
     
     func receiveMessage() {
