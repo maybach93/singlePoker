@@ -241,4 +241,5 @@ protocol GameControllerDelegate: class {
     func playerDidRaise(player: Player, raise: Float)
     func playerDidCall(player: Player, call: Float)
     func playerDidFold(player: Player)
+    func playerDidCheck(player: Player)
 }

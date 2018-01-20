@@ -40,8 +40,8 @@ extension GameController {
     func finishWihoutShowdown(player: Player) {
         //уведомить о победителе
         player.balance += self.currentBank
-        
         self.delegate?.gameFinished(winner: player, amount: self.currentBank, showOpponentCards: false)
+        self.currentBank = 0
         self.startNewGameAfterDelay()
     }
     
@@ -74,8 +74,8 @@ extension GameController {
     //MARK: - Work
     
     func setNeedsUpdateBlindsAfterDelay() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + self.blindsUpdateTime, execute: {
-            self.needsUpdateBigBlind = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + self.blindsUpdateTime, execute: { [weak self] in
+            self?.needsUpdateBigBlind = true
         })
     }
     
@@ -87,8 +87,8 @@ extension GameController {
     }
     
     func startNewGameAfterDelay() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-            self.prepareNewGame()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) { [weak self] in
+            self?.prepareNewGame()
         }
     }
     

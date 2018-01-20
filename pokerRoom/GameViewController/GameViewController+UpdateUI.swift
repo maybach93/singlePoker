@@ -27,6 +27,7 @@ extension GameViewController {
         self.nameLabel.text = player.name
         self.betLabel.text = "Ваша ставка: " + "\(player.bet)"
         self.cardsLabel.text =  "🎴🎴"
+        self.readyButton.setTitleColor(UIColor.white, for: .normal)
         self.hideCurrentCards()
         self.betSizeLabel.isHidden = !self.gameController.isRaiseAvaliable
         self.betSlider.isHidden = !self.gameController.isRaiseAvaliable
@@ -49,5 +50,8 @@ extension GameViewController {
     }
     func hideCurrentCards() {
         self.cardsLabel.text =  "🎴🎴"
+    }
+    func markShownCards() {
+        self.readyButton.setTitleColor(UIColor.lightGray, for: .normal)
     }
 }

@@ -81,6 +81,7 @@ extension GameController {
     func check() {
         guard self.isCheckAvaliable else { return }
         self.currentPlayer.isPlayed = true
+        self.delegate?.playerDidCheck(player: self.currentPlayer)
         self.nextPlayerAction()
     }
     

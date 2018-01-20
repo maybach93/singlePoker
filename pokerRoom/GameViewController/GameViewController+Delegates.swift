@@ -10,6 +10,10 @@ import UIKit
 
 extension GameViewController: GameControllerDelegate {
     
+    func playerDidCheck(player: Player) {
+        self.addInfoLabel(text: player.name + " сделал чек")
+    }
+    
     func gameFinished(split: [Player], amount: Float) {
         self.opponentCardsLabel.text = Card.textRepresentation(cards: self.currentOpponent().cards)
         self.showCurrentCards()
@@ -39,7 +43,9 @@ extension GameViewController: GameControllerDelegate {
         self.view.isUserInteractionEnabled = true
     }
     func commonCardsUpdated() {
-        self.commonCardsLabel.text = Card.textRepresentation(cards: self.gameController.commonCards)
+        let cards = Card.textRepresentation(cards: self.gameController.commonCards)
+        self.commonCardsLabel.text = cards
+        self.addInfoLabel(text: "Доска: " + cards)
     }
     
     func streetChanged() {
@@ -50,24 +56,26 @@ extension GameViewController: GameControllerDelegate {
     func currentPlayerChanged() {
         self.updateUI()
         self.view.isUserInteractionEnabled = false
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.view.isUserInteractionEnabled = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
+            self?.view.isUserInteractionEnabled = true
         }
+        self.addInfoLabel(text: self.gameController.currentPlayer.name + ", ваш ход!")
     }
 
     func gameFinished(winner: Player, amount: Float, showOpponentCards: Bool) {
+        self.addInfoLabel(text: "Выиграл " + winner.name + " Выигрыш: " + "\(amount)")
         if showOpponentCards {
             self.opponentCardsLabel.text = Card.textRepresentation(cards: self.currentOpponent().cards)
             self.showCurrentCards()
+            self.addInfoLabel(text: "Карты победителя: " + Card.textRepresentation(cards: winner.cards))
         }
-        self.addInfoLabel(text: "Выиграл " + winner.name + " Выигрыш: " + "\(amount)")
         self.view.isUserInteractionEnabled = false
     }
     func gameEnded(winner: Player) {
         self.addInfoLabel(text: "Победитель: " + "\(winner.name)" + ", Поздравляем!")
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) { 
-            self.dismiss(animated: true, completion: nil)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [weak self] in
+            self?.dismiss(animated: true, completion: nil)
         }
     }
     func blindsUpdated() {

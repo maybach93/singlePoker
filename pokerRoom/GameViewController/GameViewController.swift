@@ -19,7 +19,7 @@ class GameViewController: UIViewController {
     
     //MARK: - Middle
     
-    @IBOutlet weak var infoLabel: UILabel!
+    @IBOutlet weak var logsTextView: UITextView!
     @IBOutlet weak var bankInfoLabel: UILabel!
     @IBOutlet weak var commonCardsLabel: UILabel!
     
@@ -57,6 +57,7 @@ class GameViewController: UIViewController {
     }
     @IBAction func showButtonTouchDown(_ sender: Any) {
         self.showCurrentCards()
+        self.markShownCards()
     }
     @IBAction func checkFoldButtonPressed(_ sender: Any) {
         if self.gameController.isCheckAvaliable {
@@ -84,13 +85,9 @@ class GameViewController: UIViewController {
     }
     
     func addInfoLabel(text: String) {
-        self.taskQueue.addTask { (completion) in
-            DispatchQueue.main.async {
-                self.infoLabel.text = text
-            }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: { 
-                completion()
-            })
-        }
+        self.logsTextView.text.append("\n")
+        self.logsTextView.text.append(text)
+        let bottom = NSMakeRange(self.logsTextView.text.characters.count, 0)
+        self.logsTextView.scrollRangeToVisible(bottom)
     }
 }
