@@ -9,12 +9,24 @@
 import Foundation
 import BluetoothKit
 
+protocol CentralCommunicatorDelegate: class {
+    func didFoundPeripheral()
+}
+
+
 class CentralCommunicator: GeneralCommunicator {
     
     //MARK: - Variables
     
-    private var remotePeripheral: BKRemotePeripheral?
+    private var remotePeripheral: BKRemotePeripheral? {
+        didSet {
+            guard let sRemotePeripheral = remotePeripheral else { return }
+            sRemotePeripheral.delegate = self
+            sRemotePeripheral.peripheralDelegate = self
+        }
+    }
     fileprivate let central = BKCentral()
+    weak var centralDelegate: CentralCommunicatorDelegate?
     
     //MARK: - Lifecycle
     
@@ -52,9 +64,8 @@ class CentralCommunicator: GeneralCommunicator {
                         return
                     }
                     sSelf.remotePeripheral = remotePeripheral
-                    //let remotePeripheralViewController = RemotePeripheralViewController(central: self.central, remotePeripheral: remotePeripheral)
-                    //remotePeripheralViewController.delegate = self
-                    //self.navigationController?.pushViewController(remotePeripheralViewController, animated: true)
+                    sSelf.central.interruptScan()
+                    sSelf.centralDelegate?.didFoundPeripheral()
                 }
             }
         }, stateHandler: { newState in
@@ -103,7 +114,7 @@ extension CentralCommunicator: BKAvailabilityObserver {
     }
 }
 
-extension CentralCommunicator: BKCentralDelegate {
+extension CentralCommunicator: BKCentralDelegate, BKRemotePeripheralDelegate, BKRemotePeerDelegate {
     
     // MARK: BKRemotePeripheralDelegate
     

@@ -12,6 +12,8 @@ class GameCoordinator {
     
     //MARK: - Variables
     
+    var gameConfiguration: GameConfiguration?
+    
     var communicator: GeneralCommunicator? {
         didSet {
             if let sCommunicator = communicator {
@@ -20,22 +22,13 @@ class GameCoordinator {
         }
     }
     
-    var player: Player
-    var isGameHost: Bool {
-        get {
-            return player.isGameHost
-        }
-    }
-    
+    var player: Player = Player()
+    var gameController = GameController()
+
     //MARK: - Lifecycle
     
     init(player: Player) {
         self.player = player
-        if isGameHost {
-            communicator = CentralCommunicator()
-        } else {
-            communicator = PeripheralCommunicator()
-        }
     }
     
     //MARK: - Messaging
@@ -44,10 +37,11 @@ class GameCoordinator {
         let jsonEncoder = JSONEncoder()
         if let jsonData = try? jsonEncoder.encode(message) {
             communicator?.send(data: jsonData)
+            
         }
     }
     
-    func receiveMessage() {
+    func receiveMessage(message: Message) {
         
     }
 }
@@ -57,9 +51,12 @@ extension GameCoordinator: CommunicatorDelegate {
 
         let jsonDecoder = JSONDecoder()
         let message = try? jsonDecoder.decode(Message.self, from: data)
-        print(message)
+        if let sMessage = message {
+            receiveMessage(message: sMessage)
+        }
     }
 }
+
 
 //func bankAmountChanged()
 //func newGameStarted()

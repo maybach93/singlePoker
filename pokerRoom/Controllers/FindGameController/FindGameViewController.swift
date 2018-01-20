@@ -33,7 +33,7 @@ class FindGameViewController: UIViewController {
         super.viewDidLoad()
         
         if let sPlayer = self.player {
-            self.coordinator = GameCoordinator(player: sPlayer)
+            self.coordinator = isGameHost ? HostGameCoordinator(player: sPlayer, gameConfiguration: gameConfiguration) : PeripheralGameCoordinator(player: sPlayer)
         }
     }
     

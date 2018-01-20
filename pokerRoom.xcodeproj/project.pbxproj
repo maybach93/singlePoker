@@ -33,7 +33,11 @@
 		19C1F7342013C5B700D2AC9F /* MessageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C1F7332013C5B700D2AC9F /* MessageData.swift */; };
 		19C1F7382013C94500D2AC9F /* GameCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C1F7372013C94500D2AC9F /* GameCoordinator.swift */; };
 		19C1F73A2013D04E00D2AC9F /* MessagesConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C1F7392013D04E00D2AC9F /* MessagesConverter.swift */; };
-		19C1F73C2013DB4E00D2AC9F /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C1F73B2013DB4E00D2AC9F /* Player.swift */; };
+		19C1F73E2013DC4000D2AC9F /* HostGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C1F73D2013DC4000D2AC9F /* HostGameController.swift */; };
+		19C1F7402013E36000D2AC9F /* MessagePlayerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C1F73F2013E36000D2AC9F /* MessagePlayerInfo.swift */; };
+		19C1F7422013E4A200D2AC9F /* HostGameCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C1F7412013E4A200D2AC9F /* HostGameCoordinator.swift */; };
+		19C1F7442013E4B800D2AC9F /* PeripheralGameCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C1F7432013E4B800D2AC9F /* PeripheralGameCoordinator.swift */; };
+		19C1F7462013F16100D2AC9F /* GameConfigurationMessageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C1F7452013F16100D2AC9F /* GameConfigurationMessageData.swift */; };
 		19C9688F1F0D0BED007AAC99 /* Number.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C9688E1F0D0BED007AAC99 /* Number.swift */; };
 		19C968911F0D0C52007AAC99 /* Emojiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C968901F0D0C52007AAC99 /* Emojiable.swift */; };
 		19C968931F0D0C95007AAC99 /* stlibext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C968921F0D0C95007AAC99 /* stlibext.swift */; };
@@ -75,7 +79,11 @@
 		19C1F7332013C5B700D2AC9F /* MessageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageData.swift; sourceTree = "<group>"; };
 		19C1F7372013C94500D2AC9F /* GameCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCoordinator.swift; sourceTree = "<group>"; };
 		19C1F7392013D04E00D2AC9F /* MessagesConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesConverter.swift; sourceTree = "<group>"; };
-		19C1F73B2013DB4E00D2AC9F /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		19C1F73D2013DC4000D2AC9F /* HostGameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostGameController.swift; sourceTree = "<group>"; };
+		19C1F73F2013E36000D2AC9F /* MessagePlayerInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagePlayerInfo.swift; sourceTree = "<group>"; };
+		19C1F7412013E4A200D2AC9F /* HostGameCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostGameCoordinator.swift; sourceTree = "<group>"; };
+		19C1F7432013E4B800D2AC9F /* PeripheralGameCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralGameCoordinator.swift; sourceTree = "<group>"; };
+		19C1F7452013F16100D2AC9F /* GameConfigurationMessageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameConfigurationMessageData.swift; sourceTree = "<group>"; };
 		19C9688E1F0D0BED007AAC99 /* Number.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Number.swift; sourceTree = "<group>"; };
 		19C968901F0D0C52007AAC99 /* Emojiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emojiable.swift; sourceTree = "<group>"; };
 		19C968921F0D0C95007AAC99 /* stlibext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = stlibext.swift; sourceTree = "<group>"; };
@@ -237,6 +245,7 @@
 				193959981F0AC037005E2148 /* GameController.swift */,
 				191BCE5E1F0D613500A035B8 /* GameController+Stages.swift */,
 				193959AB1F0AD44F005E2148 /* GameController+CurrentPlayerActions.swift */,
+				19C1F73D2013DC4000D2AC9F /* HostGameController.swift */,
 			);
 			path = GameController;
 			sourceTree = "<group>";
@@ -264,7 +273,8 @@
 			children = (
 				19C1F7312013C26C00D2AC9F /* Message.swift */,
 				19C1F7332013C5B700D2AC9F /* MessageData.swift */,
-				19C1F73B2013DB4E00D2AC9F /* Player.swift */,
+				19C1F7452013F16100D2AC9F /* GameConfigurationMessageData.swift */,
+				19C1F73F2013E36000D2AC9F /* MessagePlayerInfo.swift */,
 			);
 			path = Codable;
 			sourceTree = "<group>";
@@ -280,6 +290,8 @@
 			isa = PBXGroup;
 			children = (
 				19C1F7372013C94500D2AC9F /* GameCoordinator.swift */,
+				19C1F7412013E4A200D2AC9F /* HostGameCoordinator.swift */,
+				19C1F7432013E4B800D2AC9F /* PeripheralGameCoordinator.swift */,
 			);
 			path = GameCoordinator;
 			sourceTree = "<group>";
@@ -435,11 +447,14 @@
 				1998963620139F040042FBC6 /* GameConfiguration.swift in Sources */,
 				199896462013AB420042FBC6 /* GameViewController+UpdateUI.swift in Sources */,
 				191BCE621F0D613500A035B8 /* GameController+Stages.swift in Sources */,
+				19C1F7402013E36000D2AC9F /* MessagePlayerInfo.swift in Sources */,
 				193959A11F0AC05A005E2148 /* RandomPokerMachine.swift in Sources */,
 				199896502013ABDA0042FBC6 /* CentralCommunicator.swift in Sources */,
 				19C9689F1F0D0D0C007AAC99 /* Poker.swift in Sources */,
 				199896442013AB420042FBC6 /* GameViewController.swift in Sources */,
 				199896422013AB420042FBC6 /* FindGameViewController.swift in Sources */,
+				19C1F7442013E4B800D2AC9F /* PeripheralGameCoordinator.swift in Sources */,
+				19C1F7462013F16100D2AC9F /* GameConfigurationMessageData.swift in Sources */,
 				193959991F0AC037005E2148 /* GameController.swift in Sources */,
 				199896522013AC180042FBC6 /* PeripheralCommunicator.swift in Sources */,
 				19C968991F0D0CDA007AAC99 /* Hand.swift in Sources */,
@@ -447,15 +462,16 @@
 				19C968911F0D0C52007AAC99 /* Emojiable.swift in Sources */,
 				19C968931F0D0C95007AAC99 /* stlibext.swift in Sources */,
 				19C968951F0D0CA5007AAC99 /* Table.swift in Sources */,
-				19C1F73C2013DB4E00D2AC9F /* Player.swift in Sources */,
 				199896432013AB420042FBC6 /* CreateGameViewController.swift in Sources */,
 				19C1F7382013C94500D2AC9F /* GameCoordinator.swift in Sources */,
 				199896472013AB420042FBC6 /* StartViewController.swift in Sources */,
 				19C9689D1F0D0D02007AAC99 /* Deck.swift in Sources */,
 				199896452013AB420042FBC6 /* GameViewController+Delegates.swift in Sources */,
 				19C1F7342013C5B700D2AC9F /* MessageData.swift in Sources */,
+				19C1F7422013E4A200D2AC9F /* HostGameCoordinator.swift in Sources */,
 				193959AC1F0AD44F005E2148 /* GameController+CurrentPlayerActions.swift in Sources */,
 				193959A21F0AC05A005E2148 /* PokerCard.swift in Sources */,
+				19C1F73E2013DC4000D2AC9F /* HostGameController.swift in Sources */,
 				193959A61F0AC127005E2148 /* Player.swift in Sources */,
 				191BCE641F0D889700A035B8 /* SerialTaskQueue.swift in Sources */,
 			);

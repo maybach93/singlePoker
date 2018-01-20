@@ -1,5 +1,5 @@
 //
-//  Player.swift
+//  HostGameController.swift
 //  pokerRoom
 //
 //  Created by Vitalii Poponov on 20.01.2018.
@@ -7,8 +7,3 @@
 //
 
 import Foundation
-
-class PlayerInfo: Codable {
-    var isGameHost: Bool?
-    var name: String?
-}
