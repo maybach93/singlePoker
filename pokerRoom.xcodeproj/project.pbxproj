@@ -7,13 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		191BCE5F1F0D613500A035B8 /* GameViewController+Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191BCE5B1F0D613500A035B8 /* GameViewController+Delegates.swift */; };
-		191BCE601F0D613500A035B8 /* GameViewController+UpdateUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191BCE5C1F0D613500A035B8 /* GameViewController+UpdateUI.swift */; };
-		191BCE611F0D613500A035B8 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191BCE5D1F0D613500A035B8 /* GameViewController.swift */; };
 		191BCE621F0D613500A035B8 /* GameController+Stages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191BCE5E1F0D613500A035B8 /* GameController+Stages.swift */; };
 		191BCE641F0D889700A035B8 /* SerialTaskQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191BCE631F0D889700A035B8 /* SerialTaskQueue.swift */; };
 		193959851F0AAED3005E2148 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193959841F0AAED3005E2148 /* AppDelegate.swift */; };
-		193959871F0AAED3005E2148 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193959861F0AAED3005E2148 /* ViewController.swift */; };
 		1939598A1F0AAED3005E2148 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 193959881F0AAED3005E2148 /* Main.storyboard */; };
 		1939598C1F0AAED3005E2148 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1939598B1F0AAED3005E2148 /* Assets.xcassets */; };
 		1939598F1F0AAED3005E2148 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1939598D1F0AAED3005E2148 /* LaunchScreen.storyboard */; };
@@ -22,6 +18,21 @@
 		193959A21F0AC05A005E2148 /* PokerCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1939599D1F0AC05A005E2148 /* PokerCard.swift */; };
 		193959A61F0AC127005E2148 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193959A51F0AC127005E2148 /* Player.swift */; };
 		193959AC1F0AD44F005E2148 /* GameController+CurrentPlayerActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193959AB1F0AD44F005E2148 /* GameController+CurrentPlayerActions.swift */; };
+		1998963620139F040042FBC6 /* GameConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1998963520139F040042FBC6 /* GameConfiguration.swift */; };
+		199896422013AB420042FBC6 /* FindGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199896392013AB420042FBC6 /* FindGameViewController.swift */; };
+		199896432013AB420042FBC6 /* CreateGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1998963B2013AB420042FBC6 /* CreateGameViewController.swift */; };
+		199896442013AB420042FBC6 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1998963D2013AB420042FBC6 /* GameViewController.swift */; };
+		199896452013AB420042FBC6 /* GameViewController+Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1998963E2013AB420042FBC6 /* GameViewController+Delegates.swift */; };
+		199896462013AB420042FBC6 /* GameViewController+UpdateUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1998963F2013AB420042FBC6 /* GameViewController+UpdateUI.swift */; };
+		199896472013AB420042FBC6 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199896412013AB420042FBC6 /* StartViewController.swift */; };
+		1998964E2013ABBD0042FBC6 /* GeneralCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1998964D2013ABBD0042FBC6 /* GeneralCommunicator.swift */; };
+		199896502013ABDA0042FBC6 /* CentralCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1998964F2013ABDA0042FBC6 /* CentralCommunicator.swift */; };
+		199896522013AC180042FBC6 /* PeripheralCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199896512013AC180042FBC6 /* PeripheralCommunicator.swift */; };
+		19C1F72F2013BB8F00D2AC9F /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C1F72E2013BB8F00D2AC9F /* Data+Extension.swift */; };
+		19C1F7322013C26C00D2AC9F /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C1F7312013C26C00D2AC9F /* Message.swift */; };
+		19C1F7342013C5B700D2AC9F /* MessageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C1F7332013C5B700D2AC9F /* MessageData.swift */; };
+		19C1F7382013C94500D2AC9F /* GameCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C1F7372013C94500D2AC9F /* GameCoordinator.swift */; };
+		19C1F73A2013D04E00D2AC9F /* MessagesConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C1F7392013D04E00D2AC9F /* MessagesConverter.swift */; };
 		19C9688F1F0D0BED007AAC99 /* Number.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C9688E1F0D0BED007AAC99 /* Number.swift */; };
 		19C968911F0D0C52007AAC99 /* Emojiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C968901F0D0C52007AAC99 /* Emojiable.swift */; };
 		19C968931F0D0C95007AAC99 /* stlibext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C968921F0D0C95007AAC99 /* stlibext.swift */; };
@@ -31,17 +42,14 @@
 		19C9689D1F0D0D02007AAC99 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C9689C1F0D0D02007AAC99 /* Deck.swift */; };
 		19C9689F1F0D0D0C007AAC99 /* Poker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C9689E1F0D0D0C007AAC99 /* Poker.swift */; };
 		19C968A11F0D0D20007AAC99 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C968A01F0D0D20007AAC99 /* Card.swift */; };
+		1F9ACC2672932417F8F4140C /* Pods_pokerRoom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50E72348CFEFE1BE3607CB9D /* Pods_pokerRoom.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		191BCE5B1F0D613500A035B8 /* GameViewController+Delegates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GameViewController+Delegates.swift"; sourceTree = "<group>"; };
-		191BCE5C1F0D613500A035B8 /* GameViewController+UpdateUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GameViewController+UpdateUI.swift"; sourceTree = "<group>"; };
-		191BCE5D1F0D613500A035B8 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
-		191BCE5E1F0D613500A035B8 /* GameController+Stages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "GameController+Stages.swift"; path = "pokerRoom/GameController+Stages.swift"; sourceTree = SOURCE_ROOT; };
+		191BCE5E1F0D613500A035B8 /* GameController+Stages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "GameController+Stages.swift"; path = "pokerRoom/Core/GameController/GameController+Stages.swift"; sourceTree = SOURCE_ROOT; };
 		191BCE631F0D889700A035B8 /* SerialTaskQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerialTaskQueue.swift; sourceTree = "<group>"; };
 		193959811F0AAED3005E2148 /* pokerRoom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pokerRoom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		193959841F0AAED3005E2148 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		193959861F0AAED3005E2148 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		193959891F0AAED3005E2148 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1939598B1F0AAED3005E2148 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1939598E1F0AAED3005E2148 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +59,21 @@
 		1939599D1F0AC05A005E2148 /* PokerCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokerCard.swift; sourceTree = "<group>"; };
 		193959A51F0AC127005E2148 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		193959AB1F0AD44F005E2148 /* GameController+CurrentPlayerActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GameController+CurrentPlayerActions.swift"; sourceTree = "<group>"; };
+		1998963520139F040042FBC6 /* GameConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameConfiguration.swift; sourceTree = "<group>"; };
+		199896392013AB420042FBC6 /* FindGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindGameViewController.swift; sourceTree = "<group>"; };
+		1998963B2013AB420042FBC6 /* CreateGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGameViewController.swift; sourceTree = "<group>"; };
+		1998963D2013AB420042FBC6 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		1998963E2013AB420042FBC6 /* GameViewController+Delegates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GameViewController+Delegates.swift"; sourceTree = "<group>"; };
+		1998963F2013AB420042FBC6 /* GameViewController+UpdateUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GameViewController+UpdateUI.swift"; sourceTree = "<group>"; };
+		199896412013AB420042FBC6 /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		1998964D2013ABBD0042FBC6 /* GeneralCommunicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralCommunicator.swift; sourceTree = "<group>"; };
+		1998964F2013ABDA0042FBC6 /* CentralCommunicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CentralCommunicator.swift; sourceTree = "<group>"; };
+		199896512013AC180042FBC6 /* PeripheralCommunicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralCommunicator.swift; sourceTree = "<group>"; };
+		19C1F72E2013BB8F00D2AC9F /* Data+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extension.swift"; sourceTree = "<group>"; };
+		19C1F7312013C26C00D2AC9F /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		19C1F7332013C5B700D2AC9F /* MessageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageData.swift; sourceTree = "<group>"; };
+		19C1F7372013C94500D2AC9F /* GameCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCoordinator.swift; sourceTree = "<group>"; };
+		19C1F7392013D04E00D2AC9F /* MessagesConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesConverter.swift; sourceTree = "<group>"; };
 		19C9688E1F0D0BED007AAC99 /* Number.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Number.swift; sourceTree = "<group>"; };
 		19C968901F0D0C52007AAC99 /* Emojiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emojiable.swift; sourceTree = "<group>"; };
 		19C968921F0D0C95007AAC99 /* stlibext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = stlibext.swift; sourceTree = "<group>"; };
@@ -60,6 +83,9 @@
 		19C9689C1F0D0D02007AAC99 /* Deck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
 		19C9689E1F0D0D0C007AAC99 /* Poker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Poker.swift; sourceTree = "<group>"; };
 		19C968A01F0D0D20007AAC99 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		2A3C88AB231A12CA86ED8106 /* Pods-pokerRoom.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pokerRoom.release.xcconfig"; path = "Pods/Target Support Files/Pods-pokerRoom/Pods-pokerRoom.release.xcconfig"; sourceTree = "<group>"; };
+		50E72348CFEFE1BE3607CB9D /* Pods_pokerRoom.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pokerRoom.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB5B8C6770A309A6FAC39D12 /* Pods-pokerRoom.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pokerRoom.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pokerRoom/Pods-pokerRoom.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,28 +93,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F9ACC2672932417F8F4140C /* Pods_pokerRoom.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		191BCE5A1F0D613500A035B8 /* GameViewController */ = {
-			isa = PBXGroup;
-			children = (
-				191BCE5B1F0D613500A035B8 /* GameViewController+Delegates.swift */,
-				191BCE5C1F0D613500A035B8 /* GameViewController+UpdateUI.swift */,
-				191BCE5D1F0D613500A035B8 /* GameViewController.swift */,
-			);
-			name = GameViewController;
-			path = pokerRoom/GameViewController;
-			sourceTree = SOURCE_ROOT;
-		};
 		193959781F0AAED3005E2148 = {
 			isa = PBXGroup;
 			children = (
 				193959831F0AAED3005E2148 /* pokerRoom */,
 				193959821F0AAED3005E2148 /* Products */,
+				F3637CF2A1FB307D832D86EF /* Pods */,
+				26D3E0D176E952F60C1F7A95 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,18 +121,15 @@
 		193959831F0AAED3005E2148 /* pokerRoom */ = {
 			isa = PBXGroup;
 			children = (
-				191BCE631F0D889700A035B8 /* SerialTaskQueue.swift */,
+				19C1F7302013C20500D2AC9F /* Codable */,
+				19C1F72D2013BB6400D2AC9F /* Extensions */,
+				199896492013AB680042FBC6 /* Core */,
+				199896482013AB490042FBC6 /* Utilities */,
+				199896372013AB420042FBC6 /* Controllers */,
 				193959841F0AAED3005E2148 /* AppDelegate.swift */,
-				193959861F0AAED3005E2148 /* ViewController.swift */,
 				193959881F0AAED3005E2148 /* Main.storyboard */,
-				193959981F0AC037005E2148 /* GameController.swift */,
-				191BCE5E1F0D613500A035B8 /* GameController+Stages.swift */,
-				193959AB1F0AD44F005E2148 /* GameController+CurrentPlayerActions.swift */,
-				191BCE5A1F0D613500A035B8 /* GameViewController */,
 				193959B41F0D0147005E2148 /* Evaluator */,
 				193959A41F0AC11F005E2148 /* Models */,
-				1939599C1F0AC05A005E2148 /* RandomPokerMachine.swift */,
-				1939599D1F0AC05A005E2148 /* PokerCard.swift */,
 				1939598B1F0AAED3005E2148 /* Assets.xcassets */,
 				1939598D1F0AAED3005E2148 /* LaunchScreen.storyboard */,
 				193959901F0AAED3005E2148 /* Info.plist */,
@@ -126,6 +141,8 @@
 			isa = PBXGroup;
 			children = (
 				193959A51F0AC127005E2148 /* Player.swift */,
+				1939599D1F0AC05A005E2148 /* PokerCard.swift */,
+				1998963520139F040042FBC6 /* GameConfiguration.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -146,6 +163,141 @@
 			path = Evaluator;
 			sourceTree = "<group>";
 		};
+		199896372013AB420042FBC6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				199896382013AB420042FBC6 /* FindGameController */,
+				1998963A2013AB420042FBC6 /* CreateGameController */,
+				1998963C2013AB420042FBC6 /* GameViewController */,
+				199896402013AB420042FBC6 /* StartController */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		199896382013AB420042FBC6 /* FindGameController */ = {
+			isa = PBXGroup;
+			children = (
+				199896392013AB420042FBC6 /* FindGameViewController.swift */,
+			);
+			path = FindGameController;
+			sourceTree = "<group>";
+		};
+		1998963A2013AB420042FBC6 /* CreateGameController */ = {
+			isa = PBXGroup;
+			children = (
+				1998963B2013AB420042FBC6 /* CreateGameViewController.swift */,
+			);
+			path = CreateGameController;
+			sourceTree = "<group>";
+		};
+		1998963C2013AB420042FBC6 /* GameViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1998963D2013AB420042FBC6 /* GameViewController.swift */,
+				1998963E2013AB420042FBC6 /* GameViewController+Delegates.swift */,
+				1998963F2013AB420042FBC6 /* GameViewController+UpdateUI.swift */,
+			);
+			path = GameViewController;
+			sourceTree = "<group>";
+		};
+		199896402013AB420042FBC6 /* StartController */ = {
+			isa = PBXGroup;
+			children = (
+				199896412013AB420042FBC6 /* StartViewController.swift */,
+			);
+			path = StartController;
+			sourceTree = "<group>";
+		};
+		199896482013AB490042FBC6 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				191BCE631F0D889700A035B8 /* SerialTaskQueue.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		199896492013AB680042FBC6 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				19C1F7362013C91600D2AC9F /* GameCoordinator */,
+				19C1F7352013C8CE00D2AC9F /* Server */,
+				1998964C2013AB9C0042FBC6 /* Communicator */,
+				1998964A2013AB800042FBC6 /* GameController */,
+				1939599C1F0AC05A005E2148 /* RandomPokerMachine.swift */,
+				19C1F7392013D04E00D2AC9F /* MessagesConverter.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		1998964A2013AB800042FBC6 /* GameController */ = {
+			isa = PBXGroup;
+			children = (
+				193959981F0AC037005E2148 /* GameController.swift */,
+				191BCE5E1F0D613500A035B8 /* GameController+Stages.swift */,
+				193959AB1F0AD44F005E2148 /* GameController+CurrentPlayerActions.swift */,
+			);
+			path = GameController;
+			sourceTree = "<group>";
+		};
+		1998964C2013AB9C0042FBC6 /* Communicator */ = {
+			isa = PBXGroup;
+			children = (
+				1998964D2013ABBD0042FBC6 /* GeneralCommunicator.swift */,
+				1998964F2013ABDA0042FBC6 /* CentralCommunicator.swift */,
+				199896512013AC180042FBC6 /* PeripheralCommunicator.swift */,
+			);
+			path = Communicator;
+			sourceTree = "<group>";
+		};
+		19C1F72D2013BB6400D2AC9F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				19C1F72E2013BB8F00D2AC9F /* Data+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		19C1F7302013C20500D2AC9F /* Codable */ = {
+			isa = PBXGroup;
+			children = (
+				19C1F7312013C26C00D2AC9F /* Message.swift */,
+				19C1F7332013C5B700D2AC9F /* MessageData.swift */,
+			);
+			path = Codable;
+			sourceTree = "<group>";
+		};
+		19C1F7352013C8CE00D2AC9F /* Server */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Server;
+			sourceTree = "<group>";
+		};
+		19C1F7362013C91600D2AC9F /* GameCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				19C1F7372013C94500D2AC9F /* GameCoordinator.swift */,
+			);
+			path = GameCoordinator;
+			sourceTree = "<group>";
+		};
+		26D3E0D176E952F60C1F7A95 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				50E72348CFEFE1BE3607CB9D /* Pods_pokerRoom.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F3637CF2A1FB307D832D86EF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CB5B8C6770A309A6FAC39D12 /* Pods-pokerRoom.debug.xcconfig */,
+				2A3C88AB231A12CA86ED8106 /* Pods-pokerRoom.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -153,9 +305,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 193959931F0AAED3005E2148 /* Build configuration list for PBXNativeTarget "pokerRoom" */;
 			buildPhases = (
+				532E3544CE74504C95E6167B /* [CP] Check Pods Manifest.lock */,
 				1939597D1F0AAED3005E2148 /* Sources */,
 				1939597E1F0AAED3005E2148 /* Frameworks */,
 				1939597F1F0AAED3005E2148 /* Resources */,
+				4B51A9B41D951BF521BD8835 /* [CP] Embed Pods Frameworks */,
+				A32E2B737466402002E4187D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -214,28 +369,87 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4B51A9B41D951BF521BD8835 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-pokerRoom/Pods-pokerRoom-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		532E3544CE74504C95E6167B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A32E2B737466402002E4187D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-pokerRoom/Pods-pokerRoom-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1939597D1F0AAED3005E2148 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				19C9688F1F0D0BED007AAC99 /* Number.swift in Sources */,
+				19C1F72F2013BB8F00D2AC9F /* Data+Extension.swift in Sources */,
+				19C1F73A2013D04E00D2AC9F /* MessagesConverter.swift in Sources */,
 				19C968A11F0D0D20007AAC99 /* Card.swift in Sources */,
+				1998964E2013ABBD0042FBC6 /* GeneralCommunicator.swift in Sources */,
+				19C1F7322013C26C00D2AC9F /* Message.swift in Sources */,
 				19C9689B1F0D0CF9007AAC99 /* Suit.swift in Sources */,
-				191BCE601F0D613500A035B8 /* GameViewController+UpdateUI.swift in Sources */,
+				1998963620139F040042FBC6 /* GameConfiguration.swift in Sources */,
+				199896462013AB420042FBC6 /* GameViewController+UpdateUI.swift in Sources */,
 				191BCE621F0D613500A035B8 /* GameController+Stages.swift in Sources */,
 				193959A11F0AC05A005E2148 /* RandomPokerMachine.swift in Sources */,
-				193959871F0AAED3005E2148 /* ViewController.swift in Sources */,
+				199896502013ABDA0042FBC6 /* CentralCommunicator.swift in Sources */,
 				19C9689F1F0D0D0C007AAC99 /* Poker.swift in Sources */,
-				191BCE611F0D613500A035B8 /* GameViewController.swift in Sources */,
+				199896442013AB420042FBC6 /* GameViewController.swift in Sources */,
+				199896422013AB420042FBC6 /* FindGameViewController.swift in Sources */,
 				193959991F0AC037005E2148 /* GameController.swift in Sources */,
+				199896522013AC180042FBC6 /* PeripheralCommunicator.swift in Sources */,
 				19C968991F0D0CDA007AAC99 /* Hand.swift in Sources */,
 				193959851F0AAED3005E2148 /* AppDelegate.swift in Sources */,
 				19C968911F0D0C52007AAC99 /* Emojiable.swift in Sources */,
 				19C968931F0D0C95007AAC99 /* stlibext.swift in Sources */,
-				191BCE5F1F0D613500A035B8 /* GameViewController+Delegates.swift in Sources */,
 				19C968951F0D0CA5007AAC99 /* Table.swift in Sources */,
+				199896432013AB420042FBC6 /* CreateGameViewController.swift in Sources */,
+				19C1F7382013C94500D2AC9F /* GameCoordinator.swift in Sources */,
+				199896472013AB420042FBC6 /* StartViewController.swift in Sources */,
 				19C9689D1F0D0D02007AAC99 /* Deck.swift in Sources */,
+				199896452013AB420042FBC6 /* GameViewController+Delegates.swift in Sources */,
+				19C1F7342013C5B700D2AC9F /* MessageData.swift in Sources */,
 				193959AC1F0AD44F005E2148 /* GameController+CurrentPlayerActions.swift in Sources */,
 				193959A21F0AC05A005E2148 /* PokerCard.swift in Sources */,
 				193959A61F0AC127005E2148 /* Player.swift in Sources */,
@@ -360,6 +574,7 @@
 		};
 		193959941F0AAED3005E2148 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CB5B8C6770A309A6FAC39D12 /* Pods-pokerRoom.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = YFADDH8BLW;
@@ -374,6 +589,7 @@
 		};
 		193959951F0AAED3005E2148 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2A3C88AB231A12CA86ED8106 /* Pods-pokerRoom.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = YFADDH8BLW;

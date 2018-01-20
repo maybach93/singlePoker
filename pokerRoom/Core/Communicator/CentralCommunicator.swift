@@ -1,0 +1,125 @@
+//
+//  CentralCommunicator.swift
+//  pokerRoom
+//
+//  Created by Vitalii Poponov on 20.01.2018.
+//  Copyright © 2018 Vitalii Poponov. All rights reserved.
+//
+
+import Foundation
+import BluetoothKit
+
+class CentralCommunicator: GeneralCommunicator {
+    
+    //MARK: - Variables
+    
+    private var remotePeripheral: BKRemotePeripheral?
+    fileprivate let central = BKCentral()
+    
+    //MARK: - Lifecycle
+    
+    override init() {
+        super.init()
+        startCentral()
+        //scan()
+    }
+    
+    deinit {
+        _ = try? central.stop()
+    }
+    
+    //MARK: - Private
+    
+    fileprivate func startCentral() {
+        do {
+            central.delegate = self
+            central.addAvailabilityObserver(self)
+            let configuration = BKConfiguration(dataServiceUUID: Constants().dataServiceUUID, dataServiceCharacteristicUUID: Constants().dataServiceCharacteristicUUID)
+            try central.startWithConfiguration(configuration)
+        } catch let error {
+            print("Error while starting: \(error)")
+        }
+    }
+    
+    fileprivate func scan() {
+        central.scanContinuouslyWithChangeHandler({ [weak self] changes, discoveries in
+            guard let sSelf = self else { return }
+            if discoveries.count > 0 {
+                let discovery = discoveries.first
+                sSelf.central.connect(remotePeripheral: discovery!.remotePeripheral) { remotePeripheral, error in
+                    guard error == nil else {
+                        print("Error connecting peripheral: \(String(describing: error))")
+                        return
+                    }
+                    sSelf.remotePeripheral = remotePeripheral
+                    //let remotePeripheralViewController = RemotePeripheralViewController(central: self.central, remotePeripheral: remotePeripheral)
+                    //remotePeripheralViewController.delegate = self
+                    //self.navigationController?.pushViewController(remotePeripheralViewController, animated: true)
+                }
+            }
+        }, stateHandler: { newState in
+            if newState == .scanning {
+                //self.activityIndicator?.startAnimating()
+                return
+            } else if newState == .stopped {
+                //self.discoveries.removeAll()
+                //self.discoveriesTableView.reloadData()
+            }
+            //self.activityIndicator?.stopAnimating()
+        }, errorHandler: { error in
+            
+        })
+    }
+    
+    //MARK: - Override
+    
+    override func send(data: Data) {
+        super.send(data: data)
+        guard let sRemotePeripheral = self.remotePeripheral else { return }
+        
+        let numberOfBytesToSend: Int = Int(arc4random_uniform(950) + 50)
+        let data = Data.dataWithNumberOfBytes(numberOfBytesToSend)
+        central.sendData(data, toRemotePeer: sRemotePeripheral) { _, remotePeripheral, error in
+            guard error == nil else {
+                //Logger.log("Failed sending to \(remotePeripheral)")
+                return
+            }
+            //Logger.log("Sent to \(remotePeripheral)")
+        }
+    }
+}
+
+extension CentralCommunicator: BKAvailabilityObserver {
+    
+    func availabilityObserver(_ availabilityObservable: BKAvailabilityObservable, unavailabilityCauseDidChange unavailabilityCause: BKUnavailabilityCause) {
+        
+    }
+    
+    internal func availabilityObserver(_ availabilityObservable: BKAvailabilityObservable, availabilityDidChange availability: BKAvailability) {
+        //availabilityView.availabilityObserver(availabilityObservable, availabilityDidChange: availability)
+        if availability == .available {
+            scan()
+        } else {
+            central.interruptScan()
+        }
+    }
+}
+
+extension CentralCommunicator: BKCentralDelegate {
+    
+    // MARK: BKRemotePeripheralDelegate
+    
+    internal func remotePeripheral(_ remotePeripheral: BKRemotePeripheral, didUpdateName name: String) {
+    }
+    
+    internal func remotePeer(_ remotePeer: BKRemotePeer, didSendArbitraryData data: Data) {
+        
+    }
+    
+    internal func remotePeripheralIsReady(_ remotePeripheral: BKRemotePeripheral) {
+    }
+    
+    func central(_ central: BKCentral, remotePeripheralDidDisconnect remotePeripheral: BKRemotePeripheral) {
+    }
+    
+}
