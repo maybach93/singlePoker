@@ -12,6 +12,10 @@ class PlayerInfo: MessageData {
     var isGameHost: Bool?
     var name: String?
     
+    override init() {
+        super.init()
+    }
+    
     //MARK: - Codable
     
     enum CodingKeys: String, CodingKey {
@@ -23,5 +27,13 @@ class PlayerInfo: MessageData {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(isGameHost, forKey: .isGameHost)
         try container.encode(name, forKey: .name)
+    }
+    
+    required init(from decoder: Decoder) throws {
+        try super.init(from: decoder)
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        
+        isGameHost = try values.decode(Bool.self, forKey: .isGameHost)
+        name = try values.decode(String.self, forKey: .name)
     }
 }

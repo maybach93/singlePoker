@@ -37,7 +37,6 @@ class GameCoordinator {
         let jsonEncoder = JSONEncoder()
         if let jsonData = try? jsonEncoder.encode(message) {
             communicator?.send(data: jsonData)
-            
         }
     }
     

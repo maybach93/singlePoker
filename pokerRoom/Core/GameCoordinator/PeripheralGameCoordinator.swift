@@ -40,9 +40,7 @@ class PeripheralGameCoordinator: GameCoordinator {
         playerInfoMessageData.isGameHost = player.isGameHost
         playerInfoMessageData.name = player.name
         let message = Message(type: MessageTypes.peripheralInfo, data: playerInfoMessageData)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-            self.sendMessage(message: message)
-        }
+        self.sendMessage(message: message)
     }
     
 }

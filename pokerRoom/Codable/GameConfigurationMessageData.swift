@@ -13,7 +13,7 @@ class GameConfigurationMessageData: MessageData {
     var blindsUpdateTime: TimeInterval?
     var startStack: Float?
     var hostPlayer: PlayerInfo?
-    
+
     var gameConfiguration: GameConfiguration? {
         get {
             guard let bigBlind = bigBlind, let blindsUpdateTime = blindsUpdateTime, let startStack = startStack else { return nil }
@@ -21,12 +21,16 @@ class GameConfigurationMessageData: MessageData {
         }
     }
     
+    override init() {
+        super.init()
+    }
+    
     convenience init(gameConfiguration: GameConfiguration, hostPlayer: Player) {
         self.init()
         self.bigBlind = gameConfiguration.bigBlind
         self.blindsUpdateTime = gameConfiguration.blindsUpdateTime
         self.startStack = gameConfiguration.startStack
-        
+
         let playerInfo = PlayerInfo()
         playerInfo.isGameHost = hostPlayer.isGameHost
         playerInfo.name = hostPlayer.name
@@ -48,5 +52,15 @@ class GameConfigurationMessageData: MessageData {
         try container.encode(blindsUpdateTime, forKey: .blindsUpdateTime)
         try container.encode(startStack, forKey: .startStack)
         try container.encode(hostPlayer, forKey: .hostPlayer)
+    }
+
+    required init(from decoder: Decoder) throws {
+        try super.init(from: decoder)
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        
+        bigBlind = try values.decode(Float.self, forKey: .bigBlind)
+        blindsUpdateTime = try values.decode(TimeInterval.self, forKey: .blindsUpdateTime)
+        startStack = try values.decode(Float.self, forKey: .startStack)
+        hostPlayer = try values.decode(PlayerInfo.self, forKey: .hostPlayer)
     }
 }

@@ -37,6 +37,7 @@ class CreateGameViewController: UIViewController {
         guard let destinationVC = segue.destination as? FindGameViewController else { return }
         
         destinationVC.gameConfiguration = gameConfiguration
+        player?.isGameHost = true
         destinationVC.player = player
     }
 }
