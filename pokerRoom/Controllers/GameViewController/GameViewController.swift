@@ -87,7 +87,7 @@ class GameViewController: UIViewController {
     //MARK: - Internal
     
     func currentOpponent() -> Player {
-        return self.gameController.players[self.gameController.currentPlayerIndex == 0 ? 1 : 0]
+        return self.gameController.players[self.gameController.currentActivePlayerIndex == 0 ? 1 : 0]
     }
     
     func addInfoLabel(text: String) {

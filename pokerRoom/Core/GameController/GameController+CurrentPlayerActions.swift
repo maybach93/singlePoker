@@ -26,7 +26,7 @@ extension GameController {
         get {
             var maxOpponentBalance:Float = 0
             for player in self.activePlayers {
-                if player.name != self.currentPlayer.name {
+                if player.id != self.myPlayerId {
                     maxOpponentBalance = max(maxOpponentBalance, player.balance)
                 }
             }
@@ -36,19 +36,20 @@ extension GameController {
     
     var allOpponentsAllIn: Bool {
         get {
-            return self.activePlayers[self.nextActivePlayer(from: self.currentPlayer)].balance == 0
+            let allActiveOpponents = self.activePlayers.filter { $0.id != self.myPlayerId }
+            return allActiveOpponents.filter { $0.balance == 0 }.count == allActiveOpponents.count
         }
     }
     
     var isCheckAvaliable: Bool {
         get {
-            return self.currentPlayer.bet == self.currentMaxBet
+            return self.myPlayer.bet == self.currentMaxBet
         }
     }
     
     var isCallAvaliable: Bool {
         get {
-            return self.currentPlayer.bet < self.currentMaxBet
+            return self.myPlayer.bet < self.currentMaxBet
         }
     }
     
@@ -60,59 +61,21 @@ extension GameController {
     
     var isRaiseAvaliable: Bool {
         get {
-            return (self.currentPlayer.balance > self.currentMaxBet && self.currentPlayer.balance > 0 && !self.allOpponentsAllIn)
+            return (self.myPlayer.balance > self.currentMaxBet && self.myPlayer.balance > 0 && !self.allOpponentsAllIn)
         }
     }
     
     var minimalBet: Float {
         get {
-            return min(self.currentMaxBet + self.bigBlind - self.currentPlayer.bet, self.currentPlayer.balance)
+            return min(self.currentMaxBet + self.bigBlind - self.myPlayer.bet, self.myPlayer.balance)
         }
     }
     
     var maximumBet: Float {
         get {
-            return min(self.currentPlayer.balance, self.maxBetAvaliable)
+            return min(self.myPlayer.balance, self.maxBetAvaliable)
         }
     }
     
-    //MARK: - actions
-    
-    func check() {
-        guard self.isCheckAvaliable else { return }
-        self.currentPlayer.isPlayed = true
-        self.delegate?.playerDidCheck(player: self.currentPlayer)
-        self.nextPlayerAction()
-    }
-    
-    func fold() {
-        self.currentPlayer.isPlayed = true
-        self.currentPlayer.isFold = true
-        self.delegate?.playerDidFold(player: self.currentPlayer)
-        self.nextPlayerAction()
-    }
-    
-    //func
-    
-    func bet(size: Float) {
-        guard size >= self.minimalBet && size <= self.maximumBet else { return }
-        if self.isBetAvaliable {
-            self.delegate?.playerDidBet(player: self.currentPlayer, bet: size)
-        } else {
-            self.delegate?.playerDidRaise(player: self.currentPlayer, raise: size)
-        }
-        self.currentPlayer.isPlayed = true
-        let currentBet = self.currentPlayer.bet
-        self.bet(size: size, playerIndex: self.currentPlayerIndex)
-        self.nextPlayerAction()
-    }
-    
-    func call() {
-        self.currentPlayer.isPlayed = true
-        let currentBet = self.currentPlayer.bet
-        let callSize = self.currentMaxBet - currentBet
-        self.delegate?.playerDidCall(player: self.currentPlayer, call: callSize)
-        self.bet(size: self.currentMaxBet - currentBet, playerIndex: self.currentPlayerIndex)
-        self.nextPlayerAction()
-    }
+  
 }

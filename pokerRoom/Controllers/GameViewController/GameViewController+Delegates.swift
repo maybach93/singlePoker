@@ -59,7 +59,7 @@ extension GameViewController: GameControllerDelegate {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
             self?.view.isUserInteractionEnabled = true
         }
-        self.addInfoLabel(text: self.gameController.currentPlayer.name + ", ваш ход!")
+        self.addInfoLabel(text: self.gameController.currentActivePlayer.name + ", ваш ход!")
     }
 
     func gameFinished(winner: Player, amount: Float, showOpponentCards: Bool) {

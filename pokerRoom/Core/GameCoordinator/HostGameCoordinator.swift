@@ -23,6 +23,12 @@ class HostGameCoordinator: GameCoordinator {
         }
     }
     
+    var hostGameController: HostGameController {
+        get {
+            return self.gameController as! HostGameController
+        }
+    }
+    
     //MARK: - Lifecycle
     
     init(player: Player, gameConfiguration: GameConfiguration?) {
@@ -31,6 +37,7 @@ class HostGameCoordinator: GameCoordinator {
         self.communicator = CentralCommunicator()
         self.centralCommunicator.centralDelegate = self
         self.gameConfiguration = gameConfiguration
+        self.gameController = HostGameController()
     }
     
     //MARK: - Override
@@ -58,9 +65,9 @@ class HostGameCoordinator: GameCoordinator {
             player.balance = sGameConfiguration.startStack
             player.position = index
         }
-        gameController.delegate = self
-        gameController.players = players
-        gameController.start()
+        self.hostGameController.delegate = self
+        self.hostGameController.players = players
+        self.hostGameController.start()
         self.delegate?.newGameStarted()
     }
     

@@ -244,12 +244,12 @@
 		199896492013AB680042FBC6 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				1998964A2013AB800042FBC6 /* GameController */,
 				199F29182014B10100DF84E4 /* HostGameController */,
 				19C1F747201486E900D2AC9F /* PeripheralGameController */,
 				19C1F7362013C91600D2AC9F /* GameCoordinator */,
 				19C1F7352013C8CE00D2AC9F /* Server */,
 				1998964C2013AB9C0042FBC6 /* Communicator */,
-				1998964A2013AB800042FBC6 /* GameController */,
 				1939599C1F0AC05A005E2148 /* RandomPokerMachine.swift */,
 				19C1F7392013D04E00D2AC9F /* MessagesConverter.swift */,
 			);

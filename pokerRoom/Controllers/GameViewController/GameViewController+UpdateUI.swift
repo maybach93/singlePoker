@@ -11,7 +11,7 @@ import UIKit
 extension GameViewController {
     
     func updateUI() {
-        self.updatePlayer(player: self.gameController.currentPlayer)
+        self.updatePlayer(player: self.gameController.currentActivePlayer)
         self.updateOpponent(player: self.currentOpponent())
     }
     
@@ -46,7 +46,7 @@ extension GameViewController {
     }
     
     func showCurrentCards() {
-        self.cardsLabel.text = Card.textRepresentation(cards: self.gameController.currentPlayer.cards)
+        self.cardsLabel.text = Card.textRepresentation(cards: self.gameController.currentActivePlayer.cards)
     }
     func hideCurrentCards() {
         self.cardsLabel.text =  "🎴🎴"

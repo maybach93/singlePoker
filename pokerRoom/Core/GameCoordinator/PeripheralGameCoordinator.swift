@@ -19,6 +19,7 @@ class PeripheralGameCoordinator: GameCoordinator {
     override init(player: Player) {
         super.init(player: player)
         self.communicator = PeripheralCommunicator()
+        self.gameController = PeripheralGameController()
     }
     
     //MARK: - Override
