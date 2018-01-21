@@ -13,10 +13,20 @@ class Player {
     var isGameHost: Bool = false
     var id: String = ""
     var balance: Float = 0
+    var position: Int = 0
     var name: String = ""
     var cards: [Card] = []
     
     var bet: Float = 0
     var isFold: Bool = false
     var isPlayed: Bool = false
+    
+    init() {
+    }
+    
+    init(playerInfoData: PlayerInfoData) {
+        self.isGameHost = playerInfoData.isGameHost ?? false
+        self.name = playerInfoData.name ?? ""
+        self.id = playerInfoData.id ?? ""
+    }
 }

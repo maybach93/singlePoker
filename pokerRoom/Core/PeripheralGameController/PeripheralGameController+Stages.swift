@@ -99,7 +99,7 @@ extension PeripheralGameController {
     }
     
     func setFirstActivePlayer() {
-        let dealer = self.players[self.dealerIndex]
+        let dealer = self.players[self.buttonPosition]
         self.currentPlayerIndex = self.nextActivePlayer(from: dealer)
     }
 }

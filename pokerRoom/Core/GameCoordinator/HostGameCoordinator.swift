@@ -33,7 +33,9 @@ class HostGameCoordinator: GameCoordinator {
     override func receiveMessage(message: Message) {
         switch message.type {
         case .peripheralInfo:
-            
+            if let playerInfoData = message.data as? PlayerInfoData {
+                self.startGame(peripheralInfoData: playerInfoData)
+            }
         default:
             break
         }
@@ -43,7 +45,20 @@ class HostGameCoordinator: GameCoordinator {
     
     //MARK: - Private
     
-    
+    private func startGame(peripheralInfoData: PlayerInfoData) {
+        guard let sGameConfiguration = self.gameConfiguration else { return }
+        let peripheralPlayer = Player(playerInfoData: peripheralInfoData)
+        let players = [player, peripheralPlayer]
+        for (index, player) in players.enumerated() {
+            player.balance = sGameConfiguration.startStack
+            player.position = index
+        }
+        
+        gameController.players = players
+        gameController.bigBlind = sGameConfiguration.bigBlind
+        gameController.blindsUpdateTime = sGameConfiguration.blindsUpdateTime
+        gameController.start()
+    }
 }
 
 extension HostGameCoordinator: CentralCommunicatorDelegate {

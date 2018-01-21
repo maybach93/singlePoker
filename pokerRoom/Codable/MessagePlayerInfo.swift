@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 class PlayerInfoData: MessageData {
     
     //MARK: - Variables
@@ -15,15 +16,11 @@ class PlayerInfoData: MessageData {
     var isGameHost: Bool?
     var name: String?
     var id: String?
+    var position: Int?
     
     var player: Player? {
         get {
-            guard let isGameHost = isGameHost, let name = name, let id = id else { return nil }
-            let player = Player()
-            player.isGameHost = isGameHost
-            player.name = name
-            player.id = id
-            return player
+            return Player(playerInfoData: self)
         }
     }
     
@@ -38,6 +35,7 @@ class PlayerInfoData: MessageData {
         self.isGameHost = player.isGameHost
         self.name = player.name
         self.id = player.id
+        self.position = player.position
     }
     
     //MARK: - Codable
@@ -46,6 +44,7 @@ class PlayerInfoData: MessageData {
         case isGameHost
         case name
         case id
+        case position
     }
     
     override func encode(to encoder: Encoder) throws {
@@ -53,6 +52,7 @@ class PlayerInfoData: MessageData {
         try container.encode(isGameHost, forKey: .isGameHost)
         try container.encode(name, forKey: .name)
         try container.encode(id, forKey: .id)
+        try container.encode(position, forKey: .position)
     }
     
     required init(from decoder: Decoder) throws {
@@ -62,5 +62,6 @@ class PlayerInfoData: MessageData {
         isGameHost = try values.decode(Bool.self, forKey: .isGameHost)
         name = try values.decode(String.self, forKey: .name)
         id = try values.decode(String.self, forKey: .id)
+        position = try values.decode(Int.self, forKey: .position)
     }
 }

@@ -25,7 +25,7 @@ class PeripheralGameController {
         }
     }
     
-    var dealerIndex: Int = 0
+    var buttonPosition: Int = 0
     
     var currentPlayerIndex: Int = 0 
     var currentPlayer: Player {
@@ -90,7 +90,7 @@ class PeripheralGameController {
     }
     
     private func moveDealer() {
-        self.dealerIndex = self.nextPlayer(from: self.dealerIndex)
+        self.buttonPosition = self.nextPlayer(from: self.buttonPosition)
     }
     
     private func resetPlayers() {
@@ -110,8 +110,8 @@ class PeripheralGameController {
     }
     
     private func placeBlinds() {
-        self.bet(size: self.bigBlind / 2, playerIndex: self.dealerIndex)
-        let bigBlindIndex = self.nextPlayer(from: self.dealerIndex)
+        self.bet(size: self.bigBlind / 2, playerIndex: self.buttonPosition)
+        let bigBlindIndex = self.nextPlayer(from: self.buttonPosition)
         self.bet(size: self.bigBlind, playerIndex: bigBlindIndex)
     }
     

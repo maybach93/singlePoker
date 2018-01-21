@@ -9,9 +9,10 @@
 import Foundation
 
 enum MessageTypes: String {
-    case gameConfiguration = "gameConfiguration" //Отправляется от хоста оппоненту, в ответ на это сообщение он возвращает свой ник
-    case peripheralInfo = "peripheralInfo" //Отправляется оппонентом хосту (содержит имя), после этого хост запускает игру
-    case unknown = "unknown"
+    case gameConfiguration //Отправляется от хоста оппоненту, в ответ на это сообщение он возвращает свой ник
+    case peripheralInfo //Отправляется оппонентом хосту (содержит имя), после этого хост запускает игру
+    case startGameInfo //Отправляется перед началом партии хостом, информация о позиции и стеке игроков
+    case unknown
 }
 
 struct Message: Codable {
@@ -47,8 +48,10 @@ extension Message {
         switch type {
         case .gameConfiguration:
             data = try values.decode(GameConfigurationMessageData.self, forKey: .data)
-        
-            //data = try values.decode(PlayerInfo.self, forKey: .data)
+        case .peripheralInfo:
+            data = try values.decode(PlayerInfoData.self, forKey: .data)
+        case .startGameInfo:
+            data = try values.decode(StartGameInfoData.self, forKey: .data)
         default:
             data = MessageData()
             break
