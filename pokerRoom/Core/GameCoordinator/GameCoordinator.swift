@@ -18,7 +18,13 @@ class GameCoordinator {
     
     weak var delegate: GameCoordinatorDelegate?
     
-    var gameConfiguration: GameConfiguration?
+    var gameConfiguration: GameConfiguration? {
+        didSet {
+            guard let sGameConfiguration = gameConfiguration else { return }
+            self.gameController.bigBlind = sGameConfiguration.bigBlind
+            self.gameController.blindsUpdateTime = sGameConfiguration.blindsUpdateTime
+        }
+    }
     
     var communicator: GeneralCommunicator? {
         didSet {
@@ -27,10 +33,11 @@ class GameCoordinator {
             }
         }
     }
-    
     var player: Player = Player()
     var gameController = GameController()
 
+    weak var gameControllerDelegate: GameControllerDelegate?
+    
     //MARK: - Lifecycle
     
     init(player: Player) {

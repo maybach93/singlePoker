@@ -53,8 +53,7 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         self.taskQueue.start()
         
-        self.gameController.delegate = self
-        self.gameController.start()
+        self.coordinator.gameControllerDelegate = self
     }
     
     //MARK: - Actions

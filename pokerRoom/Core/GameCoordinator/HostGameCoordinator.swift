@@ -58,10 +58,8 @@ class HostGameCoordinator: GameCoordinator {
             player.balance = sGameConfiguration.startStack
             player.position = index
         }
-        
+        gameController.delegate = self
         gameController.players = players
-        gameController.bigBlind = sGameConfiguration.bigBlind
-        gameController.blindsUpdateTime = sGameConfiguration.blindsUpdateTime
         gameController.start()
         self.delegate?.newGameStarted()
     }
@@ -97,7 +95,7 @@ extension HostGameCoordinator: GameControllerDelegate {
         let startGameInfoData = StartGameInfoData(buttonPosition: gameController.buttonPosition, playersInfoData: self.holeCard(for: self.opponent!))
         let message = Message(type: .startGameInfo, data: startGameInfoData)
         self.sendMessage(message: message)
-        
+        self.gameControllerDelegate?.newGameStarted()
     }
     
     func bankAmountChanged() {

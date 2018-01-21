@@ -17,7 +17,7 @@ class PlayerInfoData: MessageData {
     var name: String?
     var id: String?
     var position: Int?
-    var cards: [Int]?
+    var cards: [Int] = []
     
     var player: Player? {
         get {
@@ -62,10 +62,10 @@ class PlayerInfoData: MessageData {
         try super.init(from: decoder)
         let values = try decoder.container(keyedBy: CodingKeys.self)
         
-        //isGameHost = try values.decode(Bool.self, forKey: .isGameHost)
+        isGameHost = try values.decode(Bool.self, forKey: .isGameHost)
         name = try values.decode(String.self, forKey: .name)
-        //id = try values.decode(String.self, forKey: .id)
-        //position = try values.decode(Int.self, forKey: .position)
-        //cards = try values.decode(Array<Int>.self, forKey: .cards)
+        id = try values.decode(String.self, forKey: .id)
+        position = try values.decode(Int.self, forKey: .position)
+        cards = try values.decode(Array<Int>.self, forKey: .cards)
     }
 }

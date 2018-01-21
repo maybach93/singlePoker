@@ -31,7 +31,14 @@ class PeripheralGameCoordinator: GameCoordinator {
             }
             self.sendPeripheralInfo()
         case .startGameInfo:
-            
+            if let startGameInfoData = message.data as? StartGameInfoData {
+                if let playersInfoData = startGameInfoData.playersInfoData {
+                    gameController.players = playersInfoData.map { Player(playerInfoData: $0) }
+                }
+                if let buttonPosition = startGameInfoData.buttonPosition {
+                    gameController.buttonPosition = buttonPosition
+                }
+            }
             self.delegate?.newGameStarted()
         default:
             break
