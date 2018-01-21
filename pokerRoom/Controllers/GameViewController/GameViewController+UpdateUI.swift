@@ -11,9 +11,9 @@ import UIKit
 extension GameViewController {
     
     func updateUI() {
-        self.callButton.isEnabled = self.gameController.isMeActivePlayer
-        self.betRaiseButton.isEnabled = self.gameController.isMeActivePlayer
-        self.checkFoldButton.isEnabled = self.gameController.isMeActivePlayer
+        self.callButton.isUserInteractionEnabled = self.gameController.isMeActivePlayer
+        self.betRaiseButton.isUserInteractionEnabled = self.gameController.isMeActivePlayer
+        self.checkFoldButton.isUserInteractionEnabled = self.gameController.isMeActivePlayer
         
         self.updatePlayer(player: self.gameController.myPlayer)
         self.updateOpponent(player: self.opponent())

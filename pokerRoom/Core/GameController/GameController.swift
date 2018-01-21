@@ -123,13 +123,13 @@ class GameController {
     func check() {
         guard self.isCheckAvaliable else { return }
         self.myPlayer.isPlayed = true
-        self.delegate?.playerDidCheck(player: self.currentActivePlayer)
+        self.delegate?.playerDidCheck(player: self.myPlayer)
     }
     
     func fold() {
         self.myPlayer.isPlayed = true
         self.myPlayer.isFold = true
-        self.delegate?.playerDidFold(player: self.currentActivePlayer)
+        self.delegate?.playerDidFold(player: self.myPlayer)
     }
     
     //func
@@ -138,7 +138,7 @@ class GameController {
         self.currentActivePlayer.isPlayed = true
         let currentBet = self.currentActivePlayer.bet
         let callSize = self.currentMaxBet - currentBet
-        self.delegate?.playerDidCall(player: self.currentActivePlayer, call: callSize)
+        self.delegate?.playerDidCall(player: self.myPlayer, call: callSize)
         self.bet(size: self.currentMaxBet - currentBet)
     }
 }

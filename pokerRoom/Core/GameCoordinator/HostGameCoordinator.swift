@@ -38,6 +38,8 @@ class HostGameCoordinator: GameCoordinator {
         self.centralCommunicator.centralDelegate = self
         self.gameConfiguration = gameConfiguration
         self.gameController = HostGameController()
+        self.hostGameController.delegate = self
+        self.hostGameController.myPlayerId = self.player.id
     }
     
     //MARK: - Override
@@ -65,9 +67,11 @@ class HostGameCoordinator: GameCoordinator {
             player.balance = sGameConfiguration.startStack
             player.position = index
         }
-        self.hostGameController.delegate = self
         self.hostGameController.players = players
-        self.hostGameController.start()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            self.hostGameController.start()
+        }
+        self.newGameStarted()
         self.delegate?.newGameStarted()
     }
     

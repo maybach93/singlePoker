@@ -52,8 +52,6 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.taskQueue.start()
-        
-        self.coordinator.gameControllerDelegate = self
     }
     
     //MARK: - Actions

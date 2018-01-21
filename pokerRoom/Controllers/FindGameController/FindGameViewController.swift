@@ -45,7 +45,7 @@ class FindGameViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let gameVC = segue.destination as? GameViewController {
             gameVC.coordinator = self.coordinator
-            gameVC.coordinator.gameController.delegate = gameVC
+            gameVC.coordinator.gameControllerDelegate = gameVC
         }
     }
 }
