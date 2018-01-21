@@ -40,10 +40,10 @@ class GameController {
     
     var buttonPosition: Int = 0
     
-    var currentActivePlayerIndex: Int = 0 
+    var currentActivePlayerPosition: Int = 0 
     var currentActivePlayer: Player {
         get {
-            return self.players[self.currentActivePlayerIndex]
+            return self.players[self.currentActivePlayerPosition]
         }
     }
     

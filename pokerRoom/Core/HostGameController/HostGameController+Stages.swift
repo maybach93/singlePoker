@@ -100,6 +100,6 @@ extension HostGameController {
     
     func setFirstActivePlayer() {
         let dealer = self.players[self.buttonPosition]
-        self.currentActivePlayerIndex = self.nextActivePlayer(from: dealer)
+        self.currentActivePlayerPosition = self.nextActivePlayer(from: dealer)
     }
 }

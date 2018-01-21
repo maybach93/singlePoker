@@ -12,6 +12,26 @@ enum MessageTypes: String {
     case gameConfiguration //Отправляется от хоста оппоненту, в ответ на это сообщение он возвращает свой ник
     case peripheralInfo //Отправляется оппонентом хосту (содержит имя), после этого хост запускает игру
     case startGameInfo //Отправляется перед началом партии хостом, информация о позиции и стеке игроков
+    
+    //HOST:
+    case bankAmountChanged
+    case streetChanged
+    case currentPlayerChanged
+    case commonCardsUpdated
+    case blindsUpdated
+    
+    case gameEnded
+    case gameFinished
+    case gameFinishedSplit
+    //case winnerHand Потом
+    
+    //BOTH
+    case playerDidBet
+    case playerDidRaise
+    case playerDidCall
+    case playerDidFold
+    case playerDidCheck
+    
     case unknown
 }
 
@@ -52,10 +72,15 @@ extension Message {
             data = try values.decode(PlayerInfoData.self, forKey: .data)
         case .startGameInfo:
             data = try values.decode(StartGameInfoData.self, forKey: .data)
+        case .bankAmountChanged, .streetChanged, .currentPlayerChanged, .commonCardsUpdated, .blindsUpdated:
+            data = try values.decode(GameStateMessageData.self, forKey: .data)
+        case .gameEnded, .gameFinished, .gameFinishedSplit:
+            data = try values.decode(GameEndMessageData.self, forKey: .data)
+        case .playerDidBet, .playerDidRaise, .playerDidCall, .playerDidFold, .playerDidCheck:
+            data = try values.decode(PlayerActionMessageData.self, forKey: .data)
         default:
             data = MessageData()
             break
         }
     }
 }
-
