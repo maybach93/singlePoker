@@ -39,7 +39,14 @@ class GameViewController: UIViewController {
     
     //MARK: - Variables
     
-    let gameController = GameController()
+    var coordinator: GameCoordinator!
+    
+    var gameController: GameController {
+        get {
+            return self.coordinator.gameController
+        }
+    }
+    
     let taskQueue = SerialTaskQueue.init()
     
     override func viewDidLoad() {

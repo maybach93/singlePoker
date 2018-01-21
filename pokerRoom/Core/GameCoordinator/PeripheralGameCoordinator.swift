@@ -30,6 +30,9 @@ class PeripheralGameCoordinator: GameCoordinator {
                 self.gameConfiguration = gameConfigurationMessageData.gameConfiguration
             }
             self.sendPeripheralInfo()
+        case .startGameInfo:
+            
+            self.delegate?.newGameStarted()
         default:
             break
         }

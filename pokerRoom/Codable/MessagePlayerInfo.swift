@@ -17,6 +17,7 @@ class PlayerInfoData: MessageData {
     var name: String?
     var id: String?
     var position: Int?
+    var cards: [Int]?
     
     var player: Player? {
         get {
@@ -45,6 +46,7 @@ class PlayerInfoData: MessageData {
         case name
         case id
         case position
+        case cards
     }
     
     override func encode(to encoder: Encoder) throws {
@@ -53,15 +55,17 @@ class PlayerInfoData: MessageData {
         try container.encode(name, forKey: .name)
         try container.encode(id, forKey: .id)
         try container.encode(position, forKey: .position)
+        try container.encode(cards, forKey: .cards)
     }
     
     required init(from decoder: Decoder) throws {
         try super.init(from: decoder)
         let values = try decoder.container(keyedBy: CodingKeys.self)
         
-        isGameHost = try values.decode(Bool.self, forKey: .isGameHost)
+        //isGameHost = try values.decode(Bool.self, forKey: .isGameHost)
         name = try values.decode(String.self, forKey: .name)
-        id = try values.decode(String.self, forKey: .id)
-        position = try values.decode(Int.self, forKey: .position)
+        //id = try values.decode(String.self, forKey: .id)
+        //position = try values.decode(Int.self, forKey: .position)
+        //cards = try values.decode(Array<Int>.self, forKey: .cards)
     }
 }

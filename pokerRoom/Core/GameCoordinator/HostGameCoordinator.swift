@@ -12,6 +12,11 @@ class HostGameCoordinator: GameCoordinator {
     
     //MARK: - Variables
     
+    var opponent: Player? {
+        get {
+            return gameController.players.filter { $0.id != player.id }.first
+        }
+    }
     var centralCommunicator: CentralCommunicator {
         get {
             return self.communicator as! CentralCommunicator
@@ -58,6 +63,20 @@ class HostGameCoordinator: GameCoordinator {
         gameController.bigBlind = sGameConfiguration.bigBlind
         gameController.blindsUpdateTime = sGameConfiguration.blindsUpdateTime
         gameController.start()
+        self.delegate?.newGameStarted()
+    }
+    
+    fileprivate func holeCard(for player: Player) -> [PlayerInfoData] {
+        var playersInfoData = [PlayerInfoData]()
+        
+        for currentPlayer in gameController.players {
+            let playerInfoData = PlayerInfoData(player: currentPlayer)
+            if currentPlayer.id == player.id {
+                playerInfoData.cards = currentPlayer.cards.map { $0.value }
+            }
+            playersInfoData.append(playerInfoData)
+        }
+        return playersInfoData
     }
 }
 
@@ -70,4 +89,58 @@ extension HostGameCoordinator: CentralCommunicatorDelegate {
             self.sendMessage(message: message)
         }
     }
+}
+
+extension HostGameCoordinator: GameControllerDelegate {
+    
+    func newGameStarted() {
+        let startGameInfoData = StartGameInfoData(buttonPosition: gameController.buttonPosition, playersInfoData: self.holeCard(for: self.opponent!))
+        let message = Message(type: .startGameInfo, data: startGameInfoData)
+        self.sendMessage(message: message)
+        
+    }
+    
+    func bankAmountChanged() {
+        
+    }
+    func streetChanged() {
+        
+    }
+    func currentPlayerChanged() {
+        
+    }
+    func commonCardsUpdated() {
+        
+    }
+    func gameEnded(winner: Player) {
+        
+    }
+    func blindsUpdated() {
+        
+    }
+    func gameFinished(winner: Player, amount: Float, showOpponentCards: Bool) {
+        
+    }
+    func gameFinished(split: [Player], amount: Float) {
+        
+    }
+    func winnerHand(hand: Hand) {
+        
+    }
+    func playerDidBet(player: Player, bet: Float) {
+        
+    }
+    func playerDidRaise(player: Player, raise: Float) {
+        
+    }
+    func playerDidCall(player: Player, call: Float) {
+        
+    }
+    func playerDidFold(player: Player) {
+        
+    }
+    func playerDidCheck(player: Player) {
+        
+    }
+
 }

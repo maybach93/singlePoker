@@ -34,18 +34,24 @@ class FindGameViewController: UIViewController {
         
         if let sPlayer = self.player {
             self.coordinator = isGameHost ? HostGameCoordinator(player: sPlayer, gameConfiguration: gameConfiguration) : PeripheralGameCoordinator(player: sPlayer)
+            self.coordinator?.delegate = self
         }
     }
     
-//
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if let vc = segue.destination as? GameViewController {
-//            let playerOne = Player()
-//            playerOne.balance = Float(self.startStackLabel.text!)!
-//            playerOne.name = self.playerOneNameLabel.text!
-//            vc.gameController.players = [playerOne]
-//            vc.gameController.bigBlind = Float(self.startBlindsLabel.text!)!
-//            vc.gameController.blindsUpdateTime = TimeInterval(60 * Float(self.refreshBlindsLabel.text!)!)
-//        }
-//    }
+    
+    
+    //MARK: - Segue
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let gameVC = segue.destination as? GameViewController {
+            gameVC.coordinator = self.coordinator
+            gameVC.coordinator.gameController.delegate = gameVC
+        }
+    }
+}
+
+extension FindGameViewController: GameCoordinatorDelegate {
+    func newGameStarted() {
+        self.performSegue(withIdentifier: Constants().gameControllerSegueIdentifier, sender: self)
+    }
 }

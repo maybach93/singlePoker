@@ -16,6 +16,40 @@ public struct Card: CardProtocol {
         self.suit = suit
     }
     
+    var value: Int {
+        get {
+            var value = 0
+            switch self.number {
+            case .two:
+                value = 0
+            case .three:
+                value = 4
+            case .four:
+                value = 8
+            case .five:
+                value = 12
+            case .six:
+                value = 16
+            case .seven:
+                value = 20
+            case .eight:
+                value = 24
+            case .nine:
+                value = 28
+            case .ten:
+                value = 32
+            case .jack:
+                value = 36
+            case .queen:
+                value = 40
+            case .king:
+                value = 44
+            default:
+                value = 48
+            }
+            return value + self.suit.rawValue
+        }
+    }
     init(with value: Int) {
         
         if stride(from: Suit.hearts.rawValue, to: 51, by: 4).contains(value) {

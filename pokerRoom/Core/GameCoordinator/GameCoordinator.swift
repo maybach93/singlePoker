@@ -8,9 +8,15 @@
 
 import Foundation
 
+protocol GameCoordinatorDelegate: class {
+    func newGameStarted()
+}
+
 class GameCoordinator {
     
     //MARK: - Variables
+    
+    weak var delegate: GameCoordinatorDelegate?
     
     var gameConfiguration: GameConfiguration?
     
@@ -55,21 +61,4 @@ extension GameCoordinator: CommunicatorDelegate {
         }
     }
 }
-
-
-//func bankAmountChanged()
-//func newGameStarted()
-//func streetChanged()
-//func currentPlayerChanged()
-//func commonCardsUpdated()
-//func gameEnded(winner: Player)
-//func blindsUpdated()
-//func gameFinished(winner: Player, amount: Float, showOpponentCards: Bool)
-//func gameFinished(split: [Player], amount: Float)
-//func winnerHand(hand: Hand)
-//func playerDidBet(player: Player, bet: Float)
-//func playerDidRaise(player: Player, raise: Float)
-//func playerDidCall(player: Player, call: Float)
-//func playerDidFold(player: Player)
-//func playerDidCheck(player: Player)
 
