@@ -16,6 +16,17 @@ class PlayerInfoData: MessageData {
     var name: String?
     var id: String?
     
+    var player: Player? {
+        get {
+            guard let isGameHost = isGameHost, let name = name, let id = id else { return nil }
+            let player = Player()
+            player.isGameHost = isGameHost
+            player.name = name
+            player.id = id
+            return player
+        }
+    }
+    
     //MARK: - Lifecycle
     
     override init() {

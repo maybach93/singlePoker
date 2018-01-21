@@ -12,6 +12,8 @@ class PeripheralGameCoordinator: GameCoordinator {
     
     //MARK: - Variables
     
+    var hostPlayer: Player?
+    
     //MARK: - Lifecycle
     
     override init(player: Player) {

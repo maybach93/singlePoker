@@ -28,8 +28,22 @@ class HostGameCoordinator: GameCoordinator {
         self.gameConfiguration = gameConfiguration
     }
     
+    //MARK: - Override
+    
+    override func receiveMessage(message: Message) {
+        switch message.type {
+        case .peripheralInfo:
+            
+        default:
+            break
+        }
+    }
+    
     //MARK: - Messaging
-
+    
+    //MARK: - Private
+    
+    
 }
 
 extension HostGameCoordinator: CentralCommunicatorDelegate {

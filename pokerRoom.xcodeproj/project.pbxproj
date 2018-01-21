@@ -38,6 +38,10 @@
 		19C1F7422013E4A200D2AC9F /* HostGameCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C1F7412013E4A200D2AC9F /* HostGameCoordinator.swift */; };
 		19C1F7442013E4B800D2AC9F /* PeripheralGameCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C1F7432013E4B800D2AC9F /* PeripheralGameCoordinator.swift */; };
 		19C1F7462013F16100D2AC9F /* GameConfigurationMessageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C1F7452013F16100D2AC9F /* GameConfigurationMessageData.swift */; };
+		19C1F74D201486E900D2AC9F /* PeripheralGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C1F749201486E900D2AC9F /* PeripheralGameController.swift */; };
+		19C1F74E201486E900D2AC9F /* PeripheralGameController+Stages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C1F74A201486E900D2AC9F /* PeripheralGameController+Stages.swift */; };
+		19C1F74F201486E900D2AC9F /* PeripheralGameController+CurrentPlayerActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C1F74B201486E900D2AC9F /* PeripheralGameController+CurrentPlayerActions.swift */; };
+		19C1F7532014870E00D2AC9F /* GameConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C1F7522014870E00D2AC9F /* GameConstants.swift */; };
 		19C9688F1F0D0BED007AAC99 /* Number.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C9688E1F0D0BED007AAC99 /* Number.swift */; };
 		19C968911F0D0C52007AAC99 /* Emojiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C968901F0D0C52007AAC99 /* Emojiable.swift */; };
 		19C968931F0D0C95007AAC99 /* stlibext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C968921F0D0C95007AAC99 /* stlibext.swift */; };
@@ -84,6 +88,10 @@
 		19C1F7412013E4A200D2AC9F /* HostGameCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostGameCoordinator.swift; sourceTree = "<group>"; };
 		19C1F7432013E4B800D2AC9F /* PeripheralGameCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralGameCoordinator.swift; sourceTree = "<group>"; };
 		19C1F7452013F16100D2AC9F /* GameConfigurationMessageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameConfigurationMessageData.swift; sourceTree = "<group>"; };
+		19C1F749201486E900D2AC9F /* PeripheralGameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeripheralGameController.swift; sourceTree = "<group>"; };
+		19C1F74A201486E900D2AC9F /* PeripheralGameController+Stages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PeripheralGameController+Stages.swift"; sourceTree = "<group>"; };
+		19C1F74B201486E900D2AC9F /* PeripheralGameController+CurrentPlayerActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PeripheralGameController+CurrentPlayerActions.swift"; sourceTree = "<group>"; };
+		19C1F7522014870E00D2AC9F /* GameConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameConstants.swift; sourceTree = "<group>"; };
 		19C9688E1F0D0BED007AAC99 /* Number.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Number.swift; sourceTree = "<group>"; };
 		19C968901F0D0C52007AAC99 /* Emojiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emojiable.swift; sourceTree = "<group>"; };
 		19C968921F0D0C95007AAC99 /* stlibext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = stlibext.swift; sourceTree = "<group>"; };
@@ -222,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				191BCE631F0D889700A035B8 /* SerialTaskQueue.swift */,
+				19C1F7522014870E00D2AC9F /* GameConstants.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -229,6 +238,7 @@
 		199896492013AB680042FBC6 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				19C1F747201486E900D2AC9F /* PeripheralGameController */,
 				19C1F7362013C91600D2AC9F /* GameCoordinator */,
 				19C1F7352013C8CE00D2AC9F /* Server */,
 				1998964C2013AB9C0042FBC6 /* Communicator */,
@@ -294,6 +304,16 @@
 				19C1F7432013E4B800D2AC9F /* PeripheralGameCoordinator.swift */,
 			);
 			path = GameCoordinator;
+			sourceTree = "<group>";
+		};
+		19C1F747201486E900D2AC9F /* PeripheralGameController */ = {
+			isa = PBXGroup;
+			children = (
+				19C1F749201486E900D2AC9F /* PeripheralGameController.swift */,
+				19C1F74A201486E900D2AC9F /* PeripheralGameController+Stages.swift */,
+				19C1F74B201486E900D2AC9F /* PeripheralGameController+CurrentPlayerActions.swift */,
+			);
+			path = PeripheralGameController;
 			sourceTree = "<group>";
 		};
 		26D3E0D176E952F60C1F7A95 /* Frameworks */ = {
@@ -438,6 +458,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				19C9688F1F0D0BED007AAC99 /* Number.swift in Sources */,
+				19C1F74D201486E900D2AC9F /* PeripheralGameController.swift in Sources */,
 				19C1F72F2013BB8F00D2AC9F /* Data+Extension.swift in Sources */,
 				19C1F73A2013D04E00D2AC9F /* MessagesConverter.swift in Sources */,
 				19C968A11F0D0D20007AAC99 /* Card.swift in Sources */,
@@ -447,9 +468,12 @@
 				1998963620139F040042FBC6 /* GameConfiguration.swift in Sources */,
 				199896462013AB420042FBC6 /* GameViewController+UpdateUI.swift in Sources */,
 				191BCE621F0D613500A035B8 /* GameController+Stages.swift in Sources */,
+				19C1F7532014870E00D2AC9F /* GameConstants.swift in Sources */,
 				19C1F7402013E36000D2AC9F /* MessagePlayerInfo.swift in Sources */,
+				19C1F74E201486E900D2AC9F /* PeripheralGameController+Stages.swift in Sources */,
 				193959A11F0AC05A005E2148 /* RandomPokerMachine.swift in Sources */,
 				199896502013ABDA0042FBC6 /* CentralCommunicator.swift in Sources */,
+				19C1F74F201486E900D2AC9F /* PeripheralGameController+CurrentPlayerActions.swift in Sources */,
 				19C9689F1F0D0D0C007AAC99 /* Poker.swift in Sources */,
 				199896442013AB420042FBC6 /* GameViewController.swift in Sources */,
 				199896422013AB420042FBC6 /* FindGameViewController.swift in Sources */,
