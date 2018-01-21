@@ -45,11 +45,12 @@ class StartViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let player = Player()
-        player.name = playerNameTextField.text!
+        player.name = playerNameTextField.text! 
         player.id = UUID().uuidString
         
         switch segue.destination {
         case let createGameVC as CreateGameViewController:
+            player.name += "HOST"
             createGameVC.player = player
         case let findGameVC as FindGameViewController:
             findGameVC.player = player

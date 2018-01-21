@@ -50,6 +50,32 @@ class HostGameCoordinator: GameCoordinator {
             if let playerInfoData = message.data as? PlayerInfoData {
                 self.startGame(peripheralInfoData: playerInfoData)
             }
+            
+        case .playerDidBet:
+            if let playerActionMessageData = message.data as? PlayerActionMessageData {
+                guard let _ = playerActionMessageData.player?.player, let amount = playerActionMessageData.amount else { return }
+                self.gameController.bet(size: amount)
+            }
+        case .playerDidCall:
+            if let playerActionMessageData = message.data as? PlayerActionMessageData {
+                guard let _ = playerActionMessageData.player?.player, let amount = playerActionMessageData.amount else { return }
+                self.gameController.call()
+            }
+        case .playerDidFold:
+            if let playerActionMessageData = message.data as? PlayerActionMessageData {
+                guard let player = playerActionMessageData.player?.player, let _ = playerActionMessageData.amount else { return }
+                self.gameControllerDelegate?.playerDidFold(player: player)
+            }
+        case .playerDidCheck:
+            if let playerActionMessageData = message.data as? PlayerActionMessageData {
+                guard let player = playerActionMessageData.player?.player, let _ = playerActionMessageData.amount else { return }
+                self.gameControllerDelegate?.playerDidCheck(player: player)
+            }
+        case .playerDidRaise:
+            if let playerActionMessageData = message.data as? PlayerActionMessageData {
+                guard let player = playerActionMessageData.player?.player, let amount = playerActionMessageData.amount else { return }
+                self.gameControllerDelegate?.playerDidRaise(player: player, raise: amount)
+            }
         default:
             break
         }

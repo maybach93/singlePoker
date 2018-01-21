@@ -121,6 +121,60 @@ class HostGameController: GameController {
         return self.players.count != 1
     }
     
+    //MARK: - actions
+    
+    override func check() {
+        guard self.isCheckAvaliable else { return }
+        super.check()
+        self.nextPlayerAction()
+    }
+    
+    override func fold() {
+        super.fold()
+        self.nextPlayerAction()
+    }
+    
+    override func call() {
+        super.call()
+        self.nextPlayerAction()
+    }
+    
+    override func bet(size: Float) {
+        guard size >= self.minimalBet && size <= self.maximumBet else { return }
+        super.bet(size: size)
+        self.nextPlayerAction()
+    }
+    
+    func check(player: Player) {
+        guard self.isCheckAvaliable else { return }
+        self.currentActivePlayer.isPlayed = true
+        self.nextPlayerAction()
+    }
+    
+    func fold(player: Player) {
+        player.isPlayed = true
+        player.isFold = true
+        self.nextPlayerAction()
+    }
+
+    func call(player: Player) {
+        self.currentActivePlayer.isPlayed = true
+        let currentBet = self.currentActivePlayer.bet
+        let callSize = self.currentMaxBet - currentBet
+        self.bet(player: player, size: callSize)
+        self.nextPlayerAction()
+    }
+    
+    func bet(player: Player, size: Float) {
+        guard size >= self.minimalBet && size <= self.maximumBet else { return }
+        guard self.currentActivePlayer.balance >= size else { return }
+        self.currentActivePlayer.balance -= size
+        self.currentActivePlayer.bet += size
+        self.currentActivePlayer.isPlayed = true
+        self.currentBank += size
+        self.nextPlayerAction()
+    }
+    
     //MARK: - Indexes
     
     internal func nextPlayer(from index: Int) -> Int {

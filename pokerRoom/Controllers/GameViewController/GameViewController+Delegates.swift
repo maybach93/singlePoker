@@ -40,7 +40,6 @@ extension GameViewController: GameControllerDelegate {
     func newGameStarted() {
         self.addInfoLabel(text: "Приятной игры")
         self.updateUI()
-        self.view.isUserInteractionEnabled = true
     }
     func commonCardsUpdated() {
         let cards = Card.textRepresentation(cards: self.gameController.commonCards)
@@ -49,13 +48,11 @@ extension GameViewController: GameControllerDelegate {
     }
     
     func streetChanged() {
-        self.taskQueue.flushQueue()
         self.addInfoLabel(text: self.gameController.street.textRepresentation)
     }
     
     func currentPlayerChanged() {
         self.updateUI()
-        self.view.isUserInteractionEnabled = false
 
         self.addInfoLabel(text: self.gameController.currentActivePlayer.name + ", ваш ход!")
     }
@@ -67,7 +64,7 @@ extension GameViewController: GameControllerDelegate {
             self.showCurrentCards()
             self.addInfoLabel(text: "Карты победителя: " + Card.textRepresentation(cards: winner.cards))
         }
-        self.view.isUserInteractionEnabled = false
+        
     }
     func gameEnded(winner: Player) {
         self.addInfoLabel(text: "Победитель: " + "\(winner.name)" + ", Поздравляем!")

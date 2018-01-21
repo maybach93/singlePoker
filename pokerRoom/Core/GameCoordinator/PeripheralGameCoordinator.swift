@@ -49,9 +49,12 @@ class PeripheralGameCoordinator: GameCoordinator {
                     gameController.buttonPosition = buttonPosition
                 }
             }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                self.gameControllerDelegate?.newGameStarted()
+            }
             self.delegate?.newGameStarted()
             
-        case .bankAmountChanged, .blindsUpdated, .commonCardsUpdated, .streetChanged:
+        case .bankAmountChanged, .blindsUpdated, .commonCardsUpdated, .streetChanged, .currentPlayerChanged:
             updateGameStateData(messageData: message.data)
         case .gameEnded:
             if let gameEndMessageData = message.data as? GameEndMessageData {

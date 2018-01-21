@@ -50,7 +50,7 @@ extension GameViewController {
     }
     
     func showCurrentCards() {
-        self.cardsLabel.text = Card.textRepresentation(cards: self.gameController.currentActivePlayer.cards)
+        self.cardsLabel.text = Card.textRepresentation(cards: self.gameController.myPlayer.cards)
     }
     func hideCurrentCards() {
         self.cardsLabel.text =  "🎴🎴"

@@ -17,7 +17,6 @@ class CreateGameViewController: UIViewController {
     
     //MARK: - Outlets
     
-    @IBOutlet weak var playerOneNameLabel: UITextField!
     @IBOutlet weak var startStackLabel: UITextField!
     @IBOutlet weak var startBlindsLabel: UITextField!
     @IBOutlet weak var refreshBlindsLabel: UITextField!
