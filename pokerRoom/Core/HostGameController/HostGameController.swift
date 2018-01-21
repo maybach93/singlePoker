@@ -69,10 +69,10 @@ class HostGameController: GameController {
     
     internal func nextPlayerAction() {
         guard !self.checkIfAllFold() else { return }
-        let nextIndex = self.nextActivePlayer(from: self.currentPlayer)
+        let nextIndex = self.nextActivePlayer(from: self.currentActivePlayer)
         let nextPlayer = self.activePlayers[nextIndex]
         if self.checkIfPlayerShouldPlay(player: nextPlayer) {
-            self.currentPlayerIndex = self.index(of: nextPlayer)
+            self.currentActivePlayerIndex = self.index(of: nextPlayer)
             self.delegate?.currentPlayerChanged()
         } else if self.nextStreetIfPossible() {
             self.delegate?.currentPlayerChanged()
@@ -81,6 +81,14 @@ class HostGameController: GameController {
         }
     }
     
+    internal func bet(size: Float, playerIndex: Int) {
+        let player = self.players[playerIndex]
+        guard player.balance >= size else { return }
+        player.balance -= size
+        player.bet += size
+        self.currentBank += size
+    }
+
     //MARK : - check
     
     internal func checkIfAllFold() -> Bool {
