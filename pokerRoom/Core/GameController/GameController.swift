@@ -19,6 +19,11 @@ class GameController {
             return self.players.filter { $0.id == self.myPlayerId }.first!
         }
     }
+    var isMeActivePlayer: Bool {
+        get {
+            return self.currentActivePlayer.id == self.myPlayerId
+        }
+    }
     
     var players: [Player] = []
     var activePlayers: [Player] {

@@ -15,7 +15,7 @@ extension GameViewController: GameControllerDelegate {
     }
     
     func gameFinished(split: [Player], amount: Float) {
-        self.opponentCardsLabel.text = Card.textRepresentation(cards: self.currentOpponent().cards)
+        self.opponentCardsLabel.text = Card.textRepresentation(cards: self.opponent().cards)
         self.showCurrentCards()
         
         self.addInfoLabel(text: "Ничья, банк разделен между " + split[0].name + " и " + split[1].name + " Выигрыш: " + "\(amount)")
@@ -56,16 +56,14 @@ extension GameViewController: GameControllerDelegate {
     func currentPlayerChanged() {
         self.updateUI()
         self.view.isUserInteractionEnabled = false
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
-            self?.view.isUserInteractionEnabled = true
-        }
+
         self.addInfoLabel(text: self.gameController.currentActivePlayer.name + ", ваш ход!")
     }
 
     func gameFinished(winner: Player, amount: Float, showOpponentCards: Bool) {
         self.addInfoLabel(text: "Выиграл " + winner.name + " Выигрыш: " + "\(amount)")
         if showOpponentCards {
-            self.opponentCardsLabel.text = Card.textRepresentation(cards: self.currentOpponent().cards)
+            self.opponentCardsLabel.text = Card.textRepresentation(cards: self.opponent().cards)
             self.showCurrentCards()
             self.addInfoLabel(text: "Карты победителя: " + Card.textRepresentation(cards: winner.cards))
         }
