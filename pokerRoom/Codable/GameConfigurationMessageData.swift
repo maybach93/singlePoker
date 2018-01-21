@@ -12,7 +12,7 @@ class GameConfigurationMessageData: MessageData {
     var bigBlind: Float?
     var blindsUpdateTime: TimeInterval?
     var startStack: Float?
-    var hostPlayer: PlayerInfo?
+    var hostPlayer: PlayerInfoData?
 
     var gameConfiguration: GameConfiguration? {
         get {
@@ -31,10 +31,7 @@ class GameConfigurationMessageData: MessageData {
         self.blindsUpdateTime = gameConfiguration.blindsUpdateTime
         self.startStack = gameConfiguration.startStack
 
-        let playerInfo = PlayerInfo()
-        playerInfo.isGameHost = hostPlayer.isGameHost
-        playerInfo.name = hostPlayer.name
-        self.hostPlayer = playerInfo
+        self.hostPlayer = PlayerInfoData(player: hostPlayer)
     }
     
     //MARK: - Codable
@@ -61,6 +58,6 @@ class GameConfigurationMessageData: MessageData {
         bigBlind = try values.decode(Float.self, forKey: .bigBlind)
         blindsUpdateTime = try values.decode(TimeInterval.self, forKey: .blindsUpdateTime)
         startStack = try values.decode(Float.self, forKey: .startStack)
-        hostPlayer = try values.decode(PlayerInfo.self, forKey: .hostPlayer)
+        hostPlayer = try values.decode(PlayerInfoData.self, forKey: .hostPlayer)
     }
 }

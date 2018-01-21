@@ -36,10 +36,7 @@ class PeripheralGameCoordinator: GameCoordinator {
     //MARK: - Private
     
     private func sendPeripheralInfo() {
-        let playerInfoMessageData = PlayerInfo()
-        playerInfoMessageData.isGameHost = player.isGameHost
-        playerInfoMessageData.name = player.name
-        let message = Message(type: MessageTypes.peripheralInfo, data: playerInfoMessageData)
+        let message = Message(type: MessageTypes.peripheralInfo, data: PlayerInfoData(player: player))
         self.sendMessage(message: message)
     }
     
