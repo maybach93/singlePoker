@@ -162,7 +162,6 @@ class HostGameController: GameController {
         let currentBet = self.currentActivePlayer.bet
         let callSize = self.currentMaxBet - currentBet
         self.bet(player: player, size: callSize)
-        self.nextPlayerAction()
     }
     
     func bet(player: Player, size: Float) {

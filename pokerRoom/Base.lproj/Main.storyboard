@@ -371,16 +371,16 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="232" height="110"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pG9-6q-enS">
-                                                        <rect key="frame" x="0.0" y="0.0" width="232" height="0.0"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="232" height="30"/>
                                                         <subviews>
-                                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="200" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hFy-f7-XfX">
-                                                                <rect key="frame" x="-484" y="-304" width="0.0" height="30"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="200" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hFy-f7-XfX">
+                                                                <rect key="frame" x="0.0" y="0.0" width="69.333333333333329" height="30"/>
                                                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <slider hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="iZg-lv-7wC">
-                                                                <rect key="frame" x="-486" y="-304" width="166.66666666666663" height="31"/>
+                                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="iZg-lv-7wC">
+                                                                <rect key="frame" x="67.333333333333357" y="0.0" width="166.66666666666663" height="31"/>
                                                                 <color key="minimumTrackTintColor" red="0.044130302965641022" green="0.42794889211654663" blue="0.38721507787704468" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <color key="maximumTrackTintColor" red="0.044130302965641022" green="0.42794889211654663" blue="0.38721507787704468" alpha="0.92628450920245398" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <color key="thumbTintColor" red="0.060775945216049385" green="0.23158562109876543" blue="0.21028645833333334" alpha="1" colorSpace="calibratedRGB"/>
@@ -393,17 +393,12 @@
                                                             <constraint firstItem="iZg-lv-7wC" firstAttribute="width" secondItem="pG9-6q-enS" secondAttribute="width" multiplier="0.7" id="cFO-gc-sxg"/>
                                                             <constraint firstAttribute="height" constant="30" id="rxr-uL-jY0"/>
                                                         </constraints>
-                                                        <variation key="default">
-                                                            <mask key="constraints">
-                                                                <exclude reference="rxr-uL-jY0"/>
-                                                            </mask>
-                                                        </variation>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="ZLy-PU-LE3">
-                                                        <rect key="frame" x="0.0" y="0.0" width="232" height="110"/>
+                                                        <rect key="frame" x="0.0" y="30" width="232" height="80"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gU5-cd-gfN">
-                                                                <rect key="frame" x="0.0" y="0.0" width="232" height="110"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="232" height="80"/>
                                                                 <state key="normal" title="check/fold">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 </state>
@@ -412,7 +407,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ydn-FP-OXZ">
-                                                                <rect key="frame" x="-484" y="0.0" width="0.0" height="110"/>
+                                                                <rect key="frame" x="-484" y="0.0" width="0.0" height="80"/>
                                                                 <state key="normal" title="Колл">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 </state>
@@ -421,7 +416,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eqm-yw-Ycx">
-                                                                <rect key="frame" x="-484" y="0.0" width="0.0" height="110"/>
+                                                                <rect key="frame" x="-484" y="0.0" width="0.0" height="80"/>
                                                                 <state key="normal" title="raise to 200">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 </state>

@@ -18,6 +18,10 @@ class PlayerInfoData: MessageData {
     var id: String?
     var position: Int?
     var cards: [Int] = []
+    var balance: Float?
+    var bet: Float?
+    var isFold: Bool?
+    var isPlayed: Bool?
     
     var player: Player? {
         get {
@@ -37,6 +41,10 @@ class PlayerInfoData: MessageData {
         self.name = player.name
         self.id = player.id
         self.position = player.position
+        self.balance = player.balance
+        self.bet = player.bet
+        self.isFold = player.isFold
+        self.isPlayed = player.isPlayed
     }
     
     //MARK: - Codable
@@ -47,6 +55,10 @@ class PlayerInfoData: MessageData {
         case id
         case position
         case cards
+        case balance
+        case bet
+        case isFold
+        case isPlayed
     }
     
     override func encode(to encoder: Encoder) throws {
@@ -56,6 +68,10 @@ class PlayerInfoData: MessageData {
         try container.encode(id, forKey: .id)
         try container.encode(position, forKey: .position)
         try container.encode(cards, forKey: .cards)
+        try container.encode(balance, forKey: .balance)
+        try container.encode(bet, forKey: .bet)
+        try container.encode(isFold, forKey: .isFold)
+        try container.encode(isPlayed, forKey: .isPlayed)
     }
     
     required init(from decoder: Decoder) throws {
@@ -67,5 +83,9 @@ class PlayerInfoData: MessageData {
         id = try values.decode(String.self, forKey: .id)
         position = try values.decode(Int.self, forKey: .position)
         cards = try values.decode(Array<Int>.self, forKey: .cards)
+        balance = try values.decode(Float.self, forKey: .balance)
+        bet = try values.decode(Float.self, forKey: .bet)
+        isFold = try values.decode(Bool.self, forKey: .isFold)
+        isPlayed = try values.decode(Bool.self, forKey: .isPlayed)
     }
 }

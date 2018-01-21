@@ -28,5 +28,9 @@ class Player {
         self.isGameHost = playerInfoData.isGameHost ?? false
         self.name = playerInfoData.name ?? ""
         self.id = playerInfoData.id ?? ""
+        self.balance = playerInfoData.balance ?? 0
+        self.bet = playerInfoData.bet ?? 0
+        self.isFold = playerInfoData.isFold ?? false
+        self.isPlayed = playerInfoData.isPlayed ?? false
     }
 }

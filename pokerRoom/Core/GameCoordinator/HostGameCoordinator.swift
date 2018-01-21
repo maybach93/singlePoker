@@ -54,27 +54,27 @@ class HostGameCoordinator: GameCoordinator {
         case .playerDidBet:
             if let playerActionMessageData = message.data as? PlayerActionMessageData {
                 guard let _ = playerActionMessageData.player?.player, let amount = playerActionMessageData.amount else { return }
-                self.gameController.bet(size: amount)
+                self.hostGameController.bet(player: player, size: amount)
             }
         case .playerDidCall:
             if let playerActionMessageData = message.data as? PlayerActionMessageData {
                 guard let _ = playerActionMessageData.player?.player, let amount = playerActionMessageData.amount else { return }
-                self.gameController.call()
+                self.hostGameController.call(player: player)
             }
         case .playerDidFold:
             if let playerActionMessageData = message.data as? PlayerActionMessageData {
                 guard let player = playerActionMessageData.player?.player, let _ = playerActionMessageData.amount else { return }
-                self.gameControllerDelegate?.playerDidFold(player: player)
+                self.hostGameController.fold(player: player)
             }
         case .playerDidCheck:
             if let playerActionMessageData = message.data as? PlayerActionMessageData {
                 guard let player = playerActionMessageData.player?.player, let _ = playerActionMessageData.amount else { return }
-                self.gameControllerDelegate?.playerDidCheck(player: player)
+                self.hostGameController.check(player: player)
             }
         case .playerDidRaise:
             if let playerActionMessageData = message.data as? PlayerActionMessageData {
                 guard let player = playerActionMessageData.player?.player, let amount = playerActionMessageData.amount else { return }
-                self.gameControllerDelegate?.playerDidRaise(player: player, raise: amount)
+                self.hostGameController.bet(player: player, size: amount)
             }
         default:
             break
@@ -121,6 +121,7 @@ class HostGameCoordinator: GameCoordinator {
         gameStateData.commonCards = self.hostGameController.commonCards.map { $0.value }
         gameStateData.currentActivePlayerPosition = self.hostGameController.currentActivePlayerPosition
         gameStateData.street = self.hostGameController.street.rawValue
+        gameStateData.playersInfoData = self.holeCard(for: self.opponent!)
         return gameStateData
     }
 }

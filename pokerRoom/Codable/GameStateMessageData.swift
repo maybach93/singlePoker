@@ -14,6 +14,7 @@ class GameStateMessageData: MessageData {
     var currentActivePlayerPosition: Int?
     var commonCards: [Int]?
     var bigBlind: Float?
+    var playersInfoData: [PlayerInfoData]?
     
     override init() {
         super.init()
@@ -27,6 +28,7 @@ class GameStateMessageData: MessageData {
         case currentActivePlayerPosition
         case commonCards
         case bigBlind
+        case playersInfoData
     }
     
     override func encode(to encoder: Encoder) throws {
@@ -36,6 +38,7 @@ class GameStateMessageData: MessageData {
         try container.encode(currentActivePlayerPosition, forKey: .currentActivePlayerPosition)
         try container.encode(commonCards, forKey: .commonCards)
         try container.encode(bigBlind, forKey: .bigBlind)
+        try container.encode(playersInfoData, forKey: .playersInfoData)
     }
     
     required init(from decoder: Decoder) throws {
@@ -47,5 +50,6 @@ class GameStateMessageData: MessageData {
         currentActivePlayerPosition = try values.decode(Int.self, forKey: .currentActivePlayerPosition)
         commonCards = try values.decode(Array<Int>.self, forKey: .commonCards)
         bigBlind = try values.decode(Float.self, forKey: .bigBlind)
+        playersInfoData = try values.decode(Array<PlayerInfoData>.self, forKey: .playersInfoData)
     }
 }

@@ -106,12 +106,14 @@ class PeripheralGameCoordinator: GameCoordinator {
     //MARK: - Private
     
     private func updateGameController(stateData: GameStateMessageData) {
-        guard let bankAmount = stateData.bankAmount, let street = stateData.street, let commonCards = stateData.commonCards, let bigBlind = stateData.bigBlind, let currentActivePlayerPosition = stateData.currentActivePlayerPosition else { return }
+        guard let bankAmount = stateData.bankAmount, let street = stateData.street, let commonCards = stateData.commonCards, let bigBlind = stateData.bigBlind, let currentActivePlayerPosition = stateData.currentActivePlayerPosition,
+            let players = stateData.playersInfoData?.map ({ Player.init(playerInfoData: $0) }) else { return }
         self.gameController.currentBank = bankAmount
         self.gameController.street = Streets(rawValue: street)!
         self.gameController.commonCards = commonCards.map { Card(with: $0) }
         self.gameController.bigBlind = bigBlind
         self.gameController.currentActivePlayerPosition = currentActivePlayerPosition
+        self.gameController.players = players
     }
     
     private func sendPeripheralInfo() {
