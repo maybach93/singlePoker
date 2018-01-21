@@ -69,3 +69,36 @@ extension GameCoordinator: CommunicatorDelegate {
     }
 }
 
+extension GameCoordinator {
+    func _playerDidBet(player: Player, bet: Float) {
+        let playerActionMessageData = PlayerActionMessageData(amount: bet, player: player)
+        let message = Message(type: .playerDidBet, data: playerActionMessageData)
+        self.sendMessage(message: message)
+        self.gameControllerDelegate?.playerDidBet(player: player, bet: bet)
+    }
+    func _playerDidRaise(player: Player, raise: Float) {
+        let playerActionMessageData = PlayerActionMessageData(amount: raise, player: player)
+        let message = Message(type: .playerDidRaise, data: playerActionMessageData)
+        self.sendMessage(message: message)
+        self.gameControllerDelegate?.playerDidRaise(player: player, raise: raise)
+    }
+    func _playerDidCall(player: Player, call: Float) {
+        let playerActionMessageData = PlayerActionMessageData(amount: call, player: player)
+        let message = Message(type: .playerDidCall, data: playerActionMessageData)
+        self.sendMessage(message: message)
+        self.gameControllerDelegate?.playerDidCall(player: player, call: call)
+    }
+    func _playerDidFold(player: Player) {
+        let playerActionMessageData = PlayerActionMessageData(amount: 0, player: player)
+        let message = Message(type: .playerDidFold, data: playerActionMessageData)
+        self.sendMessage(message: message)
+        self.gameControllerDelegate?.playerDidFold(player: player)
+    }
+    func _playerDidCheck(player: Player) {
+        let playerActionMessageData = PlayerActionMessageData(amount: 0, player: player)
+        let message = Message(type: .playerDidCheck, data: playerActionMessageData)
+        self.sendMessage(message: message)
+        self.gameControllerDelegate?.playerDidCheck(player: player)
+    }
+}
+

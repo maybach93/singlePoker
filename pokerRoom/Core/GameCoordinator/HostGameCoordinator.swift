@@ -119,79 +119,64 @@ extension HostGameCoordinator: GameControllerDelegate {
     func bankAmountChanged() {
         let message = Message(type: .bankAmountChanged, data: gameStateData())
         self.sendMessage(message: message)
-        //only host
+        self.gameControllerDelegate?.bankAmountChanged()
     }
     func streetChanged() {
         let message = Message(type: .streetChanged, data: gameStateData())
         self.sendMessage(message: message)
-        //only host
+        self.gameControllerDelegate?.streetChanged()
     }
     func currentPlayerChanged() {
         let message = Message(type: .currentPlayerChanged, data: gameStateData())
         self.sendMessage(message: message)
-        //only host
+        self.gameControllerDelegate?.currentPlayerChanged()
     }
     func commonCardsUpdated() {
         let message = Message(type: .commonCardsUpdated, data: gameStateData())
         self.sendMessage(message: message)
-        //only host
+        self.gameControllerDelegate?.commonCardsUpdated()
     }
     func blindsUpdated() {
         let message = Message(type: .blindsUpdated, data: gameStateData())
         self.sendMessage(message: message)
-        //only host
+        self.gameControllerDelegate?.blindsUpdated()
     }
     func gameEnded(winner: Player) {
         let gameEndMessageData = GameEndMessageData(amount: 0, playersInfoData: self.holeCard(for: self.opponent!), winners: [PlayerInfoData(player: winner)])
         let message = Message(type: .gameEnded, data: gameEndMessageData)
         self.sendMessage(message: message)
-        //only host
+        self.gameControllerDelegate?.gameEnded(winner: winner)
     }
     
     func gameFinished(winner: Player, amount: Float, showOpponentCards: Bool) {
         let gameEndMessageData = GameEndMessageData(amount: amount, playersInfoData: self.holeCard(for: self.opponent!), winners: [PlayerInfoData(player: winner)])
         let message = Message(type: .gameFinished, data: gameEndMessageData)
         self.sendMessage(message: message)
-        //only host
+        self.gameControllerDelegate?.gameFinished(winner: winner, amount: amount, showOpponentCards: showOpponentCards)
     }
     func gameFinished(split: [Player], amount: Float) {
         let gameEndMessageData = GameEndMessageData(amount: amount, playersInfoData: self.holeCard(for: self.opponent!), winners: split.map { PlayerInfoData(player: $0) })
         let message = Message(type: .gameFinishedSplit, data: gameEndMessageData)
         self.sendMessage(message: message)
-        //only host
+        self.gameControllerDelegate?.gameFinished(split: split, amount: amount)
     }
     func winnerHand(hand: Hand) {
         //only host TO DO LATER
+        self.gameControllerDelegate?.winnerHand(hand: hand)
     }
     func playerDidBet(player: Player, bet: Float) {
-        let playerActionMessageData = PlayerActionMessageData(amount: bet, player: player)
-        let message = Message(type: .playerDidBet, data: playerActionMessageData)
-        self.sendMessage(message: message)
-        //both
+        _playerDidBet(player: player, bet: bet)
     }
     func playerDidRaise(player: Player, raise: Float) {
-        let playerActionMessageData = PlayerActionMessageData(amount: raise, player: player)
-        let message = Message(type: .playerDidRaise, data: playerActionMessageData)
-        self.sendMessage(message: message)
-        //both
+        _playerDidRaise(player: player, raise: raise)
     }
     func playerDidCall(player: Player, call: Float) {
-        let playerActionMessageData = PlayerActionMessageData(amount: call, player: player)
-        let message = Message(type: .playerDidCall, data: playerActionMessageData)
-        self.sendMessage(message: message)
-        //both
+        _playerDidCall(player: player, call: call)
     }
     func playerDidFold(player: Player) {
-        let playerActionMessageData = PlayerActionMessageData(amount: 0, player: player)
-        let message = Message(type: .playerDidFold, data: playerActionMessageData)
-        self.sendMessage(message: message)
-        //both
+        _playerDidFold(player: player)
     }
     func playerDidCheck(player: Player) {
-        let playerActionMessageData = PlayerActionMessageData(amount: 0, player: player)
-        let message = Message(type: .playerDidCheck, data: playerActionMessageData)
-        self.sendMessage(message: message)
-        //both
+        _playerDidCheck(player: player)
     }
-
 }

@@ -40,7 +40,13 @@ class GameController {
     
     var buttonPosition: Int = 0
     
-    var currentActivePlayerPosition: Int = 0 
+    var currentActivePlayerPosition: Int = 0 {
+        didSet {
+            if currentActivePlayerPosition != oldValue {
+                self.delegate?.currentPlayerChanged() 
+            }
+        }
+    }
     var currentActivePlayer: Player {
         get {
             return self.players[self.currentActivePlayerPosition]
@@ -57,18 +63,24 @@ class GameController {
     
     var currentBank: Float = 0 {
         didSet {
-            self.delegate?.bankAmountChanged()
+            if currentBank != oldValue {
+                self.delegate?.bankAmountChanged()
+            }
         }
     }
     
     var commonCards: [Card] = [] {
         didSet {
-            self.delegate?.commonCardsUpdated()
+            if commonCards != oldValue {
+                self.delegate?.commonCardsUpdated()
+            }
         }
     }
     var street: Streets = .none {
         didSet {
-            self.delegate?.streetChanged()
+            if street != oldValue {
+                self.delegate?.streetChanged()
+            }
         }
     }
     
