@@ -49,12 +49,12 @@ class HostGameCoordinator: GameCoordinator {
             
         case .playerDidBet:
             if let playerActionMessageData = message.data as? PlayerActionMessageData {
-                guard let _ = playerActionMessageData.player?.player, let amount = playerActionMessageData.amount else { return }
+                guard let player = playerActionMessageData.player?.player, let amount = playerActionMessageData.amount else { return }
                 self.hostGameController.bet(player: player, size: amount)
             }
         case .playerDidCall:
             if let playerActionMessageData = message.data as? PlayerActionMessageData {
-                guard let _ = playerActionMessageData.player?.player, let amount = playerActionMessageData.amount else { return }
+                guard let player = playerActionMessageData.player?.player, let amount = playerActionMessageData.amount else { return }
                 self.hostGameController.call(player: player)
             }
         case .playerDidFold:

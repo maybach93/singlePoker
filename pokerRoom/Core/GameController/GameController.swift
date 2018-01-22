@@ -88,12 +88,6 @@ class GameController {
     }
 
     internal func bet(size: Float) {
-        guard size >= self.minimalBet && size <= self.maximumBet else { return }
-        guard self.myPlayer.balance >= size else { return }
-        self.myPlayer.balance -= size
-        self.myPlayer.bet += size
-        self.myPlayer.isPlayed = true
-        self.currentBank += size
         if self.isBetAvaliable {
             self.delegate?.playerDidBet(player: self.myPlayer, bet: size)
         } else {
@@ -115,24 +109,18 @@ class GameController {
     //MARK: - actions
     
     func check() {
-        guard self.isCheckAvaliable else { return }
-        self.myPlayer.isPlayed = true
         self.delegate?.playerDidCheck(player: self.myPlayer)
     }
     
     func fold() {
-        self.myPlayer.isPlayed = true
-        self.myPlayer.isFold = true
         self.delegate?.playerDidFold(player: self.myPlayer)
     }
     
     //func
     
     func call() {
-        self.currentActivePlayer.isPlayed = true
         let currentBet = self.currentActivePlayer.bet
         let callSize = self.currentMaxBet - currentBet
-        self.bet(size: callSize)
         self.delegate?.playerDidCall(player: self.myPlayer, call: callSize)
     }
 }

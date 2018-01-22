@@ -62,9 +62,9 @@ class HostGameController: GameController {
     }
     
     private func placeBlinds() {
-        self.bet(size: self.bigBlind / 2, playerIndex: self.buttonPosition)
+        self.bet(size: self.bigBlind / 2, playerPosition: self.buttonPosition)
         let bigBlindIndex = self.nextPlayer(from: self.buttonPosition)
-        self.bet(size: self.bigBlind, playerIndex: bigBlindIndex)
+        self.bet(size: self.bigBlind, playerPosition: bigBlindIndex)
     }
     
     internal func nextPlayerAction() {
@@ -81,8 +81,10 @@ class HostGameController: GameController {
         }
     }
     
-    internal func bet(size: Float, playerIndex: Int) {
-        let player = self.players[playerIndex]
+    
+    //Bet any player
+    internal func bet(size: Float, playerPosition: Int) {
+        guard let player = self.player(with: playerPosition) else { return }
         guard player.balance >= size else { return }
         player.balance -= size
         player.bet += size
@@ -124,26 +126,25 @@ class HostGameController: GameController {
     //MARK: - actions
     
     override func check() {
-        guard self.isCheckAvaliable else { return }
         super.check()
-        self.nextPlayerAction()
+        self.check(player: self.myPlayer)
     }
     
     override func fold() {
         super.fold()
-        self.nextPlayerAction()
+        self.fold(player: self.myPlayer)
     }
     
     override func call() {
         super.call()
-        self.nextPlayerAction()
+        self.call(player: self.myPlayer)
     }
     
+    //Bet or raise
     override func bet(size: Float) {
         guard (size >= self.minimalBet && size <= self.maximumBet) || (self.maximumBet - self.minimalBet < self.bigBlind) else { return }
-        guard self.myPlayer.balance >= size else { return }
         super.bet(size: size)
-        self.nextPlayerAction()
+        self.bet(player: self.myPlayer, size: size)
     }
     
     func check(player: Player) {
@@ -162,28 +163,31 @@ class HostGameController: GameController {
         self.currentActivePlayer.isPlayed = true
         let currentBet = self.currentActivePlayer.bet
         let callSize = self.currentMaxBet - currentBet
-        self.bet(player: player, size: callSize)
+        self.bet(size: callSize, playerPosition: self.currentActivePlayer.position)
+        self.nextPlayerAction()
     }
     
     func bet(player: Player, size: Float) {
         guard self.currentActivePlayer.balance >= size else { return }
-        self.currentActivePlayer.balance -= size
-        self.currentActivePlayer.bet += size
-        self.currentBank += size
+        self.currentActivePlayer.isPlayed = true
+        self.bet(size: size, playerPosition: self.currentActivePlayer.position)
         self.nextPlayerAction()
     }
     
     //MARK: - Indexes
     
-    internal func nextPlayer(from index: Int) -> Int {
-        if index <= 0 {
+    internal func nextPlayer(from position: Int) -> Int {
+        if position <= 0 {
             return self.players.count - 1
         }
-        return index - 1
+        return position - 1
     }
     
     internal func player(with id: String) -> Player? {
         return self.players.filter { $0.id == id }.first
+    }
+    internal func player(with position: Int) -> Player? {
+        return self.players.filter { $0.position == position }.first
     }
     
     internal func nextActivePlayer(from player: Player) -> Int {

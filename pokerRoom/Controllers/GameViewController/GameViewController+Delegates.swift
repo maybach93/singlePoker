@@ -19,7 +19,6 @@ extension GameViewController: GameControllerDelegate {
         self.showCurrentCards()
         
         self.addInfoLabel(text: "Ничья, банк разделен между " + split[0].name + " и " + split[1].name + " Выигрыш: " + "\(amount)")
-        self.view.isUserInteractionEnabled = false
     }
     
     func playerDidBet(player: Player, bet: Float) {
