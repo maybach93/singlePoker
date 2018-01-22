@@ -14,6 +14,7 @@ extension HostGameController {
     
     func nextStreetIfPossible() -> Bool {
         guard self.street != .river else { return false }
+        self.resetPlayersNextStreet()
         let nextStreet = self.street.rawValue + 1
         self.run(street: Streets(rawValue: nextStreet)!)
         return true
@@ -34,7 +35,6 @@ extension HostGameController {
         default:
             break
         }
-        self.resetPlayersNextStreet()
         self.setFirstActivePlayer()
     }
     func finishWihoutShowdown(player: Player) {

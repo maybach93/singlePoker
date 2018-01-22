@@ -18,11 +18,6 @@ class PeripheralGameController: GameController {
     }
 
     //MARK : - check
-
-    
-    override func bet(size: Float) {
-
-    }
     
     //MARK: - Indexes
     

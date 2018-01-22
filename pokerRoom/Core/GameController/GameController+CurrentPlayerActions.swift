@@ -12,6 +12,7 @@ extension GameController {
     
     var currentMaxBet: Float {
         get {
+            
             var maxBet: Float = 0
             for player in self.players {
                 if player.bet >= maxBet {
@@ -43,13 +44,14 @@ extension GameController {
     
     var isCheckAvaliable: Bool {
         get {
-            return self.myPlayer.bet == self.currentMaxBet
+            let allBets = self.players.map { $0.bet }
+            return allBets.filter { $0 == allBets.first! }.count == allBets.count
         }
     }
     
     var isCallAvaliable: Bool {
         get {
-            return self.myPlayer.bet < self.currentMaxBet
+            return self.currentActivePlayer.bet < self.currentMaxBet
         }
     }
     
@@ -61,7 +63,7 @@ extension GameController {
     
     var isRaiseAvaliable: Bool {
         get {
-            return (self.myPlayer.balance > self.currentMaxBet && self.myPlayer.balance > 0 && !self.allOpponentsAllIn)
+            return (self.currentActivePlayer.balance > self.currentMaxBet && self.currentActivePlayer.balance > 0 && !self.allOpponentsAllIn)
         }
     }
     
@@ -73,7 +75,7 @@ extension GameController {
     
     var maximumBet: Float {
         get {
-            return min(self.myPlayer.balance, self.maxBetAvaliable)
+            return min(self.currentActivePlayer.balance, self.maxBetAvaliable)
         }
     }
     

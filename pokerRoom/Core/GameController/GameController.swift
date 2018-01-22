@@ -28,13 +28,7 @@ class GameController {
     var players: [Player] = []
     var activePlayers: [Player] {
         get {
-            var activePlayers:[Player] = []
-            for player in self.players {
-                if !player.isFold {
-                    activePlayers.append(player)
-                }
-            }
-            return activePlayers
+            return self.players.filter { !$0.isFold }
         }
     }
     
@@ -138,8 +132,8 @@ class GameController {
         self.currentActivePlayer.isPlayed = true
         let currentBet = self.currentActivePlayer.bet
         let callSize = self.currentMaxBet - currentBet
+        self.bet(size: callSize)
         self.delegate?.playerDidCall(player: self.myPlayer, call: callSize)
-        self.bet(size: self.currentMaxBet - currentBet)
     }
 }
 

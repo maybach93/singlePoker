@@ -48,12 +48,12 @@ extension GameViewController: GameControllerDelegate {
     }
     
     func streetChanged() {
+        self.updateUI()
         self.addInfoLabel(text: self.gameController.street.textRepresentation)
     }
     
     func currentPlayerChanged() {
         self.updateUI()
-
         self.addInfoLabel(text: self.gameController.currentActivePlayer.name + ", ваш ход!")
     }
 

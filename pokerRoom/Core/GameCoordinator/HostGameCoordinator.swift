@@ -12,11 +12,7 @@ class HostGameCoordinator: GameCoordinator {
     
     //MARK: - Variables
     
-    var opponent: Player? {
-        get {
-            return gameController.players.filter { $0.id != player.id }.first
-        }
-    }
+    var opponent: Player?
     var centralCommunicator: CentralCommunicator {
         get {
             return self.communicator as! CentralCommunicator
@@ -88,6 +84,7 @@ class HostGameCoordinator: GameCoordinator {
     private func startGame(peripheralInfoData: PlayerInfoData) {
         guard let sGameConfiguration = self.gameConfiguration else { return }
         let peripheralPlayer = Player(playerInfoData: peripheralInfoData)
+        self.opponent = peripheralPlayer
         let players = [player, peripheralPlayer]
         for (index, player) in players.enumerated() {
             player.balance = sGameConfiguration.startStack

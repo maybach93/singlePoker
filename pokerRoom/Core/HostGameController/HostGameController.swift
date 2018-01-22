@@ -140,7 +140,7 @@ class HostGameController: GameController {
     }
     
     override func bet(size: Float) {
-        guard size >= self.minimalBet && size <= self.maximumBet else { return }
+        guard (size >= self.minimalBet && size <= self.maximumBet) || (self.maximumBet - self.minimalBet < self.bigBlind) else { return }
         guard self.myPlayer.balance >= size else { return }
         super.bet(size: size)
         self.nextPlayerAction()
@@ -153,8 +153,8 @@ class HostGameController: GameController {
     }
     
     func fold(player: Player) {
-        player.isPlayed = true
-        player.isFold = true
+        self.currentActivePlayer.isPlayed = true
+        self.currentActivePlayer.isFold = true
         self.nextPlayerAction()
     }
 
@@ -182,9 +182,13 @@ class HostGameController: GameController {
         return index - 1
     }
     
+    internal func player(with id: String) -> Player? {
+        return self.players.filter { $0.id == id }.first
+    }
+    
     internal func nextActivePlayer(from player: Player) -> Int {
         guard let index = self.activePlayers.index(where: { (cPlayer) -> Bool in
-            return cPlayer.name == player.name
+            return cPlayer.id == player.id
         }) else { return -1 }
         if index <= 0 {
             return self.activePlayers.count - 1
