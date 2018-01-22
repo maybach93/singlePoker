@@ -27,7 +27,6 @@ class GameViewController: UIViewController {
     
     @IBOutlet weak var balanceLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var readyButton: UIButton!
     @IBOutlet weak var betLabel: UILabel!
     @IBOutlet weak var cardsLabel: UILabel!
     
@@ -57,13 +56,6 @@ class GameViewController: UIViewController {
     
     //MARK: - Actions
     
-    @IBAction func showButtonPressed(_ sender: Any) {
-        self.hideCurrentCards()
-    }
-    @IBAction func showButtonTouchDown(_ sender: Any) {
-        self.showCurrentCards()
-        self.markShownCards()
-    }
     @IBAction func checkFoldButtonPressed(_ sender: Any) {
         if self.gameController.isCheckAvaliable {
             self.gameController.check()

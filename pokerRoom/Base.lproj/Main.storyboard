@@ -300,31 +300,17 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="176" height="130"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Баланс: 3000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xXd-Jj-mPj">
-                                                        <rect key="frame" x="33" y="0.0" width="110" height="23.5"/>
+                                                        <rect key="frame" x="33" y="0.0" width="110" height="42.5"/>
                                                         <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="18"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Виталий" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="os0-9A-eRJ">
-                                                        <rect key="frame" x="39.5" y="12" width="97.5" height="83"/>
+                                                        <rect key="frame" x="39.5" y="31" width="97.5" height="99"/>
                                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="24"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aYK-Re-1wD">
-                                                        <rect key="frame" x="45.5" y="85" width="85" height="45"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="45" id="3SU-vI-iNt"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                        <state key="normal" title="Показать">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="showButtonPressed:" destination="uQe-Pv-JMr" eventType="touchUpInside" id="rWN-re-mHv"/>
-                                                            <action selector="showButtonTouchDown:" destination="uQe-Pv-JMr" eventType="touchDown" id="cp9-Tg-1xj"/>
-                                                        </connections>
-                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.81505186486611447" green="1" blue="0.46328590281586735" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </stackView>
@@ -504,7 +490,6 @@
                         <outlet property="opponentBetLabel" destination="hxl-0U-qX5" id="RRu-KL-cTP"/>
                         <outlet property="opponentCardsLabel" destination="xub-kI-Pbm" id="lnS-Hv-H8r"/>
                         <outlet property="opponentNameLabel" destination="M55-AQ-CN3" id="tEX-oX-Ukb"/>
-                        <outlet property="readyButton" destination="aYK-Re-1wD" id="Anb-ai-Pqv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="atj-1r-a3D" sceneMemberID="firstResponder"/>
