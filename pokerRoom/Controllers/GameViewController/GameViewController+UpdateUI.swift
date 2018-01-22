@@ -53,7 +53,7 @@ extension GameViewController {
         self.cardsLabel.text = Card.textRepresentation(cards: self.gameController.myPlayer.cards)
     }
     func hideCurrentCards() {
-        self.cardsLabel.text =  "🎴🎴"
+        //self.cardsLabel.text =  "🎴🎴"
     }
     func markShownCards() {
         self.readyButton.setTitleColor(UIColor.lightGray, for: .normal)

@@ -141,6 +141,7 @@ class HostGameController: GameController {
     
     override func bet(size: Float) {
         guard size >= self.minimalBet && size <= self.maximumBet else { return }
+        guard self.myPlayer.balance >= size else { return }
         super.bet(size: size)
         self.nextPlayerAction()
     }
@@ -165,11 +166,9 @@ class HostGameController: GameController {
     }
     
     func bet(player: Player, size: Float) {
-        guard size >= self.minimalBet && size <= self.maximumBet else { return }
         guard self.currentActivePlayer.balance >= size else { return }
         self.currentActivePlayer.balance -= size
         self.currentActivePlayer.bet += size
-        self.currentActivePlayer.isPlayed = true
         self.currentBank += size
         self.nextPlayerAction()
     }
@@ -193,6 +192,6 @@ class HostGameController: GameController {
         return index - 1
     }
     
-
+    
 }
 

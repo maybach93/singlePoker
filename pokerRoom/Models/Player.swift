@@ -30,6 +30,7 @@ class Player {
         self.id = playerInfoData.id ?? ""
         self.balance = playerInfoData.balance ?? 0
         self.bet = playerInfoData.bet ?? 0
+        self.cards = playerInfoData.cards.map { Card(with: $0) }
         self.isFold = playerInfoData.isFold ?? false
         self.isPlayed = playerInfoData.isPlayed ?? false
     }
