@@ -91,6 +91,8 @@ class HostGameCoordinator: GameCoordinator {
             player.position = index
         }
         self.hostGameController.players = players
+        self.hostGameController.bigBlind = sGameConfiguration.bigBlind;
+        self.hostGameController.blindsUpdateTime = sGameConfiguration.blindsUpdateTime;
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             self.hostGameController.start()
         }

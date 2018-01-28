@@ -62,9 +62,10 @@ class HostGameController: GameController {
     }
     
     private func placeBlinds() {
-        self.bet(size: self.bigBlind / 2, playerPosition: self.buttonPosition)
+        let maxBetAvaliable = self.maxBetAvaliable;
+        self.bet(size: min(maxBetAvaliable, self.bigBlind / 2), playerPosition: self.buttonPosition)
         let bigBlindIndex = self.nextPlayer(from: self.buttonPosition)
-        self.bet(size: self.bigBlind, playerPosition: bigBlindIndex)
+        self.bet(size: min(maxBetAvaliable, self.bigBlind), playerPosition: bigBlindIndex)
     }
     
     internal func nextPlayerAction() {
@@ -142,7 +143,6 @@ class HostGameController: GameController {
     
     //Bet or raise
     override func bet(size: Float) {
-        guard (size >= self.minimalBet && size <= self.maximumBet) || (self.maximumBet - self.minimalBet < self.bigBlind) else { return }
         super.bet(size: size)
         self.bet(player: self.myPlayer, size: size)
     }

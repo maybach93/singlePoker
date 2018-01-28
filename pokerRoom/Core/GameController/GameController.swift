@@ -119,9 +119,7 @@ class GameController {
     //func
     
     func call() {
-        let currentBet = self.currentActivePlayer.bet
-        let callSize = self.currentMaxBet - currentBet
-        self.delegate?.playerDidCall(player: self.myPlayer, call: callSize)
+        self.delegate?.playerDidCall(player: self.myPlayer, call: self.currentCallSize)
     }
 }
 
