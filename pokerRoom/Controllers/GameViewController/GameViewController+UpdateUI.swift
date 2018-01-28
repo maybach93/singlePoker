@@ -37,15 +37,9 @@ extension GameViewController {
         self.betSlider.value = self.gameController.minimalBet
         self.checkFoldButton.setTitle(self.gameController.isCheckAvaliable ? "Чек" : "Фолд", for: .normal)
         self.betRaiseButton.setTitle(self.gameController.isBetAvaliable ? "Бэт" : "Рэйз", for: .normal)
-        
-        self.betRaiseButton.alpha = self.gameController.isMeActivePlayer ? 1 : 0
-        self.checkFoldButton.alpha = self.gameController.isMeActivePlayer ? 1 : 0 //TO DO LAYOUT
+        self.checkFoldButton.isHidden = !self.gameController.isMeActivePlayer
+    }
 
-    }
-    
-    func set(view: UIView, visible: Bool) {
-        view.alpha = visible ? 1 : 0
-    }
     func updateBetsValue() {
         self.betSizeLabel.text = "\(self.betSlider.value)"
     }

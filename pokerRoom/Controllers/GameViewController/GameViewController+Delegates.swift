@@ -68,8 +68,8 @@ extension GameViewController: GameControllerDelegate {
     func gameEnded(winner: Player) {
         self.addInfoLabel(text: "Победитель: " + "\(winner.name)" + ", Поздравляем!")
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [weak self] in
-            self?.dismiss(animated: true, completion: nil)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) { [weak self] in
+            self?.navigationController?.popToRootViewController(animated: true)
         }
     }
     func blindsUpdated() {
