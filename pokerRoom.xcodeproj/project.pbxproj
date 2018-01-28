@@ -250,7 +250,6 @@
 				199F29182014B10100DF84E4 /* HostGameController */,
 				19C1F747201486E900D2AC9F /* PeripheralGameController */,
 				19C1F7362013C91600D2AC9F /* GameCoordinator */,
-				19C1F7352013C8CE00D2AC9F /* Server */,
 				1998964C2013AB9C0042FBC6 /* Communicator */,
 				1939599C1F0AC05A005E2148 /* RandomPokerMachine.swift */,
 				19C1F7392013D04E00D2AC9F /* MessagesConverter.swift */,
@@ -309,13 +308,6 @@
 				199F29232014C67E00DF84E4 /* GameEndMessageData.swift */,
 			);
 			path = Codable;
-			sourceTree = "<group>";
-		};
-		19C1F7352013C8CE00D2AC9F /* Server */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Server;
 			sourceTree = "<group>";
 		};
 		19C1F7362013C91600D2AC9F /* GameCoordinator */ = {

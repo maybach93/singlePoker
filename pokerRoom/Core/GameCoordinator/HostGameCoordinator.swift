@@ -54,7 +54,7 @@ class HostGameCoordinator: GameCoordinator {
             }
         case .playerDidCall:
             if let playerActionMessageData = message.data as? PlayerActionMessageData {
-                guard let player = playerActionMessageData.player?.player, let amount = playerActionMessageData.amount else { return }
+                guard let player = playerActionMessageData.player?.player, let _ = playerActionMessageData.amount else { return }
                 self.hostGameController.call(player: player)
             }
         case .playerDidFold:
@@ -96,7 +96,7 @@ class HostGameCoordinator: GameCoordinator {
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             self.hostGameController.start()
         }
-        self.newGameStarted()
+    
         self.delegate?.newGameStarted()
     }
     

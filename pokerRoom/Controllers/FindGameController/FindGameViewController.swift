@@ -52,5 +52,6 @@ class FindGameViewController: UIViewController {
 extension FindGameViewController: GameCoordinatorDelegate {
     func newGameStarted() {
         self.performSegue(withIdentifier: Constants().gameControllerSegueIdentifier, sender: self)
+        self.coordinator?.delegate = nil
     }
 }

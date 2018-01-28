@@ -13,6 +13,7 @@ extension GameViewController {
     func updateUI() {
         self.updatePlayer(player: self.gameController.myPlayer)
         self.updateOpponent(player: self.opponent())
+        self.setUI(enabled: self.gameController.isMeActivePlayer)
     }
     
     func updateOpponent(player: Player) {
@@ -40,6 +41,13 @@ extension GameViewController {
         self.checkFoldButton.isHidden = !self.gameController.isMeActivePlayer
     }
 
+    func setUI(enabled: Bool) {
+        self.betSlider.isEnabled = enabled
+        self.checkFoldButton.isEnabled = enabled
+        self.betRaiseButton.isEnabled = enabled
+        self.callButton.isEnabled = enabled
+    }
+    
     func updateBetsValue() {
         self.betSizeLabel.text = "\(self.betSlider.value)"
     }
