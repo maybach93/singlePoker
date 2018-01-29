@@ -63,8 +63,9 @@ class PeripheralGameCoordinator: GameCoordinator {
             }
         case .gameFinished:
             if let gameEndMessageData = message.data as? GameEndMessageData {
-                guard let winner = gameEndMessageData.winners?.first?.player, let amount = gameEndMessageData.amount else { return }
-                self.gameControllerDelegate?.gameFinished(winner: winner, amount: amount, showOpponentCards: false) //TO DO show cards
+                guard let winner = gameEndMessageData.winners?.first?.player, let amount = gameEndMessageData.amount, let playerInfo = gameEndMessageData.playersInfoData, let showOpponentCards = gameEndMessageData.showOpponentCards else { return }
+                self.gameController.players = playerInfo.map ({ Player.init(playerInfoData: $0) })
+                self.gameControllerDelegate?.gameFinished(winner: winner, amount: amount, showOpponentCards: showOpponentCards)
             }
         case .gameFinishedSplit:
             if let gameEndMessageData = message.data as? GameEndMessageData {
@@ -109,11 +110,17 @@ class PeripheralGameCoordinator: GameCoordinator {
         guard let bankAmount = stateData.bankAmount, let street = stateData.street, let commonCards = stateData.commonCards, let bigBlind = stateData.bigBlind, let currentActivePlayerPosition = stateData.currentActivePlayerPosition,
             let players = stateData.playersInfoData?.map ({ Player.init(playerInfoData: $0) }) else { return }
         self.gameController.players = players
-        self.gameController.currentBank = bankAmount
+        if self.gameController.currentBank != bankAmount {
+            self.gameController.currentBank = bankAmount
+        }
         self.gameController.street = Streets(rawValue: street)!
         self.gameController.commonCards = commonCards.map { Card(with: $0) }
-        self.gameController.bigBlind = bigBlind
-        self.gameController.currentActivePlayerPosition = currentActivePlayerPosition
+        if self.gameController.bigBlind != bigBlind {
+            self.gameController.bigBlind = bigBlind
+        }
+        if self.gameController.currentActivePlayerPosition != currentActivePlayerPosition {
+            self.gameController.currentActivePlayerPosition = currentActivePlayerPosition
+        }
     }
     
     private func sendPeripheralInfo() {

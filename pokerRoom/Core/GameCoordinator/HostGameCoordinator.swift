@@ -100,15 +100,19 @@ class HostGameCoordinator: GameCoordinator {
         self.delegate?.newGameStarted()
     }
     
-    fileprivate func holeCard(for player: Player) -> [PlayerInfoData] {
+    fileprivate func holeCard(for player: Player?) -> [PlayerInfoData] {
         var playersInfoData = [PlayerInfoData]()
+        
         
         for currentPlayer in gameController.players {
             let playerInfoData = PlayerInfoData(player: currentPlayer)
-            if currentPlayer.id == player.id {
-                playerInfoData.cards = currentPlayer.cards.map { $0.value }
-            }
             playersInfoData.append(playerInfoData)
+            if let sPlayer = player {
+                if currentPlayer.id != sPlayer.id {
+                    continue
+                }
+            }
+            playerInfoData.cards = currentPlayer.cards.map { $0.value }
         }
         return playersInfoData
     }
@@ -172,27 +176,27 @@ extension HostGameCoordinator: GameControllerDelegate {
         self.gameControllerDelegate?.blindsUpdated()
     }
     func gameEnded(winner: Player) {
-        let gameEndMessageData = GameEndMessageData(amount: 0, playersInfoData: self.holeCard(for: self.opponent!), winners: [PlayerInfoData(player: winner)])
+        let gameEndMessageData = GameEndMessageData(amount: 0, playersInfoData: self.holeCard(for: self.opponent!), winners: [PlayerInfoData(player: winner)], showOpponentCards: false)
         let message = Message(type: .gameEnded, data: gameEndMessageData)
         self.sendMessage(message: message)
         self.gameControllerDelegate?.gameEnded(winner: winner)
     }
     
     func gameFinished(winner: Player, amount: Float, showOpponentCards: Bool) {
-        let gameEndMessageData = GameEndMessageData(amount: amount, playersInfoData: self.holeCard(for: self.opponent!), winners: [PlayerInfoData(player: winner)])
+        let gameEndMessageData = GameEndMessageData(amount: amount, playersInfoData: self.holeCard(for: self.opponent!), winners: [PlayerInfoData(player: winner)], showOpponentCards: showOpponentCards)
         let message = Message(type: .gameFinished, data: gameEndMessageData)
         self.sendMessage(message: message)
         self.gameControllerDelegate?.gameFinished(winner: winner, amount: amount, showOpponentCards: showOpponentCards)
     }
     func gameFinished(split: [Player], amount: Float) {
-        let gameEndMessageData = GameEndMessageData(amount: amount, playersInfoData: self.holeCard(for: self.opponent!), winners: split.map { PlayerInfoData(player: $0) })
+        let gameEndMessageData = GameEndMessageData(amount: amount, playersInfoData: self.holeCard(for: self.opponent!), winners: split.map { PlayerInfoData(player: $0) }, showOpponentCards: false)
         let message = Message(type: .gameFinishedSplit, data: gameEndMessageData)
         self.sendMessage(message: message)
         self.gameControllerDelegate?.gameFinished(split: split, amount: amount)
     }
     func winnerHand(hand: Hand) {
         //only host TO DO LATER
-        self.gameControllerDelegate?.winnerHand(hand: hand)
+        //self.gameControllerDelegate?.winnerHand(hand: hand)
     }
     func playerDidBet(player: Player, bet: Float) {
         _playerDidBet(player: player, bet: bet)

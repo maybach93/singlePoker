@@ -16,6 +16,7 @@ class GameEndMessageData: MessageData {
     var winners: [PlayerInfoData]?
     var playersInfoData: [PlayerInfoData]?
     var amount: Float?
+    var showOpponentCards: Bool?
     
     //MARK: - Lifecycle
     
@@ -23,11 +24,12 @@ class GameEndMessageData: MessageData {
         super.init()
     }
     
-    convenience init(amount: Float, playersInfoData: [PlayerInfoData], winners: [PlayerInfoData]) {
+    convenience init(amount: Float, playersInfoData: [PlayerInfoData], winners: [PlayerInfoData], showOpponentCards: Bool) {
         self.init()
         self.amount = amount
         self.playersInfoData = playersInfoData
         self.winners = winners
+        self.showOpponentCards = showOpponentCards
     }
     
     //MARK: - Codable
@@ -36,6 +38,7 @@ class GameEndMessageData: MessageData {
         case amount
         case playersInfoData
         case winners
+        case showOpponentCards
     }
     
     override func encode(to encoder: Encoder) throws {
@@ -43,6 +46,7 @@ class GameEndMessageData: MessageData {
         try container.encode(amount, forKey: .amount)
         try container.encode(playersInfoData, forKey: .playersInfoData)
         try container.encode(winners, forKey: .winners)
+        try container.encode(showOpponentCards, forKey: .showOpponentCards)
     }
     
     required init(from decoder: Decoder) throws {
@@ -52,5 +56,6 @@ class GameEndMessageData: MessageData {
         amount = try values.decode(Float.self, forKey: .amount)
         playersInfoData = try values.decode(Array<PlayerInfoData>.self, forKey: .playersInfoData)
         winners = try values.decode(Array<PlayerInfoData>.self, forKey: .winners)
+        showOpponentCards = try values.decode(Bool.self, forKey: .showOpponentCards)
     }
 }

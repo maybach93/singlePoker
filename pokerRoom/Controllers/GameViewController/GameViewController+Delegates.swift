@@ -60,8 +60,7 @@ extension GameViewController: GameControllerDelegate {
         self.addInfoLabel(text: "Выиграл " + winner.name + " Выигрыш: " + "\(amount)")
         if showOpponentCards {
             self.opponentCardsLabel.text = Card.textRepresentation(cards: self.opponent().cards)
-            self.showCurrentCards()
-            self.addInfoLabel(text: "Карты победителя: " + Card.textRepresentation(cards: winner.cards))
+            self.addInfoLabel(text: "Карты победителя: " + Card.textRepresentation(cards: self.opponent().cards))
         }
         
     }
