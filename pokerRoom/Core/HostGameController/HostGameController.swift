@@ -75,7 +75,6 @@ class HostGameController: GameController {
         if self.checkIfPlayerShouldPlay(player: nextPlayer) {
             self.currentActivePlayerPosition = self.index(of: nextPlayer)
         } else if self.nextStreetIfPossible() {
-            self.delegate?.currentPlayerChanged()
         } else {
             self.finishWithShowdown()
         }

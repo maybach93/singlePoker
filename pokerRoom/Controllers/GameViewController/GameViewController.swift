@@ -57,20 +57,20 @@ class GameViewController: UIViewController {
     //MARK: - Actions
     
     @IBAction func checkFoldButtonPressed(_ sender: Any) {
+        self.setUI(enabled: false)
         if self.gameController.isCheckAvaliable {
             self.gameController.check()
         } else {
             self.gameController.fold()
         }
-        self.setUI(enabled: false)
     }
     @IBAction func callButtonPressed(_ sender: Any) {
-        self.gameController.call()
         self.setUI(enabled: false)
+        self.gameController.call()
     }
     @IBAction func betRaiseButtonPressed(_ sender: Any) {
-        self.gameController.bet(size: self.betSlider.value)
         self.setUI(enabled: false)
+        self.gameController.bet(size: self.betSlider.value)
     }
     @IBAction func betSliderValueChanged(_ sender: Any) {
         let roundAmount = self.gameController.bigBlind / 2

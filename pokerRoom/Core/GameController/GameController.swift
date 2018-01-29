@@ -36,9 +36,7 @@ class GameController {
     
     var currentActivePlayerPosition: Int = 0 {
         didSet {
-            if currentActivePlayerPosition != oldValue {
-                self.delegate?.currentPlayerChanged() 
-            }
+            self.delegate?.currentPlayerChanged()
         }
     }
     var currentActivePlayer: Player {
