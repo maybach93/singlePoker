@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		190D65192020F7A000908E26 /* GameKitCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190D65182020F7A000908E26 /* GameKitCommunicator.swift */; };
+		190D651B2020FAD400908E26 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 190D651A2020FAD400908E26 /* GameKit.framework */; };
 		191BCE621F0D613500A035B8 /* GameController+Stages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191BCE5E1F0D613500A035B8 /* GameController+Stages.swift */; };
 		191BCE641F0D889700A035B8 /* SerialTaskQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191BCE631F0D889700A035B8 /* SerialTaskQueue.swift */; };
 		193959851F0AAED3005E2148 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193959841F0AAED3005E2148 /* AppDelegate.swift */; };
@@ -59,6 +61,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		190D65182020F7A000908E26 /* GameKitCommunicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameKitCommunicator.swift; sourceTree = "<group>"; };
+		190D651A2020FAD400908E26 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		191BCE5E1F0D613500A035B8 /* GameController+Stages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "GameController+Stages.swift"; path = "pokerRoom/Core/GameController/GameController+Stages.swift"; sourceTree = SOURCE_ROOT; };
 		191BCE631F0D889700A035B8 /* SerialTaskQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerialTaskQueue.swift; sourceTree = "<group>"; };
 		193959811F0AAED3005E2148 /* pokerRoom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pokerRoom.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,12 +124,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F9ACC2672932417F8F4140C /* Pods_pokerRoom.framework in Frameworks */,
+				190D651B2020FAD400908E26 /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		190D65162020F75600908E26 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				190D65172020F77200908E26 /* GameCenterCommunicator */,
+				1998964C2013AB9C0042FBC6 /* BluetoothCommunicator */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		190D65172020F77200908E26 /* GameCenterCommunicator */ = {
+			isa = PBXGroup;
+			children = (
+				190D65182020F7A000908E26 /* GameKitCommunicator.swift */,
+			);
+			path = GameCenterCommunicator;
+			sourceTree = "<group>";
+		};
 		193959781F0AAED3005E2148 = {
 			isa = PBXGroup;
 			children = (
@@ -246,11 +268,11 @@
 		199896492013AB680042FBC6 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				190D65162020F75600908E26 /* Networking */,
 				1998964A2013AB800042FBC6 /* GameController */,
 				199F29182014B10100DF84E4 /* HostGameController */,
 				19C1F747201486E900D2AC9F /* PeripheralGameController */,
 				19C1F7362013C91600D2AC9F /* GameCoordinator */,
-				1998964C2013AB9C0042FBC6 /* Communicator */,
 				1939599C1F0AC05A005E2148 /* RandomPokerMachine.swift */,
 				19C1F7392013D04E00D2AC9F /* MessagesConverter.swift */,
 			);
@@ -267,14 +289,14 @@
 			path = GameController;
 			sourceTree = "<group>";
 		};
-		1998964C2013AB9C0042FBC6 /* Communicator */ = {
+		1998964C2013AB9C0042FBC6 /* BluetoothCommunicator */ = {
 			isa = PBXGroup;
 			children = (
 				1998964D2013ABBD0042FBC6 /* GeneralCommunicator.swift */,
 				1998964F2013ABDA0042FBC6 /* CentralCommunicator.swift */,
 				199896512013AC180042FBC6 /* PeripheralCommunicator.swift */,
 			);
-			path = Communicator;
+			path = BluetoothCommunicator;
 			sourceTree = "<group>";
 		};
 		199F29182014B10100DF84E4 /* HostGameController */ = {
@@ -331,6 +353,7 @@
 		26D3E0D176E952F60C1F7A95 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				190D651A2020FAD400908E26 /* GameKit.framework */,
 				50E72348CFEFE1BE3607CB9D /* Pods_pokerRoom.framework */,
 			);
 			name = Frameworks;
@@ -358,6 +381,7 @@
 				1939597F1F0AAED3005E2148 /* Resources */,
 				4B51A9B41D951BF521BD8835 /* [CP] Embed Pods Frameworks */,
 				A32E2B737466402002E4187D /* [CP] Copy Pods Resources */,
+				190D651C2021093F00908E26 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -380,8 +404,13 @@
 				TargetAttributes = {
 					193959801F0AAED3005E2148 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = YFADDH8BLW;
+						DevelopmentTeam = T59XUREV6G;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.GameCenter = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -417,6 +446,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		190D651C2021093F00908E26 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 0ee241c9605cc364f5dee8401bb2c677b35a8488 86677c4da96a20cccd488f2af37898465c1c999c8214602cf5e9a735fefb7b39";
+		};
 		4B51A9B41D951BF521BD8835 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -482,6 +524,7 @@
 				199896462013AB420042FBC6 /* GameViewController+UpdateUI.swift in Sources */,
 				191BCE621F0D613500A035B8 /* GameController+Stages.swift in Sources */,
 				19C1F7532014870E00D2AC9F /* GameConstants.swift in Sources */,
+				190D65192020F7A000908E26 /* GameKitCommunicator.swift in Sources */,
 				19C1F7402013E36000D2AC9F /* MessagePlayerInfo.swift in Sources */,
 				193959A11F0AC05A005E2148 /* RandomPokerMachine.swift in Sources */,
 				199896502013ABDA0042FBC6 /* CentralCommunicator.swift in Sources */,
@@ -637,11 +680,11 @@
 			baseConfigurationReference = CB5B8C6770A309A6FAC39D12 /* Pods-pokerRoom.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = YFADDH8BLW;
+				DEVELOPMENT_TEAM = T59XUREV6G;
 				INFOPLIST_FILE = pokerRoom/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.globus.AppStore.OpenLife;
+				PRODUCT_BUNDLE_IDENTIFIER = com.all.testapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -652,11 +695,11 @@
 			baseConfigurationReference = 2A3C88AB231A12CA86ED8106 /* Pods-pokerRoom.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = YFADDH8BLW;
+				DEVELOPMENT_TEAM = T59XUREV6G;
 				INFOPLIST_FILE = pokerRoom/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.globus.AppStore.OpenLife;
+				PRODUCT_BUNDLE_IDENTIFIER = com.all.testapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

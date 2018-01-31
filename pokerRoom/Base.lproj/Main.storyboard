@@ -32,7 +32,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="U4G-1Z-VwW">
-                                <rect key="frame" x="196.5" y="-8.5" width="175" height="137"/>
+                                <rect key="frame" x="196.5" y="-28" width="175" height="176"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bOV-3w-Wrv">
                                         <rect key="frame" x="0.0" y="0.0" width="175" height="49"/>
@@ -56,8 +56,25 @@
                                             <action selector="findGameButtonPressed:" destination="4Xl-PX-Td7" eventType="touchUpInside" id="o9v-Z5-lHi"/>
                                         </connections>
                                     </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="jLT-wk-2SQ">
+                                        <rect key="frame" x="0.0" y="114" width="175" height="31"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bluetooth" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i6R-zB-7Rd">
+                                                <rect key="frame" x="0.0" y="0.0" width="105.5" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JyN-oq-acb">
+                                                <rect key="frame" x="105.5" y="0.0" width="71.5" height="31"/>
+                                                <connections>
+                                                    <action selector="connectionTypeSwitchValueChanged:" destination="4Xl-PX-Td7" eventType="valueChanged" id="m8d-gu-QfL"/>
+                                                </connections>
+                                            </switch>
+                                        </subviews>
+                                    </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="LZ5-dJ-j6W">
-                                        <rect key="frame" x="0.0" y="114" width="175" height="23"/>
+                                        <rect key="frame" x="0.0" y="153" width="175" height="23"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ваш ник:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8na-Fk-kwX">
                                                 <rect key="frame" x="0.0" y="0.0" width="52.5" height="23"/>
@@ -88,6 +105,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="HaW-Uo-G0O"/>
                     <connections>
+                        <outlet property="connectionTypeLabel" destination="i6R-zB-7Rd" id="rMY-BC-PGz"/>
+                        <outlet property="connectionTypeSwitch" destination="JyN-oq-acb" id="ula-Bc-Wo1"/>
                         <outlet property="playerNameTextField" destination="1Z6-ZN-T5Y" id="LOq-8T-fhh"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="CreateGameViewController" id="NZS-lg-CiD"/>
                         <segue destination="BOy-Xy-DYq" kind="show" identifier="FindGameViewController" id="QWA-Gs-qu1"/>

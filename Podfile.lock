@@ -1,12 +1,19 @@
 PODS:
   - BluetoothKit (0.4.0)
+  - Crashlytics (3.9.3):
+    - Fabric (~> 1.7.2)
+  - Fabric (1.7.2)
 
 DEPENDENCIES:
   - BluetoothKit
+  - Crashlytics
+  - Fabric
 
 SPEC CHECKSUMS:
   BluetoothKit: 00e189e01ba765e2689c46fbd8d0ede62984441b
+  Crashlytics: dbb07d01876c171c5ccbdf7826410380189e452c
+  Fabric: 9cd6a848efcf1b8b07497e0b6a2e7d336353ba15
 
-PODFILE CHECKSUM: 9915a82d5b3fc60cd7227795ec2970615e7f6f2e
+PODFILE CHECKSUM: a00a407cb9d11c020ff39c03391c4a7b45cdc8b0
 
 COCOAPODS: 1.2.0
